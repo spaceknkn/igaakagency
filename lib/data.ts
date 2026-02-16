@@ -17,6 +17,13 @@ export interface DJ {
     spotify?: string;
 }
 
+// Derive thumbnail path from the original image path
+// e.g. "/artists/SoUL/000.jpg" -> "/artists/SoUL/thumb.webp"
+export function getThumbnailPath(imagePath: string): string {
+    const dir = imagePath.substring(0, imagePath.lastIndexOf('/'));
+    return `${dir}/thumb.webp`;
+}
+
 export const djs: DJ[] = [
     {
         id: "1",

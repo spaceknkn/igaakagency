@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { getMainCategories, getGenres, getPerformanceSubcategories, getDJsByFilter } from '@/lib/data';
+import { getMainCategories, getGenres, getPerformanceSubcategories, getDJsByFilter, getThumbnailPath } from '@/lib/data';
 import { getAssetPath } from '@/lib/utils';
 
 export default function RosterPage() {
@@ -166,11 +166,13 @@ export default function RosterPage() {
                                         {/* Circular Image */}
                                         <div className="w-[80%] aspect-square rounded-full bg-neutral-200 mb-3 overflow-hidden">
                                             {dj.image ? (
-                                                <div
-                                                    className={`w-full h-full rounded-full bg-cover bg-no-repeat transition-all duration-500 ${isActive ? 'grayscale-0 scale-105' : 'grayscale group-hover:grayscale-0 group-hover:scale-105'}`}
+                                                <img
+                                                    src={getAssetPath(encodeURI(getThumbnailPath(dj.image)))}
+                                                    alt={dj.name}
+                                                    loading="lazy"
+                                                    className={`w-full h-full rounded-full object-cover transition-all duration-500 ${isActive ? 'grayscale-0 scale-105' : 'grayscale group-hover:grayscale-0 group-hover:scale-105'}`}
                                                     style={{
-                                                        backgroundImage: `url(${getAssetPath(encodeURI(dj.image))})`,
-                                                        backgroundPosition: dj.thumbnailPosition || 'center center',
+                                                        objectPosition: dj.thumbnailPosition || 'center center',
                                                     }}
                                                 />
                                             ) : (
@@ -213,11 +215,13 @@ export default function RosterPage() {
                                         {/* Small Circle */}
                                         <div className="w-12 h-12 rounded-full bg-neutral-200 flex-shrink-0 overflow-hidden">
                                             {dj.image ? (
-                                                <div
-                                                    className={`w-full h-full bg-cover bg-no-repeat transition-all duration-500 ${isActive ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}
+                                                <img
+                                                    src={getAssetPath(encodeURI(getThumbnailPath(dj.image)))}
+                                                    alt={dj.name}
+                                                    loading="lazy"
+                                                    className={`w-full h-full object-cover transition-all duration-500 ${isActive ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}
                                                     style={{
-                                                        backgroundImage: `url(${getAssetPath(encodeURI(dj.image))})`,
-                                                        backgroundPosition: dj.thumbnailPosition || 'center center',
+                                                        objectPosition: dj.thumbnailPosition || 'center center',
                                                     }}
                                                 />
                                             ) : (
