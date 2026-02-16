@@ -1,48 +1,57 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { djs } from '@/lib/data';
 import { getAssetPath } from '@/lib/utils';
 
 export default function Home() {
-  // Helper function to determine if artist is likely female based on common naming patterns
-  const isFemaleArtist = (artist: typeof djs[0]) => {
-    const femaleDJs = [
-      'ITMA', 'Daywalker', 'Seorin', 'MUKTHI', 'DJ Roha', 'Cream', 'Risho', 'DJ Kara',
-      'DJ Heejae', 'Liha', 'DJ Kyuria', 'DJ Toxic B', 'DJ U.NA', 'IRUMI', 'DJ Sarang',
-      'Jiwoo', 'DJ Riya', 'DJ Mochi', 'DJ Windy', 'DJ Bliss', 'DJ Siro', 'Tricky',
-      'Hyebin', 'Hwayoung', 'Hyunyoung', 'MIU', 'DJ Hyunah', 'Joody', 'DJ Chayou',
-      'Chawon', 'DJ Dorothy', 'Ruby', 'Suvin', 'Babbyang', 'Hanini', 'DJ Green',
-      'Minky', 'Sua', 'Xia', 'Jina', 'Dana', 'Bae', 'Acid', 'Beatberry', 'Jiggy',
-      'Jello', 'Cash', 'ARI', 'Pluma', 'DJ Doha', 'DJ Erry', 'Magarin'
-    ];
-    return femaleDJs.some(name => artist.name.includes(name) || name.includes(artist.name));
-  };
+  const [featuredDjs, setFeaturedDjs] = useState<typeof djs>([]);
 
-  // Function to shuffle array
-  const shuffleArray = <T,>(array: T[]): T[] => {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-  };
+  useEffect(() => {
+    // Helper function to determine if artist is likely female based on common naming patterns
+    const isFemaleArtist = (artist: typeof djs[0]) => {
+      const femaleDJs = [
+        'ITMA', 'Daywalker', 'Seorin', 'MUKTHI', 'DJ Roha', 'Cream', 'Risho', 'DJ Kara',
+        'DJ Heejae', 'Liha', 'DJ Kyuria', 'DJ Toxic B', 'DJ U.NA', 'IRUMI', 'DJ Sarang',
+        'Jiwoo', 'DJ Riya', 'DJ Mochi', 'DJ Windy', 'DJ Bliss', 'DJ Siro', 'Tricky',
+        'Hyebin', 'Hwayoung', 'Hyunyoung', 'MIU', 'DJ Hyunah', 'Joody', 'DJ Chayou',
+        'Chawon', 'DJ Dorothy', 'Ruby', 'Suvin', 'Babbyang', 'Hanini', 'DJ Green',
+        'Minky', 'Sua', 'Xia', 'Jina', 'Dana', 'Bae', 'Acid', 'Beatberry', 'Jiggy',
+        'Jello', 'Cash', 'ARI', 'Pluma', 'DJ Doha', 'DJ Erry', 'Magarin'
+      ];
+      return femaleDJs.some(name => artist.name.includes(name) || name.includes(artist.name));
+    };
 
-  // Get eligible artists (weight >= 6 and has image)
-  const eligibleArtists = djs.filter(artist =>
-    artist.image && (artist.weight || 0) >= 6
-  );
+    // Function to shuffle array
+    const shuffleArray = <T,>(array: T[]): T[] => {
+      const shuffled = [...array];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    };
 
-  // Separate by gender
-  const femaleArtists = shuffleArray(eligibleArtists.filter(isFemaleArtist));
-  const maleArtists = shuffleArray(eligibleArtists.filter(artist => !isFemaleArtist(artist)));
+    // Get eligible artists (weight >= 6 and has image)
+    const eligibleArtists = djs.filter(artist =>
+      artist.image && (artist.weight || 0) >= 6
+    );
 
-  // Select 4 female (60%) and 2 male (40%) artists for a total of 6
-  const selectedFemales = femaleArtists.slice(0, 4);
-  const selectedMales = maleArtists.slice(0, 2);
+    // Separate by gender
+    const femaleArtists = shuffleArray(eligibleArtists.filter(isFemaleArtist));
+    const maleArtists = shuffleArray(eligibleArtists.filter(artist => !isFemaleArtist(artist)));
 
-  // Combine and shuffle the final selection
-  const featuredArtists = shuffleArray([...selectedFemales, ...selectedMales]);
+    // Select 4 female (60%) and 2 male (40%) artists for a total of 6
+    const selectedFemales = femaleArtists.slice(0, 4);
+    const selectedMales = maleArtists.slice(0, 2);
+
+    // Combine and shuffle the final selection
+    const randomized = shuffleArray([...selectedFemales, ...selectedMales]);
+    setFeaturedDjs(randomized);
+  }, []);
+
   return (
     <>
       {/* Hero Section */}
@@ -96,7 +105,7 @@ export default function Home() {
 
           {/* Grid of featured artists */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredArtists.map((artist) => (
+            {featuredDjs.map((artist) => (
               <Link
                 key={artist.id}
                 href={`/roster/${artist.slug}`}
