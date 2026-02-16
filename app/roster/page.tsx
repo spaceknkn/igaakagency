@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { getMainCategories, getGenres, getPerformanceSubcategories, getDJsByFilter } from '@/lib/data';
 import { getAssetPath } from '@/lib/utils';
@@ -9,6 +9,23 @@ export default function RosterPage() {
     const [selectedCategory, setSelectedCategory] = useState<string>('');
     const [selectedFilter, setSelectedFilter] = useState<string>('');
     const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+    const [lastClickedDj, setLastClickedDj] = useState<string | null>(null);
+
+    // Load last clicked DJ from session storage on mount
+    useEffect(() => {
+        const storedDj = sessionStorage.getItem('lastClickedDj');
+        if (storedDj) {
+            setLastClickedDj(storedDj);
+            // Optional: Clear it after some time or keep it? 
+            // User requested "back to roster" keeps it, so we keep it.
+            // We might want to clear it if the user navigates elsewhere, but for now this meets the requirement.
+        }
+    }, []);
+
+    const handleDjClick = (slug: string) => {
+        setLastClickedDj(slug);
+        sessionStorage.setItem('lastClickedDj', slug);
+    };
 
     const categories = getMainCategories();
     const genres = getGenres();
@@ -137,87 +154,95 @@ export default function RosterPage() {
                     {/* Grid View */}
                     {viewMode === 'grid' ? (
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
-                            {filteredDJs.map(dj => (
-                                <Link
-                                    key={dj.id}
-                                    href={`/roster/${dj.slug}`}
-                                    className="group flex flex-col items-center text-center"
-                                >
-                                    {/* Circular Image - Grayscale default, color on hover */}
-                                    <div className="w-[80%] aspect-square rounded-full bg-neutral-200 mb-3 overflow-hidden">
-                                        {dj.image ? (
-                                            <div
-                                                className="w-full h-full rounded-full bg-cover bg-no-repeat grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
-                                                style={{
-                                                    backgroundImage: `url(${getAssetPath(encodeURI(dj.image))})`,
-                                                    backgroundPosition: dj.thumbnailPosition || 'center center',
-                                                }}
-                                            />
-                                        ) : (
-                                            <div className="w-full h-full flex items-center justify-center bg-neutral-300 group-hover:bg-[#F5A623] transition-colors duration-300">
-                                                <span className="text-4xl font-bold text-neutral-500 group-hover:text-white transition-colors duration-300">
-                                                    {dj.name.charAt(0)}
-                                                </span>
-                                            </div>
-                                        )}
-                                    </div>
+                            {filteredDJs.map(dj => {
+                                const isActive = lastClickedDj === dj.slug;
+                                return (
+                                    <Link
+                                        key={dj.id}
+                                        href={`/roster/${dj.slug}`}
+                                        onClick={() => handleDjClick(dj.slug)}
+                                        className="group flex flex-col items-center text-center"
+                                    >
+                                        {/* Circular Image */}
+                                        <div className="w-[80%] aspect-square rounded-full bg-neutral-200 mb-3 overflow-hidden">
+                                            {dj.image ? (
+                                                <div
+                                                    className={`w-full h-full rounded-full bg-cover bg-no-repeat transition-all duration-500 ${isActive ? 'grayscale-0 scale-105' : 'grayscale group-hover:grayscale-0 group-hover:scale-105'}`}
+                                                    style={{
+                                                        backgroundImage: `url(${getAssetPath(encodeURI(dj.image))})`,
+                                                        backgroundPosition: dj.thumbnailPosition || 'center center',
+                                                    }}
+                                                />
+                                            ) : (
+                                                <div className={`w-full h-full flex items-center justify-center transition-colors duration-300 ${isActive ? 'bg-[#F5A623]' : 'bg-neutral-300 group-hover:bg-[#F5A623]'}`}>
+                                                    <span className={`text-4xl font-bold transition-colors duration-300 ${isActive ? 'text-white' : 'text-neutral-500 group-hover:text-white'}`}>
+                                                        {dj.name.charAt(0)}
+                                                    </span>
+                                                </div>
+                                            )}
+                                        </div>
 
-                                    {/* Default name (plain) - hidden on hover */}
-                                    <h3 className="text-black text-sm font-semibold mb-0.5 group-hover:hidden transition-colors duration-300">
-                                        {dj.name}
-                                    </h3>
-                                    <p className="text-neutral-500 text-xs line-clamp-1 group-hover:hidden">
-                                        {dj.genre}
-                                    </p>
-
-                                    {/* Hover name (orange pill badge) - shown on hover */}
-                                    <span className="hidden group-hover:inline-block bg-[#F5A623] text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-all duration-300">
-                                        {dj.name}
-                                    </span>
-                                </Link>
-                            ))}
-                        </div>
-                    ) : (
-                        /* List View - 3 Column Vertical Layout */
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
-                            {filteredDJs.map(dj => (
-                                <Link
-                                    key={dj.id}
-                                    href={`/roster/${dj.slug}`}
-                                    className="group flex items-center gap-3 py-2 transition-colors px-2"
-                                >
-                                    {/* Small Circle - Grayscale default */}
-                                    <div className="w-12 h-12 rounded-full bg-neutral-200 flex-shrink-0 overflow-hidden">
-                                        {dj.image ? (
-                                            <div
-                                                className="w-full h-full bg-cover bg-no-repeat grayscale group-hover:grayscale-0 transition-all duration-500"
-                                                style={{
-                                                    backgroundImage: `url(${getAssetPath(encodeURI(dj.image))})`,
-                                                    backgroundPosition: dj.thumbnailPosition || 'center center',
-                                                }}
-                                            />
-                                        ) : (
-                                            <div className="w-full h-full flex items-center justify-center group-hover:bg-[#F5A623] transition-colors duration-300">
-                                                <span className="text-lg font-bold text-neutral-400 group-hover:text-white transition-colors duration-300">
-                                                    {dj.name.charAt(0)}
-                                                </span>
-                                            </div>
-                                        )}
-                                    </div>
-
-                                    {/* Name - hidden on hover */}
-                                    <div className="flex-1 min-w-0 group-hover:hidden">
-                                        <h3 className="text-black text-sm font-medium uppercase transition-colors duration-300">
+                                        {/* Default name (plain) - hidden on active/hover */}
+                                        <h3 className={`text-black text-sm font-semibold mb-0.5 transition-colors duration-300 ${isActive ? 'hidden' : 'group-hover:hidden'}`}>
                                             {dj.name}
                                         </h3>
-                                    </div>
+                                        <p className={`text-neutral-500 text-xs line-clamp-1 ${isActive ? 'hidden' : 'group-hover:hidden'}`}>
+                                            {dj.genre}
+                                        </p>
 
-                                    {/* Orange Badge - shown on hover */}
-                                    <span className="hidden group-hover:inline-block bg-[#F5A623] text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap">
-                                        {dj.name}
-                                    </span>
-                                </Link>
-                            ))}
+                                        {/* Hover name (orange pill badge) - shown on active/hover */}
+                                        <span className={`bg-[#F5A623] text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-all duration-300 ${isActive ? 'inline-block' : 'hidden group-hover:inline-block'}`}>
+                                            {dj.name}
+                                        </span>
+                                    </Link>
+                                );
+                            })}
+                        </div>
+                    ) : (
+                        /* List View */
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
+                            {filteredDJs.map(dj => {
+                                const isActive = lastClickedDj === dj.slug;
+                                return (
+                                    <Link
+                                        key={dj.id}
+                                        href={`/roster/${dj.slug}`}
+                                        onClick={() => handleDjClick(dj.slug)}
+                                        className="group flex items-center gap-3 py-2 transition-colors px-2"
+                                    >
+                                        {/* Small Circle */}
+                                        <div className="w-12 h-12 rounded-full bg-neutral-200 flex-shrink-0 overflow-hidden">
+                                            {dj.image ? (
+                                                <div
+                                                    className={`w-full h-full bg-cover bg-no-repeat transition-all duration-500 ${isActive ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}
+                                                    style={{
+                                                        backgroundImage: `url(${getAssetPath(encodeURI(dj.image))})`,
+                                                        backgroundPosition: dj.thumbnailPosition || 'center center',
+                                                    }}
+                                                />
+                                            ) : (
+                                                <div className={`w-full h-full flex items-center justify-center transition-colors duration-300 ${isActive ? 'bg-[#F5A623]' : 'bg-neutral-300 group-hover:bg-[#F5A623]'}`}>
+                                                    <span className={`text-lg font-bold transition-colors duration-300 ${isActive ? 'text-white' : 'text-neutral-400 group-hover:text-white'}`}>
+                                                        {dj.name.charAt(0)}
+                                                    </span>
+                                                </div>
+                                            )}
+                                        </div>
+
+                                        {/* Name - hidden on active/hover */}
+                                        <div className={`flex-1 min-w-0 ${isActive ? 'hidden' : 'group-hover:hidden'}`}>
+                                            <h3 className="text-black text-sm font-medium uppercase transition-colors duration-300">
+                                                {dj.name}
+                                            </h3>
+                                        </div>
+
+                                        {/* Orange Badge - shown on active/hover */}
+                                        <span className={`bg-[#F5A623] text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap ${isActive ? 'inline-block' : 'hidden group-hover:inline-block'}`}>
+                                            {dj.name}
+                                        </span>
+                                    </Link>
+                                );
+                            })}
                         </div>
                     )}
 
