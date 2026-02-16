@@ -5,8 +5,25 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://spaceknkn.github.io/igaakagency'),
   title: "IGAAK | DJ Agency",
   description: "Representing the world's leading DJs and music producers.",
+  openGraph: {
+    title: "IGAAK | DJ Agency",
+    description: "Representing the world's leading DJs and music producers.",
+    url: 'https://spaceknkn.github.io/igaakagency',
+    siteName: 'IGAAK',
+    images: [
+      {
+        url: '/home-og.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'IGAAK Agency',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
