@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { getAssetPath } from '@/lib/utils';
 import BookingModal from '@/components/BookingModal';
 
 export default function DJDetailClient({ dj }: { dj: any }) {
@@ -31,7 +32,7 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                             <div
                                 className="absolute inset-0 bg-cover bg-no-repeat"
                                 style={{
-                                    backgroundImage: `url(${encodeURI(dj.image)})`,
+                                    backgroundImage: `url(${getAssetPath(encodeURI(dj.image))})`,
                                     backgroundPosition: dj.imagePosition || 'center center',
                                 }}
                             />
@@ -148,7 +149,7 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                                     <div
                                         className="w-full h-full bg-cover bg-no-repeat"
                                         style={{
-                                            backgroundImage: `url(${encodeURI(dj.image)})`,
+                                            backgroundImage: `url(${getAssetPath(encodeURI(dj.image))})`,
                                             backgroundPosition: dj.imagePosition || 'center center',
                                             filter: i > 1 ? `brightness(${1 - i * 0.1})` : 'none',
                                         }}

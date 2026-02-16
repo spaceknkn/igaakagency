@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { getMainCategories, getGenres, getPerformanceSubcategories, getDJsByFilter } from '@/lib/data';
+import { getAssetPath } from '@/lib/utils';
 
 export default function RosterPage() {
     const [selectedCategory, setSelectedCategory] = useState<string>('');
@@ -148,7 +149,7 @@ export default function RosterPage() {
                                             <div
                                                 className="w-full h-full rounded-full bg-cover bg-no-repeat grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                                                 style={{
-                                                    backgroundImage: `url(${encodeURI(dj.image)})`,
+                                                    backgroundImage: `url(${getAssetPath(encodeURI(dj.image))})`,
                                                     backgroundPosition: dj.thumbnailPosition || 'center center',
                                                 }}
                                             />
@@ -191,7 +192,7 @@ export default function RosterPage() {
                                             <div
                                                 className="w-full h-full bg-cover bg-no-repeat grayscale group-hover:grayscale-0 transition-all duration-500"
                                                 style={{
-                                                    backgroundImage: `url(${encodeURI(dj.image)})`,
+                                                    backgroundImage: `url(${getAssetPath(encodeURI(dj.image))})`,
                                                     backgroundPosition: dj.thumbnailPosition || 'center center',
                                                 }}
                                             />

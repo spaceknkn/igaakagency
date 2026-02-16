@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { djs } from '@/lib/data';
+import { getAssetPath } from '@/lib/utils';
 
 export default function Home() {
   // Helper function to determine if artist is likely female based on common naming patterns
@@ -103,7 +104,7 @@ export default function Home() {
               >
                 {/* Artist Image */}
                 <Image
-                  src={artist.image!}
+                  src={getAssetPath(artist.image!)}
                   alt={artist.name}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
