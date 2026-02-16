@@ -707,7 +707,7 @@ export const djs: DJ[] = [
         category: "DJ",
         genre: "EDM",
         bio: "S2 is a veteran DJ who has been active in famous clubs and festivals for over 10 years.",
-        image: "/artists/s2/000.jpg",
+        image: "/artists/S2/000.jpg",
         imagePosition: "center center",
         thumbnailPosition: "center center",
         weight: 1
@@ -1081,7 +1081,7 @@ export const djs: DJ[] = [
         category: "DJ",
         genre: "Hiphop, ",
         bio: "DJ BADMON made his debut as a DJ in 2018, building on his distinctive career as a street fashion model. He combines a sharp sense for emerging trends with a deep understanding of music. Centered around Hip-hop, R&B, and Pop, his sets also span a wide spectrum including Tech and Bass House, Nu Disco, Funky House, UK Garage, Bassline, and Drum & Bass. He is currently active as a resident and time-slot DJ at major venues across Seoul, including Itaewon, Gangnam, and Apgujeong.",
-        image: "/artists/DJ Badmon/000.jpg",
+        image: "/artists/DJ Badmon/000.JPG",
         imagePosition: "center 20%",
         thumbnailPosition: "center center",
         weight: 6
