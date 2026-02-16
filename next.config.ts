@@ -1,9 +1,10 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig: NextConfig = {
-  basePath: '/igaakagency',
-  assetPrefix: '/igaakagency',
   output: 'export',
+  basePath: isProd ? '/igaakagency' : '',
   images: {
     unoptimized: true,
   },
