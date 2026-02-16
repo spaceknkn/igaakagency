@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://spaceknkn.github.io/igaakagency'),
+  metadataBase: new URL('https://spaceknkn.github.io'),
   title: "IGAAK | DJ Agency",
   description: "Representing the world's leading DJs and music producers.",
   openGraph: {
@@ -15,14 +15,20 @@ export const metadata: Metadata = {
     siteName: 'IGAAK',
     images: [
       {
-        url: '/home-og.jpg',
-        width: 1200,
-        height: 630,
+        url: 'https://spaceknkn.github.io/igaakagency/home-og.jpg',
+        width: 800,
+        height: 800,
         alt: 'IGAAK Agency',
       },
     ],
     locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'IGAAK | DJ Agency',
+    description: "Representing the world's leading DJs and music producers.",
+    images: ['https://spaceknkn.github.io/igaakagency/home-og.jpg'],
   },
 };
 
