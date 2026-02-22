@@ -1,16 +1,33 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { djs } from '@/lib/data';
 import { getAssetPath } from '@/lib/utils';
 
 export default function Home() {
+  // 0: 암전, 1: 인트로 이미지 등장, 2: IGAAK 타이틀 등장,
+  // 3: 인트로 페이드아웃 시작, 4: 홈 콘텐츠 등장, 5: 완전 로딩
+  const [phase, setPhase] = useState(0);
   const [featuredDjs, setFeaturedDjs] = useState<typeof djs>([]);
+  const [featuredVisible, setFeaturedVisible] = useState(false);
+  const featuredRef = useRef<HTMLDivElement>(null);
 
+  // ===== 인트로 → 홈 순차 타이밍 =====
   useEffect(() => {
-    // Helper function to determine if artist is likely female based on common naming patterns
+    const timers = [
+      setTimeout(() => setPhase(1), 300),    // 이미지 페이드인
+      setTimeout(() => setPhase(2), 2000),   // IGAAK 타이틀 등장 (1.7초 텀)
+      setTimeout(() => setPhase(3), 4500),   // 인트로 이미지 페이드아웃 시작 (2.5초 텀)
+      setTimeout(() => setPhase(4), 5800),   // 홈 콘텐츠 텍스트 등장
+      setTimeout(() => setPhase(5), 7200),   // Our Roster 버튼 + 스크롤 힌트
+    ];
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
+  // ===== Featured Artists 데이터 로드 =====
+  useEffect(() => {
     const isFemaleArtist = (artist: typeof djs[0]) => {
       const femaleDJs = [
         'ITMA', 'Daywalker', 'Seorin', 'MUKTHI', 'DJ Roha', 'Cream', 'Risho', 'DJ Kara',
@@ -24,7 +41,6 @@ export default function Home() {
       return femaleDJs.some(name => artist.name.includes(name) || name.includes(artist.name));
     };
 
-    // Function to shuffle array
     const shuffleArray = <T,>(array: T[]): T[] => {
       const shuffled = [...array];
       for (let i = shuffled.length - 1; i > 0; i--) {
@@ -34,84 +50,148 @@ export default function Home() {
       return shuffled;
     };
 
-    // Get eligible artists (weight >= 6 and has image)
     const eligibleArtists = djs.filter(artist =>
       artist.image && (artist.weight || 0) >= 6
     );
-
-    // Separate by gender
     const femaleArtists = shuffleArray(eligibleArtists.filter(isFemaleArtist));
     const maleArtists = shuffleArray(eligibleArtists.filter(artist => !isFemaleArtist(artist)));
-
-    // Select 4 female (60%) and 2 male (40%) artists for a total of 6
     const selectedFemales = femaleArtists.slice(0, 4);
     const selectedMales = maleArtists.slice(0, 2);
+    setFeaturedDjs(shuffleArray([...selectedFemales, ...selectedMales]));
+  }, []);
 
-    // Combine and shuffle the final selection
-    const randomized = shuffleArray([...selectedFemales, ...selectedMales]);
-    setFeaturedDjs(randomized);
+  // ===== 스크롤 시 Featured 섹션 페이드인 =====
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setFeaturedVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (featuredRef.current) observer.observe(featuredRef.current);
+    return () => observer.disconnect();
   }, []);
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-neutral-900 via-black to-black"></div>
+      {/* ========================================= */}
+      {/*  인트로 레이어 (이미지 + IGAAK 타이틀)    */}
+      {/* ========================================= */}
+      <div
+        className={`fixed inset-0 z-[100] flex items-center justify-center bg-black transition-opacity ${phase >= 3 ? 'duration-[1800ms] opacity-0 pointer-events-none' : 'duration-500 opacity-100'
+          }`}
+      >
+        {/* 인트로 배경 이미지 */}
+        <div className="absolute inset-0 overflow-hidden">
+          <Image
+            src={getAssetPath('/intro-bg.jpg')}
+            alt="IGAAK Intro"
+            fill
+            priority
+            className={`object-cover transition-all duration-[4000ms] ease-out ${phase >= 1 ? 'opacity-100 scale-110' : 'opacity-0 scale-100'
+              }`}
+            style={{ objectPosition: 'center 30%' }}
+          />
+        </div>
 
-        {/* Content */}
+        {/* 인트로 다크 오버레이 */}
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
+
+        {/* 인트로 IGAAK 타이틀 + 서브텍스트 */}
+        <div className="relative z-10 text-center">
+          <h1
+            className={`text-[5rem] md:text-[10rem] lg:text-[13rem] font-bold text-white tracking-[0.3em] font-serif leading-none intro-text-enter ${phase >= 2 ? 'intro-text-visible' : ''
+              }`}
+          >
+            IGAAK
+          </h1>
+          <p
+            className={`mt-4 md:mt-6 text-xs md:text-sm text-white/60 tracking-[0.4em] uppercase intro-subtitle-enter ${phase >= 2 ? 'intro-subtitle-visible' : ''
+              }`}
+          >
+            DJ Agency · Seoul, Korea
+          </p>
+        </div>
+      </div>
+
+      {/* ========================================= */}
+      {/*  메인 홈 콘텐츠                            */}
+      {/* ========================================= */}
+
+      {/* 히어로 섹션 */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* 기존 그라디언트 배경 */}
+        <div className="absolute inset-0 bg-gradient-to-b from-neutral-900 via-black to-black" />
+
+        {/* 중앙 콘텐츠 (원래 홈 화면 그대로) */}
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-tight">
-            Representing the world's leading{' '}
+          <h1
+            className={`text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-tight intro-text-enter ${phase >= 4 ? 'intro-text-visible' : ''
+              }`}
+          >
+            Representing the world&apos;s leading{' '}
             <span className="text-white">DJs</span> and{' '}
             <span className="text-white">music producers</span>.
           </h1>
 
-          <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-12">
+          <p
+            className={`text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-12 intro-desc-enter ${phase >= 4 ? 'intro-desc-visible' : ''
+              }`}
+          >
             IGAAK has established itself as a staple in the electronic music industry by maintaining a distinct level of excellence.
           </p>
 
-          <Link
-            href="/roster"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-medium tracking-wider uppercase text-sm hover:bg-neutral-200 transition-all duration-300"
+          <div
+            className={`intro-btn-enter ${phase >= 5 ? 'intro-btn-visible' : ''
+              }`}
           >
-            Our Roster
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
+            <Link
+              href="/roster"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-medium tracking-wider uppercase text-sm hover:bg-neutral-200 transition-all duration-300"
+            >
+              Our Roster
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 animate-pulse-slow">
-          <div className="w-px h-16 bg-gradient-to-b from-transparent to-white/30"></div>
+        {/* 스크롤 힌트 */}
+        <div
+          className={`absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 intro-hint-enter ${phase >= 5 ? 'intro-hint-visible' : ''
+            }`}
+        >
+          <div className="w-px h-16 bg-gradient-to-b from-transparent to-white/30 animate-pulse" />
         </div>
       </section>
 
-      {/* Featured Artists Section */}
-      <section className="py-24 px-6 bg-black">
-        <div className="max-w-7xl mx-auto">
+      {/* Featured Artists 섹션 */}
+      <section className="py-24 px-6 bg-black" ref={featuredRef}>
+        <div
+          className={`max-w-7xl mx-auto transition-all duration-1000 ${featuredVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+        >
           <div className="flex justify-between items-end mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
-              Featured Artists
-            </h2>
-            <Link
-              href="/roster"
-              className="text-neutral-500 hover:text-white transition-colors text-sm tracking-wider uppercase"
-            >
+            <h2 className="text-3xl md:text-4xl font-bold text-white">Featured Artists</h2>
+            <Link href="/roster" className="text-neutral-500 hover:text-white transition-colors text-sm tracking-wider uppercase">
               View All →
             </Link>
           </div>
-
-          {/* Grid of featured artists */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredDjs.map((artist) => (
+            {featuredDjs.map((artist, i) => (
               <Link
                 key={artist.id}
                 href={`/roster/${artist.slug}`}
                 className="group relative aspect-[3/4] overflow-hidden bg-neutral-900"
+                style={{
+                  transitionProperty: 'opacity, transform',
+                  transitionDuration: '0.6s',
+                  transitionTimingFunction: 'ease',
+                  transitionDelay: featuredVisible ? `${i * 100}ms` : '0ms',
+                  opacity: featuredVisible ? 1 : 0,
+                  transform: featuredVisible ? 'translateY(0)' : 'translateY(20px)',
+                }}
               >
-                {/* Artist Image */}
                 <Image
                   src={getAssetPath(artist.image!)}
                   alt={artist.name}
@@ -119,11 +199,7 @@ export default function Home() {
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                   style={{ objectPosition: artist.imagePosition || 'center center' }}
                 />
-
-                {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 group-hover:opacity-90 transition-opacity duration-300" />
-
-                {/* Artist Info */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                   <h3 className="text-xl font-bold mb-1">{artist.name}</h3>
                   <p className="text-sm text-neutral-400">{artist.genre}</p>
@@ -134,12 +210,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About 섹션 */}
       <section className="py-24 px-6 border-t border-neutral-800 bg-black">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-            About IGAAK
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">About IGAAK</h2>
           <p className="text-lg text-neutral-400 leading-relaxed">
             IGAAK is a premier DJ and music producer agency, representing exceptional talent from around the world.
             We connect artists with venues, festivals, and events, ensuring unforgettable musical experiences.

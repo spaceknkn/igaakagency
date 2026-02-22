@@ -24,3 +24,87 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* === Intro Overlay Animations === */
+
+/* Ken Burns 줌 효과 */
+.intro-zoom {
+  transform: scale(1.05);
+  transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.intro-zoom-active {
+  transform: scale(1.2);
+}
+
+/* 메인 타이틀 페이드인 */
+.intro-text-enter {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s,
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.intro-text-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 서브 타이틀 페이드인 (딜레이) */
+.intro-subtitle-enter {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s,
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s;
+}
+
+.intro-subtitle-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 구분선 애니메이션 */
+.intro-line-enter {
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.1s;
+}
+
+.intro-line-visible {
+  width: 80px;
+}
+
+/* 스크롤 힌트 페이드인 */
+.intro-hint-enter {
+  opacity: 0;
+  transition: opacity 0.8s ease 0.2s;
+}
+
+.intro-hint-visible {
+  opacity: 1;
+}
+
+/* 서브 설명 텍스트 페이드인 */
+.intro-desc-enter {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s,
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.intro-desc-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Our Roster 버튼 페이드인 */
+.intro-btn-enter {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.intro-btn-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
