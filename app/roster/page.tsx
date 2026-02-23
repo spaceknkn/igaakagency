@@ -56,11 +56,11 @@ export default function RosterPage() {
                 <div className="max-w-7xl mx-auto px-6 py-10">
 
                     {/* Category Filters - Centered */}
-                    <div className="flex justify-center mb-8">
-                        <div className="inline-flex gap-2 bg-neutral-100 p-1.5 rounded-full">
+                    <div className="flex justify-center mb-6 px-2">
+                        <div className="inline-flex flex-wrap justify-center gap-1.5 bg-neutral-100 p-1 rounded-full">
                             <button
                                 onClick={() => { setSelectedCategory(''); setSelectedFilter(''); }}
-                                className={`px-6 py-2 text-sm font-semibold tracking-wide uppercase rounded-full transition-all duration-300 ${selectedCategory === ''
+                                className={`px-4 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full transition-all duration-300 ${selectedCategory === ''
                                     ? 'bg-black text-white shadow-md'
                                     : 'bg-transparent text-neutral-600 hover:text-black'
                                     }`}
@@ -71,7 +71,7 @@ export default function RosterPage() {
                                 <button
                                     key={category}
                                     onClick={() => { setSelectedCategory(category); setSelectedFilter(''); }}
-                                    className={`px-6 py-2 text-sm font-semibold tracking-wide uppercase rounded-full transition-all duration-300 ${selectedCategory === category
+                                    className={`px-4 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full transition-all duration-300 ${selectedCategory === category
                                         ? 'bg-black text-white shadow-md'
                                         : 'bg-transparent text-neutral-600 hover:text-black'
                                         }`}
@@ -84,11 +84,11 @@ export default function RosterPage() {
 
                     {/* Secondary Filter (Genre/Subcategory) */}
                     {filterOptions.length > 0 && (
-                        <div className="flex justify-center mb-8">
-                            <div className="flex flex-wrap justify-center gap-2">
+                        <div className="flex justify-center mb-6 px-2">
+                            <div className="flex flex-wrap justify-center gap-1.5">
                                 <button
                                     onClick={() => setSelectedFilter('')}
-                                    className={`px-5 py-2 text-xs font-semibold tracking-wide uppercase rounded-full transition-all duration-300 ${selectedFilter === ''
+                                    className={`px-3 py-1 text-[10px] font-semibold tracking-wide uppercase rounded-full transition-all duration-300 ${selectedFilter === ''
                                         ? 'bg-black text-white shadow-sm'
                                         : 'bg-white text-neutral-600 border border-neutral-200 hover:border-neutral-400 hover:text-black'
                                         }`}
@@ -99,7 +99,7 @@ export default function RosterPage() {
                                     <button
                                         key={option}
                                         onClick={() => setSelectedFilter(option)}
-                                        className={`px-5 py-2 text-xs font-semibold tracking-wide uppercase rounded-full transition-all duration-300 ${selectedFilter === option
+                                        className={`px-3 py-1 text-[10px] font-semibold tracking-wide uppercase rounded-full transition-all duration-300 ${selectedFilter === option
                                             ? 'bg-black text-white shadow-sm'
                                             : 'bg-white text-neutral-600 border border-neutral-200 hover:border-neutral-400 hover:text-black'
                                             }`}
