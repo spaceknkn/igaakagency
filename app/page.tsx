@@ -106,10 +106,16 @@ export default function Home() {
             IGAAK
           </h1>
           <p
-            className={`mt-4 md:mt-6 text-xs md:text-sm text-white/60 tracking-[0.4em] uppercase intro-subtitle-enter ${phase >= 2 ? 'intro-subtitle-visible' : ''
+            className={`mt-4 md:mt-6 text-[10px] md:text-sm text-white/60 tracking-[0.2em] uppercase intro-subtitle-enter ${phase >= 2 ? 'intro-subtitle-visible' : ''
               }`}
           >
-            DJ Agency · Seoul, Korea
+            Beyond the Glare, Into the Sound.
+          </p>
+          <p
+            className={`mt-2 md:mt-3 text-[8px] md:text-xs text-white/40 tracking-[0.1em] max-w-md mx-auto intro-subtitle-enter ${phase >= 2 ? 'intro-subtitle-visible' : ''
+              }`}
+          >
+            In a world blinded by excess, we filter the noise to reveal the essence. As Korea&apos;s premier DJ agency, we strip away the unnecessary, delivering only what matters.
           </p>
         </div>
       </div>
