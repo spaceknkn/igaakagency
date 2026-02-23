@@ -1106,7 +1106,7 @@ export const djs: DJ[] = [
         thumbnailPosition: "center 30%",
         instagram: "https://www.instagram.com/baeyoon.official",
         soundcloud: "https://soundcloud.com/baeyoon_seoul",
-        soundcloudEmbed: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2053807827&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+        soundcloudEmbed: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/overcurrent/sets/sentimental-ep&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
         beatport: "https://www.beatport.com/artist/baeyoon/1361835",
         weight: 7
     }
