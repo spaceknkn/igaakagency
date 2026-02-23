@@ -202,7 +202,7 @@ export default function RosterPage() {
                         </div>
                     ) : (
                         /* List View */
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
+                        <div className="max-w-md mx-auto md:max-w-none md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-0">
                             {filteredDJs.map(dj => {
                                 const isActive = lastClickedDj === dj.slug;
                                 return (
@@ -210,10 +210,10 @@ export default function RosterPage() {
                                         key={dj.id}
                                         href={`/roster/${dj.slug}`}
                                         onClick={() => handleDjClick(dj.slug)}
-                                        className="group flex items-center gap-3 py-2 transition-colors px-2"
+                                        className="group flex items-center gap-3 py-1.5 transition-colors px-2 border-b border-neutral-100"
                                     >
                                         {/* Small Circle */}
-                                        <div className="w-12 h-12 rounded-full bg-neutral-200 flex-shrink-0 overflow-hidden">
+                                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-neutral-200 flex-shrink-0 overflow-hidden">
                                             {dj.image ? (
                                                 <img
                                                     src={getAssetPath(encodeURI(getThumbnailPath(dj.image)))}
