@@ -29,13 +29,24 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                     {/* Hero Section */}
                     <section className="relative h-[350px] overflow-hidden bg-neutral-800">
                         {dj.image ? (
-                            <div
-                                className="absolute inset-0 bg-cover bg-no-repeat"
-                                style={{
-                                    backgroundImage: `url(${getAssetPath(encodeURI(dj.image))})`,
-                                    backgroundPosition: dj.imagePosition || 'center center',
-                                }}
-                            />
+                            <>
+                                {/* Mobile hero image */}
+                                <div
+                                    className="absolute inset-0 bg-cover bg-no-repeat md:hidden"
+                                    style={{
+                                        backgroundImage: `url(${getAssetPath(encodeURI(dj.image))})`,
+                                        backgroundPosition: dj.mobileImagePosition || dj.imagePosition || 'center center',
+                                    }}
+                                />
+                                {/* Desktop hero image */}
+                                <div
+                                    className="absolute inset-0 bg-cover bg-no-repeat hidden md:block"
+                                    style={{
+                                        backgroundImage: `url(${getAssetPath(encodeURI(dj.image))})`,
+                                        backgroundPosition: dj.imagePosition || 'center center',
+                                    }}
+                                />
+                            </>
                         ) : (
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <span className="text-[12rem] font-bold text-neutral-700/50">{dj.name.charAt(0)}</span>
