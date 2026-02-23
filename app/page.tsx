@@ -36,7 +36,7 @@ export default function Home() {
         'Hyebin', 'Hwayoung', 'Hyunyoung', 'MIU', 'DJ Hyunah', 'Joody', 'DJ Chayou',
         'Chawon', 'DJ Dorothy', 'Ruby', 'Suvin', 'Babbyang', 'Hanini', 'DJ Green',
         'Minky', 'Sua', 'Xia', 'Jina', 'Dana', 'Bae', 'Acid', 'Beatberry', 'Jiggy',
-        'Jello', 'Cash', 'ARI', 'Pluma', 'DJ Doha', 'DJ Erry', 'Magarin'
+        'Jello', 'Cash', 'ARI', 'Pluma', 'DJ Doha', 'DJ Erry', 'Magarin', 'baeyoon'
       ];
       return femaleDJs.some(name => artist.name.includes(name) || name.includes(artist.name));
     };
@@ -55,8 +55,8 @@ export default function Home() {
     );
     const femaleArtists = shuffleArray(eligibleArtists.filter(isFemaleArtist));
     const maleArtists = shuffleArray(eligibleArtists.filter(artist => !isFemaleArtist(artist)));
-    const selectedFemales = femaleArtists.slice(0, 4);
-    const selectedMales = maleArtists.slice(0, 2);
+    const selectedFemales = femaleArtists.slice(0, 6);
+    const selectedMales = maleArtists.slice(0, 3);
     setFeaturedDjs(shuffleArray([...selectedFemales, ...selectedMales]));
   }, []);
 
@@ -181,7 +181,7 @@ export default function Home() {
               View All →
             </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-3 gap-2 md:gap-4">
             {featuredDjs.map((artist, i) => (
               <Link
                 key={artist.id}
@@ -191,7 +191,7 @@ export default function Home() {
                   transitionProperty: 'opacity, transform',
                   transitionDuration: '0.6s',
                   transitionTimingFunction: 'ease',
-                  transitionDelay: featuredVisible ? `${i * 100}ms` : '0ms',
+                  transitionDelay: featuredVisible ? `${i * 80}ms` : '0ms',
                   opacity: featuredVisible ? 1 : 0,
                   transform: featuredVisible ? 'translateY(0)' : 'translateY(20px)',
                 }}
@@ -203,10 +203,12 @@ export default function Home() {
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                   style={{ objectPosition: artist.imagePosition || 'center center' }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 group-hover:opacity-90 transition-opacity duration-300" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="text-xl font-bold mb-1">{artist.name}</h3>
-                  <p className="text-sm text-neutral-400">{artist.genre}</p>
+                {/* Teal/cyan tone overlay */}
+                <div className="absolute inset-0 bg-[#0a3d3d]/40 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-2 md:p-5 text-white">
+                  <h3 className="text-[10px] md:text-lg font-bold mb-0 md:mb-1 leading-tight">{artist.name}</h3>
+                  <p className="text-[8px] md:text-xs text-neutral-300 hidden md:block">{artist.genre}</p>
                 </div>
               </Link>
             ))}

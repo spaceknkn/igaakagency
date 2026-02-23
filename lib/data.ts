@@ -15,6 +15,7 @@ export interface DJ {
     soundcloud?: string;
     soundcloudEmbed?: string;
     spotify?: string;
+    beatport?: string;
 }
 
 // Derive thumbnail path from the original image path
@@ -1092,6 +1093,22 @@ export const djs: DJ[] = [
         imagePosition: "center 20%",
         thumbnailPosition: "center center",
         weight: 6
+    },
+    {
+        id: "89",
+        name: "baeyoon",
+        slug: "baeyoon",
+        category: "DJ, Producer",
+        genre: "Techno",
+        bio: "baeyoon began her career as a techno DJ under the moniker 'DJ Wendy' at Club VOLUME, which was ranked 29th by DJ Mag International. Within a few years, she established herself as a leading female techno DJ in South Korea, setting a new milestone with a nationwide solo tour in 2010.\n\nIn 2011, representing the Korean techno scene, she embarked on a tour of Russia and performed at major underground festivals such as Nagisa Music Festival and Asia Music Festival Japan. Her trajectory continued upward in 2012, where she delivered a three-hour warm-up set for Radio Slave's Asia tour. In 2013, she conducted a Japan tour (Tokyo, Osaka, Nagoya) alongside Alexander Kowalski, Ken Ishii, and Alan Fitzpatrick. Following a tour in London, she headlined the Tokyo Techno Show with Q'hey in September and was selected as the winner of the W Hotels Worldwide & burn studios DJLAB 2013.\n\nIn 2016, she released a remix under the name 'Yoonjeong' on Kevin Saunderson's KMS Records. During a subsequent hiatus, she immersed herself deeply in Detroit techno, redefining her musical direction and artistic vision.\n\nStarting with her debut EP Sentimental released on Overcurrent in August 2025, she has been rapidly building her identity as a producer. Following her second EP Space Tribe on her own label, ANTI_RHETORIC, she has confirmed the release of her third EP, Doxa, on the Berlin-based label Superkill in the first half of 2026.\n\nHer music is characterized by a structure that layers hypnotic, romantic synthesizers over a masculine, driving kick and bass. Through an androgynous sound character where raw power and delicate nuance coexist, she is carving out a unique texture within the underground techno scene.",
+        image: "/artists/baeyoon/000.jpg",
+        imagePosition: "center 50%",
+        thumbnailPosition: "center 30%",
+        instagram: "https://www.instagram.com/baeyoon.official",
+        soundcloud: "https://soundcloud.com/baeyoon_seoul",
+        soundcloudEmbed: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2053807827&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+        beatport: "https://www.beatport.com/artist/baeyoon/1361835",
+        weight: 7
     }
 ];
 

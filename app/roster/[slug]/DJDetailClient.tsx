@@ -114,6 +114,15 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                                 Spotify
                             </a>
                         )}
+                        {dj.beatport && (
+                            <a href={dj.beatport} target="_blank" rel="noopener noreferrer"
+                                className="text-neutral-400 hover:text-black transition-colors flex items-center gap-1.5">
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M21.092 0H2.908A2.908 2.908 0 0 0 0 2.908v18.184A2.908 2.908 0 0 0 2.908 24h18.184A2.908 2.908 0 0 0 24 21.092V2.908A2.908 2.908 0 0 0 21.092 0zM9.752 17.143h-.005c-1.377 0-2.632-.527-3.574-1.39l1.312-1.312a3.14 3.14 0 0 0 2.262.852 3.14 3.14 0 0 0 2.263-.852l.002-.002a3.14 3.14 0 0 0 .85-2.261 3.14 3.14 0 0 0-.85-2.262 3.204 3.204 0 0 0-4.525 0L6.176 11.23a5.005 5.005 0 0 1 0-7.076A4.98 4.98 0 0 1 9.752 2.81a4.98 4.98 0 0 1 3.576 1.344l-1.312 1.312A3.14 3.14 0 0 0 9.752 4.66a3.14 3.14 0 0 0-2.262.852 3.204 3.204 0 0 0 0 4.525l1.312-1.312a5.005 5.005 0 0 1 7.076 0 5.005 5.005 0 0 1 0 7.076 4.98 4.98 0 0 1-3.576 1.342h-.55z" />
+                                </svg>
+                                Beatport
+                            </a>
+                        )}
                     </div>
 
                     {/* Bio Section */}
