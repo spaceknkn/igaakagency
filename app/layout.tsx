@@ -7,10 +7,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL('https://spaceknkn.github.io'),
   title: "IGAAK | DJ Agency",
-  description: "Representing the world's leading DJs and music producers.",
+  description: "Beyond the Glare, Into the Sound. Korea's premier DJ agency.",
   openGraph: {
     title: "IGAAK | DJ Agency",
-    description: "Representing the world's leading DJs and music producers.",
+    description: "Beyond the Glare, Into the Sound. Korea's premier DJ agency.",
     url: 'https://spaceknkn.github.io/igaakagency',
     siteName: 'IGAAK',
     images: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'IGAAK | DJ Agency',
-    description: "Representing the world's leading DJs and music producers.",
+    description: "Beyond the Glare, Into the Sound. Korea's premier DJ agency.",
     images: ['https://spaceknkn.github.io/igaakagency/home-og.jpg'],
   },
 };

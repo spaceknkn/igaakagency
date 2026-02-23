@@ -135,16 +135,14 @@ export default function Home() {
             className={`text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-tight intro-text-enter ${phase >= 4 ? 'intro-text-visible' : ''
               }`}
           >
-            Representing the world&apos;s leading{' '}
-            <span className="text-white">DJs</span> and{' '}
-            <span className="text-white">music producers</span>.
+            Beyond the Glare, Into the Sound.
           </h1>
 
           <p
             className={`text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-12 intro-desc-enter ${phase >= 4 ? 'intro-desc-visible' : ''
               }`}
           >
-            IGAAK has established itself as a staple in the electronic music industry by maintaining a distinct level of excellence.
+            In a world blinded by excess, we filter the noise to reveal the essence. As Korea&apos;s premier DJ agency, we strip away the unnecessary, delivering only what matters.
           </p>
 
           <div

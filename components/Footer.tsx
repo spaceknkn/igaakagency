@@ -11,7 +11,7 @@ export default function Footer() {
                             IGAAK
                         </Link>
                         <p className="mt-4 text-neutral-500 text-sm leading-relaxed">
-                            Representing the world's leading DJs and music producers.
+                            Beyond the Glare, Into the Sound. Korea&apos;s premier DJ agency.
                         </p>
                     </div>
 
