@@ -202,7 +202,7 @@ export default function RosterPage() {
                         </div>
                     ) : (
                         /* List View */
-                        <div className="max-w-md mx-auto md:max-w-none md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-0">
+                        <div className="flex flex-col items-center md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-0 w-full">
                             {filteredDJs.map(dj => {
                                 const isActive = lastClickedDj === dj.slug;
                                 return (
@@ -210,7 +210,7 @@ export default function RosterPage() {
                                         key={dj.id}
                                         href={`/roster/${dj.slug}`}
                                         onClick={() => handleDjClick(dj.slug)}
-                                        className="group flex items-center gap-3 py-1.5 transition-colors px-2 border-b border-neutral-100"
+                                        className="group flex items-center gap-3 py-1.5 transition-colors px-2 border-b border-neutral-100 w-full max-w-md md:max-w-none"
                                     >
                                         {/* Small Circle */}
                                         <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-neutral-200 flex-shrink-0 overflow-hidden">
