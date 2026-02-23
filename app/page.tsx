@@ -99,9 +99,8 @@ export default function Home() {
         {/* 인트로 IGAAK 타이틀 + 서브텍스트 */}
         <div className="relative z-10 text-center">
           <h1
-            className={`text-[4rem] md:text-[10rem] lg:text-[13rem] font-bold text-white tracking-[0.3em] font-serif leading-none intro-text-enter ${phase >= 2 ? 'intro-text-visible' : ''
+            className={`text-[5rem] md:text-[12rem] lg:text-[15rem] font-bold text-white tracking-[0.05em] font-sans leading-none intro-text-enter ${phase >= 2 ? 'intro-text-visible' : ''
               }`}
-            style={{ paddingLeft: '0.3em' }}
           >
             IGAAK
           </h1>
