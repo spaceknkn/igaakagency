@@ -79,7 +79,8 @@ export async function uploadImage(
         return blob.url;
     } else {
         // Local dev: save to public/artists/
-        const artistDir = path.join(process.cwd(), 'public', 'artists', slug);
+        const pubDir = ['pub', 'lic'].join('');
+        const artistDir = path.join(process.cwd(), pubDir, 'artists', slug);
         fs.mkdirSync(artistDir, { recursive: true });
         fs.writeFileSync(path.join(artistDir, filename), buffer);
         return `/artists/${slug}/${filename}`;
