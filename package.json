@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "prebuild": "node scripts/generate-thumbnails.mjs",
-    "build": "node -e \"const fs=require('fs'); fs.rmSync('public/artists', {recursive:true, force:true}); fs.rmSync('.git', {recursive:true, force:true})\" && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },

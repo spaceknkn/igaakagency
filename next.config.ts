@@ -6,11 +6,15 @@ const nextConfig: NextConfig = {
   },
   serverExternalPackages: ['sharp'],
   outputFileTracingExcludes: {
+    "*": [
+      "**/.git/**/*",
+      "**/node_modules/**/*",
+      "**/public/**/*"
+    ],
     "api/**/*": [
-      "public/**/*",
-      "public/artists/**/*",
-      "./public/**/*",
-      "node_modules/**/*"
+      "**/.git/**/*",
+      "**/node_modules/**/*",
+      "**/public/**/*"
     ],
   }
 };
