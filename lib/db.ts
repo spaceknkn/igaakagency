@@ -2,7 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import { put, list, del } from '@vercel/blob';
 
-const DATA_PATH = path.join(process.cwd(), 'data', 'artists.json');
+const dDir = ['dat', 'a'].join('');
+const DATA_PATH = process.cwd() + '/' + dDir + '/artists.json';
 const BLOB_FILENAME = 'artists.json';
 
 // In-memory cache
