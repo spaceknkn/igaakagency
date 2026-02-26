@@ -4,11 +4,13 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  serverExternalPackages: ['sharp'],
   outputFileTracingExcludes: {
-    "*": [
+    "api/**/*": [
       "public/**/*",
       "public/artists/**/*",
-      "./public/**/*"
+      "./public/**/*",
+      "node_modules/**/*"
     ],
   }
 };
