@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGAAK Admin</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-card">
+            <div class="login-logo">IGAAK</div>
+            <div class="login-subtitle">Admin Panel</div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="loginUsername" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter password" required>
+                </div>
+                <div id="loginError" class="error-msg" style="display:none"></div>
+                <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" style="display:none">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <span class="topbar-logo">IGAAK</span>
+                <span class="topbar-label">Admin</span>
+            </div>
+            <div class="topbar-right">
+                <button class="btn btn-sm btn-ghost" onclick="generateThumbnails()">🖼️ Regenerate Thumbnails</button>
+                <button class="btn btn-sm btn-ghost" onclick="logout()">Logout</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-layout">
+            <!-- Sidebar: Artist List -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2>Artists</h2>
+                    <button class="btn btn-sm btn-accent" onclick="createNewArtist()">+ New</button>
+                </div>
+                <div class="sidebar-search">
+                    <input type="text" id="searchInput" placeholder="Search artists..." oninput="filterArtistList()">
+                </div>
+                <div id="artistList" class="artist-list"></div>
+            </aside>
+
+            <!-- Editor -->
+            <main class="editor">
+                <div id="editorEmpty" class="editor-empty">
+                    <div class="editor-empty-icon">🎧</div>
+                    <p>Select an artist to edit or create a new one</p>
+                </div>
+
+                <div id="editorContent" style="display:none">
+                    <div class="editor-topbar">
+                        <h2 id="editorTitle">Edit Artist</h2>
+                        <div class="editor-actions">
+                            <button class="btn btn-sm btn-danger" onclick="deleteCurrentArtist()">Delete</button>
+                            <button class="btn btn-sm btn-primary" onclick="saveArtist()">Save</button>
+                        </div>
+                    </div>
+
+                    <div class="editor-body">
+                        <!-- Profile Image Section -->
+                        <section class="editor-section">
+                            <h3>Profile Image</h3>
+                            <div class="profile-image-area">
+                                <div class="profile-preview" id="profilePreview">
+                                    <div class="profile-preview-empty">No Image</div>
+                                </div>
+                                <div class="profile-image-controls">
+                                    <input type="file" id="profileImageInput" accept="image/*" onchange="handleProfileImage(event)" style="display:none">
+                                    <button class="btn btn-sm btn-outline" onclick="document.getElementById('profileImageInput').click()">Upload Image</button>
+                                    <div class="position-controls">
+                                        <div class="form-group compact">
+                                            <label>Desktop Position</label>
+                                            <input type="text" id="imagePosition" placeholder="center 20%">
+                                        </div>
+                                        <div class="form-group compact">
+                                            <label>Mobile Position</label>
+                                            <input type="text" id="mobileImagePosition" placeholder="center 20%">
+                                        </div>
+                                        <div class="form-group compact">
+                                            <label>Thumbnail Position</label>
+                                            <input type="text" id="thumbnailPosition" placeholder="center center">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Basic Info -->
+                        <section class="editor-section">
+                            <h3>Basic Info</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Name *</label>
+                                    <input type="text" id="artistName" placeholder="Artist name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Slug *</label>
+                                    <input type="text" id="artistSlug" placeholder="url-friendly-slug">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Weight (Sort Order)</label>
+                                    <input type="number" id="artistWeight" placeholder="1" min="0" max="10" step="0.1">
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Category & Genre -->
+                        <section class="editor-section">
+                            <h3>Category & Genre</h3>
+                            <div class="form-group">
+                                <label>Category</label>
+                                <div class="checkbox-group" id="categoryCheckboxes">
+                                    <label class="checkbox-label"><input type="checkbox" value="DJ"> DJ</label>
+                                    <label class="checkbox-label"><input type="checkbox" value="Producer"> Producer</label>
+                                    <label class="checkbox-label"><input type="checkbox" value="Performance"> Performance</label>
+                                </div>
+                            </div>
+                            <div class="form-group" id="subcategoryGroup" style="display:none">
+                                <label>Subcategory</label>
+                                <select id="artistSubcategory">
+                                    <option value="">None</option>
+                                    <option value="Dancer">Dancer</option>
+                                    <option value="Dancer Team">Dancer Team</option>
+                                    <option value="VJ">VJ</option>
+                                    <option value="Live Session">Live Session</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Genre</label>
+                                <input type="text" id="artistGenre" placeholder="Open Format, EDM, House">
+                                <div class="genre-tags" id="genreTags"></div>
+                            </div>
+                        </section>
+
+                        <!-- SNS Links -->
+                        <section class="editor-section">
+                            <h3>SNS Links</h3>
+                            <div class="sns-grid">
+                                <div class="form-group compact">
+                                    <label>🔗 Instagram</label>
+                                    <input type="url" id="snsInstagram" placeholder="https://instagram.com/...">
+                                </div>
+                                <div class="form-group compact">
+                                    <label>🔗 Facebook</label>
+                                    <input type="url" id="snsFacebook" placeholder="https://facebook.com/...">
+                                </div>
+                                <div class="form-group compact">
+                                    <label>🔗 YouTube</label>
+                                    <input type="url" id="snsYoutube" placeholder="https://youtube.com/...">
+                                </div>
+                                <div class="form-group compact">
+                                    <label>🔗 Twitter / X</label>
+                                    <input type="url" id="snsTwitter" placeholder="https://x.com/...">
+                                </div>
+                                <div class="form-group compact">
+                                    <label>🔗 SoundCloud</label>
+                                    <input type="url" id="snsSoundcloud" placeholder="https://soundcloud.com/...">
+                                </div>
+                                <div class="form-group compact">
+                                    <label>🔗 Spotify</label>
+                                    <input type="url" id="snsSpotify" placeholder="https://open.spotify.com/...">
+                                </div>
+                                <div class="form-group compact">
+                                    <label>🔗 Beatport</label>
+                                    <input type="url" id="snsBeatport" placeholder="https://beatport.com/...">
+                                </div>
+                            </div>
+                            <div id="additionalLinksContainer"></div>
+                            <button class="btn btn-sm btn-outline" onclick="addAdditionalLink()">+ Add Custom Link</button>
+                        </section>
+
+                        <!-- Biography -->
+                        <section class="editor-section">
+                            <h3>Biography</h3>
+                            <div class="form-group">
+                                <textarea id="artistBio" rows="8" placeholder="Write artist biography..."></textarea>
+                                <div class="char-count"><span id="bioCharCount">0</span> characters</div>
+                            </div>
+                        </section>
+
+                        <!-- Additional Photos -->
+                        <section class="editor-section">
+                            <h3>Additional Photos</h3>
+                            <div class="photos-grid" id="photosGrid"></div>
+                            <input type="file" id="additionalPhotoInput" accept="image/*" onchange="handleAdditionalPhoto(event)" style="display:none">
+                            <button class="btn btn-sm btn-outline" onclick="document.getElementById('additionalPhotoInput').click()">+ Add Photo</button>
+                        </section>
+
+                        <!-- Embed Fields -->
+                        <section class="editor-section">
+                            <h3>Embed Fields</h3>
+                            <div class="form-group">
+                                <label class="toggle-label">
+                                    <input type="checkbox" id="toggleSoundcloudEmbed" onchange="toggleField('soundcloudEmbedGroup', this.checked)">
+                                    SoundCloud Embed
+                                </label>
+                                <div id="soundcloudEmbedGroup" style="display:none">
+                                    <input type="text" id="soundcloudEmbed" placeholder="SoundCloud embed URL">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="toggle-label">
+                                    <input type="checkbox" id="toggleYoutubeEmbed" onchange="toggleField('youtubeEmbedGroup', this.checked)">
+                                    YouTube Embed
+                                </label>
+                                <div id="youtubeEmbedGroup" style="display:none">
+                                    <input type="text" id="youtubeEmbed" placeholder="YouTube embed URL or video ID">
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Bottom Save -->
+                        <div class="editor-bottom">
+                            <button class="btn btn-primary btn-lg" onclick="saveArtist()">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

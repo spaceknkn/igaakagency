@@ -203,9 +203,7 @@ export default function Home() {
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                   style={{ objectPosition: artist.imagePosition || 'center center' }}
                 />
-                {/* Teal/cyan tone overlay */}
-                <div className="absolute inset-0 bg-[#0d8a7a]/50 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-2 md:p-5 text-white">
                   <h3 className="text-[10px] md:text-lg font-bold mb-0 md:mb-1 leading-tight">{artist.name}</h3>
                   <p className="text-[8px] md:text-xs text-neutral-300 hidden md:block">{artist.genre}</p>
