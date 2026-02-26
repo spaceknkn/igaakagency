@@ -6,7 +6,9 @@ const nextConfig: NextConfig = {
   },
   outputFileTracingExcludes: {
     "*": [
-      "./public/artists/**/*",
+      "public/**/*",
+      "public/artists/**/*",
+      "./public/**/*"
     ],
   }
 };
