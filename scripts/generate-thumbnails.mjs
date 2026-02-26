@@ -12,6 +12,11 @@ const THUMB_QUALITY = 75;
 const THUMB_NAME = 'thumb.webp';
 
 async function generateThumbnails() {
+    if (!fs.existsSync(artistsDir)) {
+        console.log("No artists directory found, skipping thumbnail generation.");
+        return;
+    }
+
     const folders = fs.readdirSync(artistsDir, { withFileTypes: true })
         .filter(d => d.isDirectory());
 
