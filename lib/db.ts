@@ -2,8 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import { put, list, del } from '@vercel/blob';
 
-const dDir = ['dat', 'a'].join('');
-const DATA_PATH = process.cwd() + '/' + dDir + '/artists.json';
 const BLOB_FILENAME = 'artists.json';
 
 // In-memory cache
@@ -31,12 +29,21 @@ export async function getArtists(): Promise<any[]> {
         }
     }
 
-    // Fallback: read from bundled JSON file
-    const raw = fs.readFileSync(DATA_PATH, 'utf8');
-    cache = JSON.parse(raw);
+    if (process.env.NODE_ENV !== 'production') {
+        const dataPath = path.join(process.cwd(), 'data', 'artists.json');
+        if (fs.existsSync(dataPath)) {
+            const raw = fs.readFileSync(dataPath, 'utf8');
+            cache = JSON.parse(raw);
+        } else {
+            cache = [];
+        }
+    } else {
+        // Fallback for production if Blob fails (shouldn't happen)
+        cache = [];
+    }
 
     // If on Vercel and blob didn't exist, initialize it
-    if (isVercel()) {
+    if (isVercel() && cache!.length > 0) {
         await saveToBlob(cache!);
     }
 
@@ -49,9 +56,10 @@ export async function saveArtists(data: any[]): Promise<void> {
 
     if (isVercel()) {
         await saveToBlob(data);
-    } else {
+    } else if (process.env.NODE_ENV !== 'production') {
         // Local dev: write to file
-        fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2), 'utf8');
+        const dataPath = path.join(process.cwd(), 'data', 'artists.json');
+        fs.writeFileSync(dataPath, JSON.stringify(data, null, 2), 'utf8');
     }
 }
 
@@ -80,10 +88,11 @@ export async function uploadImage(
         return blob.url;
     } else {
         // Local dev: save to public/artists/
-        const pubDir = ['pub', 'lic'].join('');
-        const artistDir = path.join(process.cwd(), pubDir, 'artists', slug);
-        fs.mkdirSync(artistDir, { recursive: true });
-        fs.writeFileSync(path.join(artistDir, filename), buffer);
+        if (process.env.NODE_ENV !== 'production') {
+            const artistDir = path.join(process.cwd(), 'public', 'artists', slug);
+            fs.mkdirSync(artistDir, { recursive: true });
+            fs.writeFileSync(path.join(artistDir, filename), buffer);
+        }
         return `/artists/${slug}/${filename}`;
     }
 }
