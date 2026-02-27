@@ -4,19 +4,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  serverExternalPackages: ['sharp'],
-  outputFileTracingExcludes: {
-    "*": [
-      "**/.git/**/*",
-      "**/node_modules/**/*",
-      "**/public/**/*"
-    ],
-    "api/**/*": [
-      "**/.git/**/*",
-      "**/node_modules/**/*",
-      "**/public/**/*"
-    ],
-  }
+  serverExternalPackages: ['sharp']
 };
 
 export default nextConfig;
