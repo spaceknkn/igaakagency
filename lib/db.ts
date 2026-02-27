@@ -11,6 +11,8 @@ function isVercel(): boolean {
     return !!process.env.BLOB_READ_WRITE_TOKEN;
 }
 
+import defaultData from '@/data/artists.json';
+
 // ── Read ──
 export async function getArtists(): Promise<any[]> {
     if (cache) return cache;
@@ -35,11 +37,11 @@ export async function getArtists(): Promise<any[]> {
             const raw = fs.readFileSync(dataPath, 'utf8');
             cache = JSON.parse(raw);
         } else {
-            cache = [];
+            cache = defaultData || [];
         }
     } else {
-        // Fallback for production if Blob fails (shouldn't happen)
-        cache = [];
+        // Fallback for production if Blob fails or is empty on first boot
+        cache = defaultData || [];
     }
 
     // If on Vercel and blob didn't exist, initialize it
