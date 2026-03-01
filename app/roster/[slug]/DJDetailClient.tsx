@@ -92,7 +92,7 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                     </div>
 
                     {/* Social Links */}
-                    <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 pt-12 pb-6 text-xs md:text-sm max-w-[400px] mx-auto">
+                    <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-4 md:gap-6 pt-12 pb-6 text-xs md:text-sm mx-auto">
                         {dj.instagram && (
                             <a href={dj.instagram} target="_blank" rel="noopener noreferrer"
                                 className="text-neutral-400 hover:text-black transition-colors flex items-center gap-1.5">
