@@ -1614,7 +1614,11 @@
     "weight": 4,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/ari/001.jpg",
+      "/artists/ari/002.jpg",
+      "/artists/ari/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/ari.ari_kr/"
