@@ -1254,7 +1254,11 @@
     "weight": 1,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/Chayou/001.jpg",
+      "/artists/Chayou/002.jpg",
+      "/artists/Chayou/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/chayou__0531/"
