@@ -1704,7 +1704,11 @@
     "weight": 6,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/DJ Doha/001.jpg",
+      "/artists/DJ Doha/002.jpg",
+      "/artists/DJ Doha/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/doharyun/"
