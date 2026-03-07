@@ -177,7 +177,11 @@
     "weight": 8,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/AK/001.jpg",
+      "/artists/AK/002.jpg",
+      "/artists/AK/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/djak_kim/"
