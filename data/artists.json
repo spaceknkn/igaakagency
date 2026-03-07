@@ -97,7 +97,11 @@
     "weight": 9,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/Arkins/001.jpg",
+      "/artists/Arkins/002.jpg",
+      "/artists/Arkins/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/arkins_official/",
