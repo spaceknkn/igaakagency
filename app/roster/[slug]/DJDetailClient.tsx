@@ -8,6 +8,8 @@ import BookingModal from '@/components/BookingModal';
 export default function DJDetailClient({ dj }: { dj: any }) {
     const [bioExpanded, setBioExpanded] = useState(false);
     const [bookingOpen, setBookingOpen] = useState(false);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [lightboxIndex, setLightboxIndex] = useState(0);
 
     // Use photos array if available, otherwise fall back to main image repeated
     const photos = dj.photos && dj.photos.length > 0 ? dj.photos : [];
@@ -196,15 +198,24 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                     {/* Photo Grid */}
                     <div className="grid grid-cols-3 gap-3 mb-10 mt-10">
                         {displayPhotos.slice(0, Math.max(3, displayPhotos.length)).map((photo: string, i: number) => (
-                            <div key={i} className="relative aspect-square overflow-hidden bg-neutral-200">
+                            <div
+                                key={i}
+                                className="relative aspect-square overflow-hidden bg-neutral-200 cursor-pointer group"
+                                onClick={() => { setLightboxIndex(i); setLightboxOpen(true); }}
+                            >
                                 <div
-                                    className="w-full h-full bg-cover bg-no-repeat"
+                                    className="w-full h-full bg-cover bg-no-repeat transition-transform duration-300 group-hover:scale-105"
                                     style={{
                                         backgroundImage: `url(${getAssetPath(encodeURI(photo))})`,
                                         backgroundPosition: dj.imagePosition || 'center center',
                                         filter: photos.length === 0 && i > 0 ? `brightness(${1 - i * 0.1})` : 'none',
                                     }}
                                 />
+                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                    <svg className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                                    </svg>
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -246,6 +257,65 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                 onClose={() => setBookingOpen(false)}
                 artistName={dj.name}
             />
+
+            {/* Photo Lightbox */}
+            {lightboxOpen && (
+                <div
+                    className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center"
+                    onClick={() => setLightboxOpen(false)}
+                >
+                    {/* Close Button */}
+                    <button
+                        className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-50"
+                        onClick={() => setLightboxOpen(false)}
+                    >
+                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+
+                    {/* Previous Button */}
+                    {displayPhotos.length > 1 && (
+                        <button
+                            className="absolute left-4 md:left-8 text-white/70 hover:text-white transition-colors z-50 p-2"
+                            onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex - 1 + displayPhotos.length) % displayPhotos.length); }}
+                        >
+                            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                    )}
+
+                    {/* Image */}
+                    <div
+                        className="max-w-[90vw] max-h-[90vh] flex items-center justify-center"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <img
+                            src={getAssetPath(encodeURI(displayPhotos[lightboxIndex]))}
+                            alt={`${dj.name} photo ${lightboxIndex + 1}`}
+                            className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+                        />
+                    </div>
+
+                    {/* Next Button */}
+                    {displayPhotos.length > 1 && (
+                        <button
+                            className="absolute right-4 md:right-8 text-white/70 hover:text-white transition-colors z-50 p-2"
+                            onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex + 1) % displayPhotos.length); }}
+                        >
+                            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    )}
+
+                    {/* Counter */}
+                    <div className="absolute bottom-6 text-white/60 text-sm">
+                        {lightboxIndex + 1} / {displayPhotos.length}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

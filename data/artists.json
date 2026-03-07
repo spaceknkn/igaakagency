@@ -1511,7 +1511,11 @@
     "weight": 1,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/acid/001.jpg",
+      "/artists/acid/002.jpg",
+      "/artists/acid/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/acid._.lee/"
