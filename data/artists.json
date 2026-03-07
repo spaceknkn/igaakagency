@@ -620,7 +620,11 @@
     "weight": 7,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/DJ Breeze/001.jpg",
+      "/artists/DJ Breeze/002.jpg",
+      "/artists/DJ Breeze/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/breeze.jh/"
