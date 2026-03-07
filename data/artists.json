@@ -360,7 +360,11 @@
     "weight": 8,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/Ation/001.jpg",
+      "/artists/Ation/002.jpg",
+      "/artists/Ation/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/djation/"
