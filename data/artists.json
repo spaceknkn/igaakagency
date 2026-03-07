@@ -540,7 +540,11 @@
     "weight": 8,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/daywalker/001.jpg",
+      "/artists/daywalker/002.jpg",
+      "/artists/daywalker/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/daywalkerxx/"
