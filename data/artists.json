@@ -1277,7 +1277,11 @@
     "weight": 1,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/Chawon/001.jpg",
+      "/artists/Chawon/002.jpg",
+      "/artists/Chawon/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": []
   },
