@@ -1352,7 +1352,11 @@
     "weight": 1,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/bobbyang/001.jpg",
+      "/artists/bobbyang/002.jpg",
+      "/artists/bobbyang/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/babbyang.g/"
