@@ -713,7 +713,11 @@
     "weight": 8,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/Cream/001.jpg",
+      "/artists/Cream/002.jpg",
+      "/artists/Cream/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/cream__y/",
