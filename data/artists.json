@@ -1546,7 +1546,11 @@
     "weight": 1,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/BeatBerry/001.jpg",
+      "/artists/BeatBerry/002.jpg",
+      "/artists/BeatBerry/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/dj_beatberry/"
