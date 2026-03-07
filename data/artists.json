@@ -1611,7 +1611,11 @@
     "weight": 1,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/Cash/001.jpg",
+      "/artists/Cash/002.jpg",
+      "/artists/Cash/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/deejay__cash/"
