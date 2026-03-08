@@ -694,7 +694,11 @@
     "weight": 6,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/DJ Kade/001.jpg",
+      "/artists/DJ Kade/002.jpg",
+      "/artists/DJ Kade/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/kade_seoul/"
