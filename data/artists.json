@@ -1087,7 +1087,11 @@
     "weight": 6,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/DJ Windy/001.jpg",
+      "/artists/DJ Windy/002.jpg",
+      "/artists/DJ Windy/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/windy__official/",
