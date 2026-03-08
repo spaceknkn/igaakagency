@@ -36,8 +36,14 @@ export async function getArtists(): Promise<any[]> {
                         let needsUpdate = false;
                         for (const artist of blobData) {
                             const deployed = deployedMap.get(artist.id);
-                            // If Blob artist has no photos but deployed JSON has some, merge them
-                            if (deployed && (!artist.photos || artist.photos.length === 0) && deployed.photos && deployed.photos.length > 0) {
+                            if (!deployed || !deployed.photos || deployed.photos.length === 0) continue;
+
+                            const blobHasNoPhotos = !artist.photos || artist.photos.length === 0;
+                            // Also update if Blob has local paths but deployed JSON has Blob URLs
+                            const blobHasLocalPaths = artist.photos && artist.photos.some((p: string) => p.startsWith('/'));
+                            const deployedHasBlobUrls = deployed.photos.some((p: string) => p.startsWith('http'));
+
+                            if (blobHasNoPhotos || (blobHasLocalPaths && deployedHasBlobUrls)) {
                                 artist.photos = deployed.photos;
                                 needsUpdate = true;
                             }
