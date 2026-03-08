@@ -368,12 +368,24 @@ async function handleProfileImage(event) {
 }
 
 // ── Additional Photos ──
+function resolvePhotoSrc(p) {
+    // If it's already a full URL (Vercel Blob), use as-is
+    if (p.startsWith('http')) return p;
+    // Local path like /artists/DJ Kara/001.jpg -> proxy through API
+    if (p.startsWith('/artists/')) {
+        const rest = p.replace('/artists/', '');
+        return `/api/artist-image/${rest}`;
+    }
+    return p;
+}
+
 function renderPhotos(photos) {
     const grid = document.getElementById('photosGrid');
     grid.innerHTML = photos.map((p, i) => {
+        const src = resolvePhotoSrc(p);
         return `
         <div class="photo-item">
-            <img src="${p}" alt="Photo ${i + 1}" onerror="this.style.opacity=0.3;this.title='Image not found: ${p}'">
+            <img src="${src}" alt="Photo ${i + 1}" onerror="this.style.opacity=0.3;this.title='Image not found: ${p}'">
             <button class="photo-delete" onclick="deletePhoto(${i})">✕</button>
         </div>
     `}).join('');
