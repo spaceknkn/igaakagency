@@ -704,7 +704,11 @@
     "weight": 8,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/DJ Roha/001.jpg",
+      "/artists/DJ Roha/002.jpg",
+      "/artists/DJ Roha/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/roha.wav/",
