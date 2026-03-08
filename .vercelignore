@@ -1,0 +1,20 @@
+# Large local-only directories not needed for deployment
+홈페이지/
+
+# Static images (large, uploaded separately to Vercel Blob or served from CDN)
+public/artists/
+
+# Temp/scratch files
+deployed_page.html
+temp_roster.html
+temp_soul.html
+dj_data_chunk.js
+_move_into_app_test.txt
+_move_into_data_test.txt
+_root_write_test.txt
+data_write_probe.txt
+update_minchae.js
+_extract_data.js
+
+# Build artifacts (Vercel builds its own)
+.next/

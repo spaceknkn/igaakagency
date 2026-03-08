@@ -44,4 +44,6 @@ next-env.d.ts
 /admin/node_modules
 /admin/.env
 /_extract_data.js
-.env*.local
+
+# local-only large asset directories (not needed for deployment)
+홈페이지/
