@@ -876,7 +876,11 @@
     "weight": 6.9,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/Liha/001.jpg",
+      "/artists/Liha/002.jpg",
+      "/artists/Liha/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/me_ow_yu/",
