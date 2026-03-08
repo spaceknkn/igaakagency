@@ -522,7 +522,11 @@
     "weight": 7,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/harfstep_soo/001.jpg",
+      "/artists/harfstep_soo/002.jpg",
+      "/artists/harfstep_soo/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/soomusic_kor/"
