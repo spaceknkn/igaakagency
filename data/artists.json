@@ -282,7 +282,11 @@
     "weight": 5,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/DJ Vaha/001.jpg",
+      "/artists/DJ Vaha/002.jpg",
+      "/artists/DJ Vaha/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/vahadaneul/",
