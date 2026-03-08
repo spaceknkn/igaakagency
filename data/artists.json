@@ -1,4 +1,4 @@
-[
+﻿[
     {
         "id": "1",
         "name": "SoUL (from Seoul)",
@@ -618,7 +618,7 @@
         "weight": 6,
         "facebook": "",
         "twitter": "",
-        "photos": [],
+        "photos": ["/artists/SFUFF/001.JPG", "/artists/SFUFF/002.JPG", "/artists/SFUFF/003.JPG"],
         "youtubeEmbed": "",
         "additionalLinks": [],
         "instagram": "https://www.instagram.com/sfuff_/"
