@@ -1216,7 +1216,11 @@
     "weight": 4,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/DJ Hyunah/001.jpg",
+      "/artists/DJ Hyunah/002.jpg",
+      "/artists/DJ Hyunah/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/hyunah__95",
