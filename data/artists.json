@@ -897,7 +897,11 @@
     "weight": 6.8,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/DJ Kyuria/001.jpg",
+      "/artists/DJ Kyuria/002.jpg",
+      "/artists/DJ Kyuria/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/kyuria____/"
