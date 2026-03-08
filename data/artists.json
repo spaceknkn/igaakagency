@@ -1685,7 +1685,11 @@
     "weight": 1,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/Jiggy/001.jpg",
+      "/artists/Jiggy/002.jpg",
+      "/artists/Jiggy/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/jiggy_wit_/"
