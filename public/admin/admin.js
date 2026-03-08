@@ -371,14 +371,14 @@ async function handleProfileImage(event) {
 function renderPhotos(photos) {
     const grid = document.getElementById('photosGrid');
     grid.innerHTML = photos.map((p, i) => {
-        const src = p.startsWith('http') ? p : p;
         return `
         <div class="photo-item">
-            <img src="${src}" alt="Photo ${i + 1}">
+            <img src="${p}" alt="Photo ${i + 1}" onerror="this.style.opacity=0.3;this.title='Image not found: ${p}'">
             <button class="photo-delete" onclick="deletePhoto(${i})">✕</button>
         </div>
     `}).join('');
 }
+
 
 async function handleAdditionalPhoto(event) {
     const file = event.target.files[0];

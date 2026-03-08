@@ -55,8 +55,20 @@ export async function DELETE(req: Request, { params }: { params: Promise<{ id: s
             return NextResponse.json({ error: 'Photo not found' }, { status: 404 });
         }
 
+        const photoUrl = artist.photos[photoIndex];
         artist.photos.splice(photoIndex, 1);
         await saveArtists(data);
+
+        // Also delete from Vercel Blob if it's a blob URL
+        if (photoUrl && photoUrl.startsWith('http')) {
+            try {
+                const { del } = await import('@vercel/blob');
+                await del(photoUrl);
+            } catch (e) {
+                console.error('Failed to delete blob:', e);
+                // Non-fatal: JSON is already updated
+            }
+        }
 
         return NextResponse.json({ photos: artist.photos });
     } catch (err: any) {

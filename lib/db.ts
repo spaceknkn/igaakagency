@@ -11,7 +11,7 @@ function isVercel(): boolean {
     return !!process.env.BLOB_READ_WRITE_TOKEN;
 }
 
-import defaultData from '@/data/artists.json';
+// defaultData is loaded at runtime via fs to avoid Turbopack JSON chunking issues
 
 // ── Read ──
 export async function getArtists(): Promise<any[]> {
@@ -31,17 +31,13 @@ export async function getArtists(): Promise<any[]> {
         }
     }
 
-    if (process.env.NODE_ENV !== 'production') {
-        const dataPath = path.join(process.cwd(), 'data', 'artists.json');
-        if (fs.existsSync(dataPath)) {
-            const raw = fs.readFileSync(dataPath, 'utf8');
-            cache = JSON.parse(raw);
-        } else {
-            cache = defaultData || [];
-        }
+    // Load from local file (dev or production fallback)
+    const dataPath = path.join(process.cwd(), 'data', 'artists.json');
+    if (fs.existsSync(dataPath)) {
+        const raw = fs.readFileSync(dataPath, 'utf8');
+        cache = JSON.parse(raw);
     } else {
-        // Fallback for production if Blob fails or is empty on first boot
-        cache = defaultData || [];
+        cache = [];
     }
 
     // If on Vercel and blob didn't exist, initialize it
