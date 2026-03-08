@@ -479,7 +479,11 @@
     "weight": 7,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/kwonyeonsu/001.jpg",
+      "/artists/kwonyeonsu/002.jpg",
+      "/artists/kwonyeonsu/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/dj_kwonyeonsu/"
