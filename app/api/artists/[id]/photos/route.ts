@@ -21,8 +21,8 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
         const ext = file.name.split('.').pop() || 'jpg';
 
         if (!artist.photos) artist.photos = [];
-        const photoNum = artist.photos.length + 1;
-        const filename = `photo_${String(photoNum).padStart(3, '0')}.${ext}`;
+        const timestamp = Date.now();
+        const filename = `photo_${timestamp}.${ext}`;
 
         const photoUrl = await uploadImage(buffer, filename, artist.slug);
         artist.photos.push(photoUrl);
