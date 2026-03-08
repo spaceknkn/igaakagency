@@ -456,7 +456,11 @@
     "weight": 7,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/Hanna/001.jpg",
+      "/artists/Hanna/002.jpg",
+      "/artists/Hanna/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/djhanna.kr/"
