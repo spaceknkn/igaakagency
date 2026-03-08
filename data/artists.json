@@ -1192,7 +1192,11 @@
     "weight": 1,
     "facebook": "https://www.instagram.com/hyebinmm/",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/S2/001.jpg",
+      "/artists/S2/002.jpg",
+      "/artists/S2/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/dj__s2/"
