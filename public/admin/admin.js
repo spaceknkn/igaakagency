@@ -115,20 +115,22 @@ function renderArtistList(filter = '') {
         : artists;
 
     list.innerHTML = filtered.map(a => {
-        // Use thumb.webp for local paths, or first initial for blob URLs / no image
+        // Derive thumbnail: 
+        // 1. For local paths: /artists/Name/000.jpg -> /artists/Name/thumb.webp
+        // 2. For Blob URLs: .../artists/Name/000.jpg -> .../artists/Name/thumb.webp
         let thumbSrc = '';
-        if (a.image && !a.image.startsWith('http')) {
-            const dir = a.image.substring(0, a.image.lastIndexOf('/'));
-            thumbSrc = `${dir}/thumb.webp`;
-        } else if (a.image) {
-            thumbSrc = a.image; // Blob URL
+        if (a.image) {
+            thumbSrc = a.image.replace(/\/(000|profile|main)\.(jpg|jpeg|png|webp)/i, '/thumb.webp');
         }
+        
+        // Fallback chain: thumb.webp -> original image -> name initial
+        const fallbackToFull = a.image ? `this.onerror=null;this.src='${a.image}';this.onerror=function(){this.parentElement.innerHTML='${a.name.charAt(0)}'};` : `this.parentElement.innerHTML='${a.name.charAt(0)}'`;
         return `
         <div class="artist-item ${a.id === currentArtistId ? 'active' : ''}" 
              onclick="selectArtist('${a.id}')">
             <div class="artist-item-thumb">
                 ${thumbSrc
-                ? `<img src="${thumbSrc}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='${a.name.charAt(0)}'">`
+                ? `<img src="${thumbSrc}" alt="" loading="lazy" onerror="${fallbackToFull}">`
                 : a.name.charAt(0)
             }
             </div>
@@ -331,8 +333,9 @@ function updateProfilePreview(imagePath) {
     const preview = document.getElementById('profilePreview');
     if (imagePath) {
         // Handle both local paths (/artists/...) and full blob URLs (https://...)
-        const src = imagePath.startsWith('http') ? imagePath : imagePath;
-        preview.innerHTML = `<img src="${src}" alt="Profile" onerror="this.parentElement.innerHTML='<div class=\\'profile-preview-empty\\'>No Image</div>'">`;
+        const thumb = imagePath.replace(/\/(000|profile|main)\.(jpg|jpeg|png|webp)/i, '/thumb.webp');
+        const fallback = `this.onerror=null;this.src='${imagePath}';this.onerror=function(){this.parentElement.innerHTML='<div class=\\'profile-preview-empty\\'>No Image</div>'};`;
+        preview.innerHTML = `<img src="${thumb}" alt="Profile" onerror="${fallback}">`;
     } else {
         preview.innerHTML = '<div class="profile-preview-empty">No Image</div>';
     }
