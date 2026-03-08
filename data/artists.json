@@ -1305,7 +1305,11 @@
     "weight": 1,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/DJ Siwon/001.jpg",
+      "/artists/DJ Siwon/002.jpg",
+      "/artists/DJ Siwon/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/siw0ns/"
