@@ -113,6 +113,7 @@ async function saveToBlob(data: any[]): Promise<void> {
     await put(BLOB_FILENAME, json, {
         access: 'public',
         addRandomSuffix: false,
+        allowOverwrite: true,
         contentType: 'application/json',
     });
 }
@@ -129,6 +130,7 @@ export async function uploadImage(
         const blob = await put(blobPath, buffer, {
             access: 'public',
             addRandomSuffix: false,
+            allowOverwrite: true,
         });
         return blob.url;
     } else {
