@@ -263,7 +263,11 @@
     "weight": 8,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/Guilty Pleasure/001.jpg",
+      "/artists/Guilty Pleasure/002.jpg",
+      "/artists/Guilty Pleasure/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/guiltypleasure_ofc/"
