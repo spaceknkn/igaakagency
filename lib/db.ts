@@ -23,7 +23,37 @@ export async function getArtists(): Promise<any[]> {
             const { blobs } = await list({ prefix: BLOB_FILENAME });
             if (blobs.length > 0) {
                 const res = await fetch(blobs[0].url);
-                cache = await res.json();
+                const blobData: any[] = await res.json();
+
+                // Merge photos from deployed artists.json if Blob artists are missing them
+                const dataPath = path.join(process.cwd(), 'data', 'artists.json');
+                if (fs.existsSync(dataPath)) {
+                    try {
+                        const raw = fs.readFileSync(dataPath, 'utf8');
+                        const deployedData: any[] = JSON.parse(raw.replace(/^\uFEFF/, ''));
+                        const deployedMap = new Map(deployedData.map((a: any) => [a.id, a]));
+
+                        let needsUpdate = false;
+                        for (const artist of blobData) {
+                            const deployed = deployedMap.get(artist.id);
+                            // If Blob artist has no photos but deployed JSON has some, merge them
+                            if (deployed && (!artist.photos || artist.photos.length === 0) && deployed.photos && deployed.photos.length > 0) {
+                                artist.photos = deployed.photos;
+                                needsUpdate = true;
+                            }
+                        }
+
+                        if (needsUpdate) {
+                            cache = blobData;
+                            await saveToBlob(blobData); // Persist merged photos to Blob
+                            return cache!;
+                        }
+                    } catch (e) {
+                        console.error('Photo merge failed:', e);
+                    }
+                }
+
+                cache = blobData;
                 return cache!;
             }
         } catch (e) {
@@ -35,7 +65,7 @@ export async function getArtists(): Promise<any[]> {
     const dataPath = path.join(process.cwd(), 'data', 'artists.json');
     if (fs.existsSync(dataPath)) {
         const raw = fs.readFileSync(dataPath, 'utf8');
-        cache = JSON.parse(raw);
+        cache = JSON.parse(raw.replace(/^\uFEFF/, ''));
     } else {
         cache = [];
     }
@@ -47,6 +77,7 @@ export async function getArtists(): Promise<any[]> {
 
     return cache!;
 }
+
 
 // ── Write ──
 export async function saveArtists(data: any[]): Promise<void> {
