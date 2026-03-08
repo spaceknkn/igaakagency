@@ -1775,7 +1775,11 @@
     "weight": 3,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/DJ Erry/001.jpg",
+      "/artists/DJ Erry/002.jpg",
+      "/artists/DJ Erry/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/dj_erry_/",
