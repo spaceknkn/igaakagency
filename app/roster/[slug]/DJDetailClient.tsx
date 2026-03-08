@@ -221,29 +221,53 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                         ? 'flex gap-3 overflow-x-auto pb-4 -mx-6 px-6 snap-x scrollbar-hide' 
                         : 'grid grid-cols-3 gap-3'}`}
                     >
-                        {displayPhotos.map((photo: string, i: number) => (
-                            <div
-                                key={i}
-                                className={`relative aspect-square overflow-hidden bg-neutral-200 cursor-pointer group snap-center ${
-                                    displayPhotos.length > 3 ? 'w-[75vw] md:w-[350px] flex-shrink-0' : 'w-full'
-                                }`}
-                                onClick={() => { setLightboxIndex(i); setLightboxOpen(true); }}
-                            >
+                        {displayPhotos.map((photo: string, i: number) => {
+                            // Derive thumbnail URL for gallery (e.g., 001.jpg -> 001_thumb.webp)
+                            // We only do this for the gallery preview, not the lightbox
+                            const thumbUrl = photo.replace(/\.(jpg|jpeg|png)$/i, '_thumb.webp');
+                            const fallbackToOriginal = `this.onerror=null;this.src='${getAssetPath(safeEncodeURI(photo))}';`;
+
+                            return (
                                 <div
-                                    className="w-full h-full bg-cover bg-no-repeat transition-transform duration-300 group-hover:scale-105"
-                                    style={{
-                                        backgroundImage: `url(${getAssetPath(safeEncodeURI(photo))})`,
-                                        backgroundPosition: dj.imagePosition || 'center center',
-                                        filter: photos.length === 0 && i > 0 ? `brightness(${1 - i * 0.1})` : 'none',
-                                    }}
-                                />
-                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                                    <svg className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                                    </svg>
+                                    key={i}
+                                    className={`relative aspect-square overflow-hidden bg-neutral-200 cursor-pointer group snap-center ${
+                                        displayPhotos.length > 3 ? 'w-[75vw] md:w-[350px] flex-shrink-0' : 'w-full'
+                                    }`}
+                                    onClick={() => { setLightboxIndex(i); setLightboxOpen(true); }}
+                                >
+                                    <div
+                                        className="w-full h-full bg-cover bg-no-repeat transition-transform duration-300 group-hover:scale-105"
+                                        style={{
+                                            backgroundImage: `url(${getAssetPath(safeEncodeURI(thumbUrl))})`,
+                                            backgroundPosition: dj.imagePosition || 'center center',
+                                            filter: photos.length === 0 && i > 0 ? `brightness(${1 - i * 0.1})` : 'none',
+                                        }}
+                                        /* We use img tag hidden to handle error since div backgroundImage doesn't have onerror */
+                                    />
+                                    {/* Invisible img to handle thumbnail error and fallback to original for the div background */}
+                                    <img 
+                                        src={getAssetPath(safeEncodeURI(thumbUrl))} 
+                                        className="hidden" 
+                                        onError={(e) => {
+                                            const target = e.currentTarget;
+                                            const parent = target.parentElement;
+                                            if (parent) {
+                                                const div = parent.querySelector('div');
+                                                if (div) {
+                                                    div.style.backgroundImage = `url(${getAssetPath(safeEncodeURI(photo))})`;
+                                                }
+                                            }
+                                        }}
+                                        alt=""
+                                    />
+                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                        <svg className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                                        </svg>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
 
                     {/* YouTube Embed */}
