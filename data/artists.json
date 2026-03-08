@@ -1028,7 +1028,11 @@
     "weight": 7,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/Sion/001.jpg",
+      "/artists/Sion/002.jpg",
+      "/artists/Sion/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/sion_inthemix/",
