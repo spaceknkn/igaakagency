@@ -1305,7 +1305,11 @@
     "weight": 4,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/Joody/001.jpg",
+      "/artists/Joody/002.jpg",
+      "/artists/Joody/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/j_0_0_d_y/",
