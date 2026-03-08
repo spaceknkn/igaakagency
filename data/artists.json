@@ -789,7 +789,11 @@
     "weight": 5.9,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/DJ Kara/001.jpg",
+      "/artists/DJ Kara/002.jpg",
+      "/artists/DJ Kara/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/dj_kara___/",
