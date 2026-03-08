@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { getMainCategories, getGenres, getPerformanceSubcategories, getDJsByFilter, getThumbnailPath } from '@/lib/data';
-import { getAssetPath } from '@/lib/utils';
+import { getAssetPath, safeEncodeURI } from '@/lib/utils';
 
 export default function RosterPage() {
     const [selectedCategory, setSelectedCategory] = useState<string>('');
@@ -167,7 +167,7 @@ export default function RosterPage() {
                                         <div className="w-[80%] aspect-square rounded-full bg-neutral-200 mb-3 overflow-hidden">
                                             {dj.image ? (
                                                 <img
-                                                    src={getAssetPath(encodeURI(getThumbnailPath(dj.image)))}
+                                                    src={getAssetPath(safeEncodeURI(getThumbnailPath(dj.image)))}
                                                     alt={dj.name}
                                                     loading="lazy"
                                                     className={`w-full h-full rounded-full object-cover transition-all duration-500 ${isActive ? 'grayscale-0 scale-105' : 'grayscale group-hover:grayscale-0 group-hover:scale-105'}`}
@@ -216,7 +216,7 @@ export default function RosterPage() {
                                         <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-neutral-200 flex-shrink-0 overflow-hidden">
                                             {dj.image ? (
                                                 <img
-                                                    src={getAssetPath(encodeURI(getThumbnailPath(dj.image)))}
+                                                    src={getAssetPath(safeEncodeURI(getThumbnailPath(dj.image)))}
                                                     alt={dj.name}
                                                     loading="lazy"
                                                     className={`w-full h-full object-cover transition-all duration-500 ${isActive ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}
