@@ -216,12 +216,17 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                         </div>
                     )}
 
-                    {/* Photo Grid */}
-                    <div className="grid grid-cols-3 gap-3 mb-10 mt-10">
-                        {displayPhotos.slice(0, Math.max(3, displayPhotos.length)).map((photo: string, i: number) => (
+                    {/* Photo Grid / Scrollable Gallery */}
+                    <div className={`mt-10 mb-10 ${displayPhotos.length > 3 
+                        ? 'flex gap-3 overflow-x-auto pb-4 -mx-6 px-6 snap-x scrollbar-hide' 
+                        : 'grid grid-cols-3 gap-3'}`}
+                    >
+                        {displayPhotos.map((photo: string, i: number) => (
                             <div
                                 key={i}
-                                className="relative aspect-square overflow-hidden bg-neutral-200 cursor-pointer group"
+                                className={`relative aspect-square overflow-hidden bg-neutral-200 cursor-pointer group snap-center ${
+                                    displayPhotos.length > 3 ? 'w-[75vw] md:w-[350px] flex-shrink-0' : 'w-full'
+                                }`}
                                 onClick={() => { setLightboxIndex(i); setLightboxOpen(true); }}
                             >
                                 <div

@@ -890,7 +890,13 @@
     "weight": 6.9,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Heejae/001.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Heejae/002.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Heejae/003.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Heejae/004.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Heejae/005.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/heejae_1023/",
