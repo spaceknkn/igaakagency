@@ -302,7 +302,11 @@
     "weight": 6,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/Sweeny/001.jpg",
+      "/artists/Sweeny/002.jpg",
+      "/artists/Sweeny/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/deejaysweeny/"
