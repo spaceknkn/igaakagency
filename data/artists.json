@@ -1584,7 +1584,11 @@
     "weight": 1,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/Jina/001.jpg",
+      "/artists/Jina/002.jpg",
+      "/artists/Jina/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/jinazana_/"
