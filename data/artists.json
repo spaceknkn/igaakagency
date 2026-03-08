@@ -545,7 +545,11 @@
     "weight": 4,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/ITMA/001.jpg",
+      "/artists/ITMA/002.jpg",
+      "/artists/ITMA/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/itma.itma/"
