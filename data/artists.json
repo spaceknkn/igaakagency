@@ -498,7 +498,11 @@
     "weight": 7,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "/artists/harfstep_duo/001.jpg",
+      "/artists/harfstep_duo/002.jpg",
+      "/artists/harfstep_duo/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/halfstepmusic/",
