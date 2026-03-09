@@ -22,55 +22,14 @@ export async function getArtists(): Promise<any[]> {
             // Try to read from Vercel Blob
             const { blobs } = await list({ prefix: BLOB_FILENAME });
             if (blobs.length > 0) {
-                const res = await fetch(blobs[0].url, { cache: 'no-store' });
-                const blobData: any[] = await res.json();
-
-                // Merge photos from deployed artists.json if Blob artists are missing them
-                const dataPath = path.join(process.cwd(), 'data', 'artists.json');
-                if (fs.existsSync(dataPath)) {
-                    try {
-                        const raw = fs.readFileSync(dataPath, 'utf8');
-                        const deployedData: any[] = JSON.parse(raw.replace(/^\uFEFF/, ''));
-                        const deployedMap = new Map(deployedData.map((a: any) => [a.id, a]));
-
-                        let needsUpdate = false;
-                        for (const artist of blobData) {
-                            const deployed = deployedMap.get(artist.id);
-                            if (!deployed) continue;
-
-                            // Merge main image if Blob has local path and deployed has Blob URL
-                            const blobHasLocalImage = artist.image && artist.image.startsWith('/');
-                            const deployedHasBlobImage = deployed.image && deployed.image.startsWith('http');
-                            if (blobHasLocalImage && deployedHasBlobImage) {
-                                artist.image = deployed.image;
-                                needsUpdate = true;
-                            }
-
-                            // Merge photos array
-                            if (!deployed.photos || deployed.photos.length === 0) continue;
-
-                            const blobHasNoPhotos = !artist.photos || artist.photos.length === 0;
-                            const blobHasLocalPaths = artist.photos && artist.photos.some((p: string) => p.startsWith('/'));
-                            const deployedHasBlobUrls = deployed.photos.some((p: string) => p.startsWith('http'));
-
-                            if (blobHasNoPhotos || (blobHasLocalPaths && deployedHasBlobUrls)) {
-                                artist.photos = deployed.photos;
-                                needsUpdate = true;
-                            }
-                        }
-
-                        if (needsUpdate) {
-                            cache = blobData;
-                            await saveToBlob(blobData); // Persist merged photos to Blob
-                            return cache!;
-                        }
-                    } catch (e) {
-                        console.error('Photo merge failed:', e);
-                    }
+                const targetBlob = blobs.find(b => b.pathname === BLOB_FILENAME);
+                if (targetBlob) {
+                    const res = await fetch(targetBlob.url, { cache: 'no-store' });
+                    const blobData: any[] = await res.json();
+                    
+                    cache = blobData;
+                    return cache;
                 }
-
-                cache = blobData;
-                return cache!;
             }
         } catch (e) {
             console.error('Blob read failed, falling back to JSON file:', e);
