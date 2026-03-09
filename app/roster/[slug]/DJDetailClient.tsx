@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getAssetPath, safeEncodeURI } from '@/lib/utils';
 import BookingModal from '@/components/BookingModal';
 
@@ -37,20 +38,30 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                         {dj.image ? (
                             <>
                                 {/* Mobile hero image */}
-                                <div
-                                    className="absolute inset-0 bg-cover bg-no-repeat md:hidden"
+                                <Image
+                                    src={getAssetPath(safeEncodeURI(dj.image))}
+                                    alt={dj.name}
+                                    fill
+                                    sizes="100vw"
+                                    className="object-cover md:hidden"
                                     style={{
-                                        backgroundImage: `url("${getAssetPath(safeEncodeURI(dj.image))}")`,
-                                        backgroundPosition: dj.mobileImagePosition || dj.imagePosition || 'center center',
+                                        objectPosition: dj.mobileImagePosition || dj.imagePosition || 'center center',
                                     }}
+                                    placeholder={dj.imageBlur ? "blur" : "empty"}
+                                    blurDataURL={dj.imageBlur || undefined}
                                 />
                                 {/* Desktop hero image */}
-                                <div
-                                    className="absolute inset-0 bg-cover bg-no-repeat hidden md:block"
+                                <Image
+                                    src={getAssetPath(safeEncodeURI(dj.image))}
+                                    alt={dj.name}
+                                    fill
+                                    sizes="100vw"
+                                    className="object-cover hidden md:block"
                                     style={{
-                                        backgroundImage: `url("${getAssetPath(safeEncodeURI(dj.image))}")`,
-                                        backgroundPosition: dj.imagePosition || 'center center',
+                                        objectPosition: dj.imagePosition || 'center center',
                                     }}
+                                    placeholder={dj.imageBlur ? "blur" : "empty"}
+                                    blurDataURL={dj.imageBlur || undefined}
                                 />
                             </>
                         ) : (
@@ -222,11 +233,6 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                         : 'grid grid-cols-3 gap-3'}`}
                     >
                         {displayPhotos.map((photo: string, i: number) => {
-                            // Derive thumbnail URL for gallery (e.g., 001.jpg -> 001_thumb.webp)
-                            // We only do this for the gallery preview, not the lightbox
-                            const thumbUrl = photo.replace(/\.(jpg|jpeg|png)$/i, '_thumb.webp');
-                            const fallbackToOriginal = `this.onerror=null;this.src='${getAssetPath(safeEncodeURI(photo))}';`;
-
                             return (
                                 <div
                                     key={i}
@@ -235,30 +241,18 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                                     }`}
                                     onClick={() => { setLightboxIndex(i); setLightboxOpen(true); }}
                                 >
-                                    <div
-                                        className="w-full h-full bg-cover bg-no-repeat transition-transform duration-300 group-hover:scale-105"
+                                    <Image
+                                        src={getAssetPath(safeEncodeURI(photo))}
+                                        alt={`${dj.name} detail ${i + 1}`}
+                                        fill
+                                        sizes={displayPhotos.length > 3 ? "(max-width: 768px) 75vw, 350px" : "(max-width: 768px) 33vw, 33vw"}
+                                        className="object-cover transition-transform duration-300 group-hover:scale-105"
                                         style={{
-                                            backgroundImage: `url("${getAssetPath(safeEncodeURI(thumbUrl))}")`,
-                                            backgroundPosition: dj.imagePosition || 'center center',
+                                            objectPosition: dj.imagePosition || 'center center',
                                             filter: photos.length === 0 && i > 0 ? `brightness(${1 - i * 0.1})` : 'none',
                                         }}
-                                        /* We use img tag hidden to handle error since div backgroundImage doesn't have onerror */
-                                    />
-                                    {/* Invisible img to handle thumbnail error and fallback to original for the div background */}
-                                    <img 
-                                        src={getAssetPath(safeEncodeURI(thumbUrl))} 
-                                        className="hidden" 
-                                        onError={(e) => {
-                                            const target = e.currentTarget;
-                                            const parent = target.parentElement;
-                                            if (parent) {
-                                                const div = parent.querySelector('div');
-                                                if (div) {
-                                                    div.style.backgroundImage = `url("${getAssetPath(safeEncodeURI(photo))}")`;
-                                                }
-                                            }
-                                        }}
-                                        alt=""
+                                        placeholder={dj.photosBlur && dj.photosBlur[i] ? "blur" : "empty"}
+                                        blurDataURL={(dj.photosBlur && dj.photosBlur[i]) || undefined}
                                     />
                                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                                         <svg className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">

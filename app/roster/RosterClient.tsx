@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getMainCategories, getGenres, getPerformanceSubcategories, getDJsByFilter, getThumbnailPath, DJ } from '@/lib/data';
 import { getAssetPath, safeEncodeURI } from '@/lib/utils';
 
@@ -199,16 +200,19 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
                                         className="group flex flex-col items-center text-center"
                                     >
                                         {/* Circular Image */}
-                                        <div className="w-[80%] aspect-square rounded-full bg-neutral-200 mb-3 overflow-hidden">
+                                        <div className="relative w-[80%] aspect-square rounded-full bg-neutral-200 mb-3 overflow-hidden">
                                             {dj.image ? (
-                                                <img
+                                                <Image
                                                     src={getAssetPath(safeEncodeURI(getThumbnailPath(dj.image)))}
                                                     alt={dj.name}
-                                                    loading="lazy"
-                                                    className={`w-full h-full rounded-full object-cover transition-all duration-500 ${isActive ? 'grayscale-0 scale-105' : 'grayscale group-hover:grayscale-0 group-hover:scale-105'}`}
+                                                    fill
+                                                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 15vw"
+                                                    className={`object-cover transition-all duration-500 ${isActive ? 'grayscale-0 scale-105' : 'grayscale group-hover:grayscale-0 group-hover:scale-105'}`}
                                                     style={{
                                                         objectPosition: dj.thumbnailPosition || 'center center',
                                                     }}
+                                                    placeholder={dj.imageBlur ? "blur" : "empty"}
+                                                    blurDataURL={dj.imageBlur || undefined}
                                                 />
                                             ) : (
                                                 <div className={`w-full h-full flex items-center justify-center transition-colors duration-300 ${isActive ? 'bg-[#F5A623]' : 'bg-neutral-300 group-hover:bg-[#F5A623]'}`}>
@@ -248,16 +252,19 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
                                         className="group flex items-center gap-3 py-1.5 transition-colors px-2 border-b border-neutral-100 w-full max-w-md md:max-w-none"
                                     >
                                         {/* Small Circle */}
-                                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-neutral-200 flex-shrink-0 overflow-hidden">
+                                        <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-neutral-200 flex-shrink-0 overflow-hidden">
                                             {dj.image ? (
-                                                <img
+                                                <Image
                                                     src={getAssetPath(safeEncodeURI(getThumbnailPath(dj.image)))}
                                                     alt={dj.name}
-                                                    loading="lazy"
-                                                    className={`w-full h-full object-cover transition-all duration-500 ${isActive ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}
+                                                    fill
+                                                    sizes="48px"
+                                                    className={`object-cover transition-all duration-500 ${isActive ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}
                                                     style={{
                                                         objectPosition: dj.thumbnailPosition || 'center center',
                                                     }}
+                                                    placeholder={dj.imageBlur ? "blur" : "empty"}
+                                                    blurDataURL={dj.imageBlur || undefined}
                                                 />
                                             ) : (
                                                 <div className={`w-full h-full flex items-center justify-center transition-colors duration-300 ${isActive ? 'bg-[#F5A623]' : 'bg-neutral-300 group-hover:bg-[#F5A623]'}`}>

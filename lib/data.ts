@@ -22,6 +22,8 @@ export interface DJ {
     spotify?: string;
     beatport?: string;
     photos?: string[];
+    imageBlur?: string;
+    photosBlur?: string[];
     youtubeEmbed?: string;
     additionalLinks?: { label: string; url: string }[];
 }
