@@ -57,13 +57,13 @@
     "id": "3",
     "name": "Vandalrock",
     "slug": "vandalrock",
-    "category": "Producer, DJ",
+    "category": "DJ, Producer",
     "genre": "Open Format, EDM",
     "bio": "Vandal Rock is a producer and DJ, music director of the World DJ Festival, and director of Future Club. He won the DJ survival show \"WET!\" and has performed at major festivals like Ultra Music Festival, World Club Dome, and World DJ Festival, sharing stages with Ti챘sto, Zedd, and Steve Aoki. As a producer, he gained attention with the hit track \"SWAY\" and expanded into concert arrangements and K-POP production. With his versatile musical spectrum, he delivers setlists that captivate both festival crowds and EDM fans.",
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Vandalrock/000.jpg",
     "imagePosition": "center 10%",
     "mobileImagePosition": "center 10%",
-    "thumbnailPosition": "center 20%",
+    "thumbnailPosition": "center 10%",
     "weight": 9,
     "facebook": "",
     "twitter": "",
@@ -82,7 +82,10 @@
       "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoHAAoABUB8JZQAAlwoCsAcAP7KfRpeG9hH2HJ8dk+4lx5CxNMInM/XnGwzp1A5KKOTfCl4Zsg8ed3dD4AAAA==",
       "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoIAAoABUB8JZwAAl23La+QAAD+634zUMqhCx4D6ZNYic1ooyIDLVpc6cYPXWX6VVnG/Wwg8xQ4AA==",
       "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACQAQCdASoIAAoABUB8JZwAApmYjugA/tzzDF2LbmdfcDfKNVWhNyUZ1Xf0RwAA"
-    ]
+    ],
+    "spotify": "",
+    "beatport": "",
+    "soundcloudEmbed": ""
   },
   {
     "id": "4",
@@ -1415,7 +1418,7 @@
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Riya/000.jpg",
     "imagePosition": "center center",
     "mobileImagePosition": "center center",
-    "thumbnailPosition": "center 100%",
+    "thumbnailPosition": "center 15%",
     "weight": 5.8,
     "facebook": "",
     "twitter": "",
@@ -1857,7 +1860,7 @@
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Siwon/000.jpg",
     "imagePosition": "center 10%",
     "mobileImagePosition": "center 10%",
-    "thumbnailPosition": "center center",
+    "thumbnailPosition": "center 10%",
     "weight": 1,
     "facebook": "",
     "twitter": "",
@@ -2439,7 +2442,7 @@
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Doha/000.jpg",
     "imagePosition": "center 20%",
     "mobileImagePosition": "center 20%",
-    "thumbnailPosition": "center 20%",
+    "thumbnailPosition": "center 15%",
     "weight": 6,
     "facebook": "",
     "twitter": "",
@@ -2456,7 +2459,12 @@
       "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoHAAoABUB8JYgAApyilJfm8AD+qxdZZgGzv/Y+AuSw6e7gtnROQt52D8AAAA==",
       "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoIAAoABUB8JbACdADzgw8IIAD+3f5/TICAO33muivtyR7R4nFWZ/k8cgELeP100Bd8evttLhCJ8rg04AA=",
       "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADQAQCdASoJAAoABUB8JQBdgCHM4kvpgAD+6Ltt51q8XNmn7E8E+mcQpt4oZGngiycM+G34AAA="
-    ]
+    ],
+    "youtube": "",
+    "soundcloud": "",
+    "spotify": "",
+    "beatport": "",
+    "soundcloudEmbed": ""
   },
   {
     "id": "86",
