@@ -158,7 +158,11 @@
     "weight": 7,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/castle-j/001.JPG",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/castle-j/002.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/castle-j/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/djcastle_j__jin/"
@@ -459,7 +463,11 @@
     "weight": 8,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/xtc-project/001.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/xtc-project/002.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/xtc-project/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/xtc_project/",
@@ -855,7 +863,11 @@
     "weight": 8,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/dipcod/001.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/dipcod/002.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/dipcod/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/hyeongpil_ahn/"
@@ -1093,7 +1105,7 @@
     "imagePosition": "center 28%",
     "mobileImagePosition": "center 28%",
     "thumbnailPosition": "center center",
-    "weight": 5.9,
+    "weight": 5.5,
     "facebook": "",
     "twitter": "",
     "photos": [
@@ -1105,7 +1117,10 @@
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/ahnjwoo/",
     "youtube": "https://www.youtube.com/@ilovemymelodies",
-    "soundcloud": "https://soundcloud.com/jiwoo-ahn-880113404"
+    "soundcloud": "https://soundcloud.com/jiwoo-ahn-880113404",
+    "spotify": "",
+    "beatport": "",
+    "soundcloudEmbed": ""
   },
   {
     "id": "49",
@@ -1333,7 +1348,11 @@
     "weight": 5,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/artist-58/001.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/artist-58/002.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/artist-58/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/hwayoung_ryu_93/"
@@ -2008,9 +2027,15 @@
     "weight": 6,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/badmon/001.JPG",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/badmon/002.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/badmon/003.jpg"
+    ],
     "youtubeEmbed": "",
-    "additionalLinks": []
+    "additionalLinks": [],
+    "instagram": "https://www.instagram.com/djbadmon/",
+    "youtube": "https://www.youtube.com/@djbadmon"
   },
   {
     "id": "89",
@@ -2031,7 +2056,11 @@
     "weight": 7,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/baeyoon/001.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/baeyoon/002.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/baeyoon/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": []
   }
