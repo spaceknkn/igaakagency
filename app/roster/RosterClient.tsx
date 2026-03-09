@@ -21,21 +21,8 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
         }
     }, []);
 
-    // Also fetch latest data just in case initialDjs (from build time) is stale
-    useEffect(() => {
-        const fetchLatest = async () => {
-            try {
-                const res = await fetch('/api/artists');
-                if (res.ok) {
-                    const data = await res.json();
-                    setDjs(data);
-                }
-            } catch (err) {
-                console.error('Failed to fetch latest artists:', err);
-            }
-        };
-        fetchLatest();
-    }, []);
+    // Removed redundant client-side fetch. 
+    // initialDjs is guaranteed fresh by 'force-dynamic' in page.tsx.
 
     const categories = getMainCategories();
     const genres = getGenres();
