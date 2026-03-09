@@ -241,7 +241,11 @@
     "weight": 8,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ Moai/001.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ Moai/002.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ Moai/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/moai_ofc/"
@@ -373,7 +377,11 @@
     "weight": 8,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/zb/001.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/zb/002.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/zb/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/x_x_zb_x_x/"
@@ -846,7 +854,11 @@
     "weight": 5.9,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Risho/001.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Risho/002.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Risho/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/kateraizzz/"
@@ -1086,7 +1098,11 @@
     "weight": 5.8,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ Riya/001.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ Riya/002.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ Riya/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/dj._.riya/",
