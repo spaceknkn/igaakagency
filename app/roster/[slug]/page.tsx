@@ -2,12 +2,7 @@ import { getArtists } from '@/lib/db';
 import { notFound } from 'next/navigation';
 import DJDetailClient from './DJDetailClient';
 
-export async function generateStaticParams() {
-    const djs = await getArtists();
-    return djs.map((dj) => ({
-        slug: dj.slug,
-    }));
-}
+export const dynamic = 'force-dynamic';
 
 export default async function DJDetailPage({
     params,
@@ -24,4 +19,3 @@ export default async function DJDetailPage({
 
     return <DJDetailClient dj={dj} />;
 }
-
