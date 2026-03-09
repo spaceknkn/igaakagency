@@ -40,7 +40,7 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                                 <div
                                     className="absolute inset-0 bg-cover bg-no-repeat md:hidden"
                                     style={{
-                                        backgroundImage: `url(${getAssetPath(safeEncodeURI(dj.image))})`,
+                                        backgroundImage: `url("${getAssetPath(safeEncodeURI(dj.image))}")`,
                                         backgroundPosition: dj.mobileImagePosition || dj.imagePosition || 'center center',
                                     }}
                                 />
@@ -48,7 +48,7 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                                 <div
                                     className="absolute inset-0 bg-cover bg-no-repeat hidden md:block"
                                     style={{
-                                        backgroundImage: `url(${getAssetPath(safeEncodeURI(dj.image))})`,
+                                        backgroundImage: `url("${getAssetPath(safeEncodeURI(dj.image))}")`,
                                         backgroundPosition: dj.imagePosition || 'center center',
                                     }}
                                 />
@@ -238,7 +238,7 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                                     <div
                                         className="w-full h-full bg-cover bg-no-repeat transition-transform duration-300 group-hover:scale-105"
                                         style={{
-                                            backgroundImage: `url(${getAssetPath(safeEncodeURI(thumbUrl))})`,
+                                            backgroundImage: `url("${getAssetPath(safeEncodeURI(thumbUrl))}")`,
                                             backgroundPosition: dj.imagePosition || 'center center',
                                             filter: photos.length === 0 && i > 0 ? `brightness(${1 - i * 0.1})` : 'none',
                                         }}
@@ -254,7 +254,7 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                                             if (parent) {
                                                 const div = parent.querySelector('div');
                                                 if (div) {
-                                                    div.style.backgroundImage = `url(${getAssetPath(safeEncodeURI(photo))})`;
+                                                    div.style.backgroundImage = `url("${getAssetPath(safeEncodeURI(photo))}")`;
                                                 }
                                             }
                                         }}
