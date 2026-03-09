@@ -4,31 +4,20 @@ import { put, list, del } from '@vercel/blob';
 
 const BLOB_FILENAME = 'artists.json';
 
-// In-memory cache
-let cache: any[] | null = null;
-
 function isVercel(): boolean {
     return !!process.env.BLOB_READ_WRITE_TOKEN;
 }
 
-// defaultData is loaded at runtime via fs to avoid Turbopack JSON chunking issues
-
-// ── Read ──
+// ── Read ── (no in-memory cache - always fetches fresh from Vercel Blob)
 export async function getArtists(): Promise<any[]> {
-    if (cache) return cache;
-
     if (isVercel()) {
         try {
-            // Try to read from Vercel Blob
             const { blobs } = await list({ prefix: BLOB_FILENAME });
             if (blobs.length > 0) {
                 const targetBlob = blobs.find(b => b.pathname === BLOB_FILENAME);
                 if (targetBlob) {
                     const res = await fetch(targetBlob.url, { cache: 'no-store' });
-                    const blobData: any[] = await res.json();
-                    
-                    cache = blobData;
-                    return cache;
+                    return await res.json();
                 }
             }
         } catch (e) {
@@ -40,24 +29,21 @@ export async function getArtists(): Promise<any[]> {
     const dataPath = path.join(process.cwd(), 'data', 'artists.json');
     if (fs.existsSync(dataPath)) {
         const raw = fs.readFileSync(dataPath, 'utf8');
-        cache = JSON.parse(raw.replace(/^\uFEFF/, ''));
-    } else {
-        cache = [];
+        const data = JSON.parse(raw.replace(/^\uFEFF/, ''));
+
+        // If on Vercel and blob didn't exist, initialize it
+        if (isVercel() && data.length > 0) {
+            await saveToBlob(data);
+        }
+        return data;
     }
 
-    // If on Vercel and blob didn't exist, initialize it
-    if (isVercel() && cache!.length > 0) {
-        await saveToBlob(cache!);
-    }
-
-    return cache!;
+    return [];
 }
 
 
 // ── Write ──
 export async function saveArtists(data: any[]): Promise<void> {
-    cache = data;
-
     if (isVercel()) {
         await saveToBlob(data);
     } else if (process.env.NODE_ENV !== 'production') {
@@ -103,7 +89,4 @@ export async function uploadImage(
     }
 }
 
-// ── Clear cache (for after writes) ──
-export function clearCache(): void {
-    cache = null;
-}
+

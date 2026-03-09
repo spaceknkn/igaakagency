@@ -1161,7 +1161,11 @@
     "weight": 7,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/dj-lant/001.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/dj-lant/002.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/dj-lant/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/lant_music_/",
@@ -1337,7 +1341,7 @@
   {
     "id": "58",
     "name": "Hwayoung(Tiara)",
-    "slug": "artist-58",
+    "slug": "hwayoung",
     "category": "DJ",
     "genre": "EDM",
     "bio": "",
@@ -1360,7 +1364,7 @@
   {
     "id": "59",
     "name": "Hyunyoung(Rainbow)",
-    "slug": "artist-59",
+    "slug": "hyunyoung",
     "category": "DJ",
     "genre": "EDM",
     "bio": "",
