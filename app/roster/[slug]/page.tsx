@@ -1,9 +1,9 @@
-import Link from 'next/link';
-import { djs } from '@/lib/data';
+import { getArtists } from '@/lib/db';
 import { notFound } from 'next/navigation';
 import DJDetailClient from './DJDetailClient';
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+    const djs = await getArtists();
     return djs.map((dj) => ({
         slug: dj.slug,
     }));
@@ -15,6 +15,7 @@ export default async function DJDetailPage({
     params: Promise<{ slug: string }>;
 }) {
     const { slug } = await params;
+    const djs = await getArtists();
     const dj = djs.find(d => d.slug === slug);
 
     if (!dj) {
