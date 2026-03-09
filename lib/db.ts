@@ -22,7 +22,7 @@ export async function getArtists(): Promise<any[]> {
             // Try to read from Vercel Blob
             const { blobs } = await list({ prefix: BLOB_FILENAME });
             if (blobs.length > 0) {
-                const res = await fetch(blobs[0].url);
+                const res = await fetch(blobs[0].url, { cache: 'no-store' });
                 const blobData: any[] = await res.json();
 
                 // Merge photos from deployed artists.json if Blob artists are missing them
