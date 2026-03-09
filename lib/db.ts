@@ -16,7 +16,8 @@ export async function getArtists(): Promise<any[]> {
             if (blobs.length > 0) {
                 const targetBlob = blobs.find(b => b.pathname === BLOB_FILENAME);
                 if (targetBlob) {
-                    const res = await fetch(targetBlob.url, { cache: 'no-store' });
+                    // Add cache-busting timestamp to bypass Vercel Blob CDN cache
+                    const res = await fetch(`${targetBlob.url}?t=${Date.now()}`, { cache: 'no-store' });
                     return await res.json();
                 }
             }

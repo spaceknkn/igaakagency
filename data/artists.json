@@ -218,11 +218,11 @@
     "id": "10",
     "name": "Advanced",
     "slug": "advanced",
-    "category": "Producer, DJ",
+    "category": "DJ, Producer",
     "genre": "EDM",
     "bio": "Advanced is a top-tier producer/DJ duo from South Korea, specializing in mainstage EDM with a strong focus on Progressive and Electro House. Known for their well-balanced skill set across production, DJing, and live performance, they are recognized as a fully realized, all-around DJ duo. They have performed at nearly every major festival in Korea, including World DJ Festival, EDC Korea, and WATERBOMB. Advanced has released a collaboration with KSHMR on Spinnin' Records and holds the record for the most releases on Spinnin' Asia. They have also received support from Third Party, releasing 'Energy' on Release Records. Their collaboration \"IAB\" with jeonghyeon surpassed 1 million streams on Spotify, and their recent Progressive House release \"Like The Stars\" exceeded 100,000 streams within a month, further solidifying their presence on the global EDM stage.",
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/advanced/000.JPG",
-    "imagePosition": "center center",
+    "imagePosition": "center 20%",
     "mobileImagePosition": "center center",
     "thumbnailPosition": "center center",
     "weight": 7,
@@ -237,7 +237,10 @@
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/weareadvanced/",
     "youtube": "https://www.youtube.com/channel/UChw9eQC9trZ13SLDQf3HDbg",
-    "soundcloud": "https://soundcloud.com/advanced_official"
+    "soundcloud": "https://soundcloud.com/advanced_official",
+    "spotify": "",
+    "beatport": "",
+    "soundcloudEmbed": ""
   },
   {
     "id": "11",
@@ -1151,11 +1154,11 @@
     "id": "50",
     "name": "DJ Lant",
     "slug": "dj-lant",
-    "category": "Producer, DJ",
+    "category": "DJ, Producer",
     "genre": "House, EDM",
     "bio": "LANT started his First residency at Club MADE as a dj when he was 20. Since then, he have built his carear based on various DJ activities in various fields and he have continied to build his career He is challenging many genres without distinguishing them In particular, Electro house, bounce, funky house, disco and ETC based on bouce are the main genres and he can said to be DJs who comunicate with the public with fresh vibes and flow",
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Lant/000.JPG",
-    "imagePosition": "center 15%",
+    "imagePosition": "center 16%",
     "mobileImagePosition": "center 15%",
     "thumbnailPosition": "center center",
     "weight": 7,
@@ -1169,7 +1172,11 @@
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/lant_music_/",
-    "soundcloud": "https://soundcloud.com/lantofficial"
+    "soundcloud": "https://soundcloud.com/lantofficial",
+    "youtube": "",
+    "spotify": "",
+    "beatport": "",
+    "soundcloudEmbed": ""
   },
   {
     "id": "51",
