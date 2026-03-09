@@ -100,7 +100,8 @@ async function apiFetch(url, options = {}) {
 
 // ── Artist List ──
 async function loadArtists() {
-    const res = await apiFetch('/api/artists');
+    // Add cache-busting timestamp to prevent aggressive browser caching
+    const res = await apiFetch(`/api/artists?t=${Date.now()}`);
     if (!res) return;
     artists = await res.json();
     // Sort by weight desc
