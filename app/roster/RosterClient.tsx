@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getMainCategories, getGenres, getPerformanceSubcategories, getDJsByFilter, getThumbnailPath, DJ } from '@/lib/data';
@@ -10,16 +10,7 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
     const [selectedCategory, setSelectedCategory] = useState<string>('');
     const [selectedFilter, setSelectedFilter] = useState<string>('');
     const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-    const [lastClickedDj, setLastClickedDj] = useState<string | null>(null);
     const [djs, setDjs] = useState<DJ[]>(initialDjs);
-
-    // Load last clicked DJ from session storage on mount
-    useEffect(() => {
-        const storedDj = sessionStorage.getItem('lastClickedDj');
-        if (storedDj) {
-            setLastClickedDj(storedDj);
-        }
-    }, []);
 
     // Removed redundant client-side fetch. 
     // initialDjs is guaranteed fresh by 'force-dynamic' in page.tsx.
@@ -57,11 +48,6 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
 
     const filteredDJs = getFilteredData(selectedCategory, selectedFilter);
     const filterOptions = getFilterOptions();
-
-    const handleDjClick = (slug: string) => {
-        setLastClickedDj(slug);
-        sessionStorage.setItem('lastClickedDj', slug);
-    };
 
     return (
         <div className="min-h-screen bg-white">
@@ -178,12 +164,10 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
                     {viewMode === 'grid' ? (
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
                             {filteredDJs.map(dj => {
-                                const isActive = lastClickedDj === dj.slug;
                                 return (
                                     <Link
                                         key={dj.id}
                                         href={`/roster/${dj.slug}`}
-                                        onClick={() => handleDjClick(dj.slug)}
                                         className="group flex flex-col items-center text-center"
                                     >
                                         {/* Circular Image */}
@@ -194,7 +178,7 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
                                                     alt={dj.name}
                                                     fill
                                                     sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 15vw"
-                                                    className={`object-cover transition-all duration-500 ${isActive ? 'grayscale-0 scale-105' : 'grayscale group-hover:grayscale-0 group-hover:scale-105'}`}
+                                                    className="object-cover transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:scale-105"
                                                     style={{
                                                         objectPosition: dj.thumbnailPosition || 'center center',
                                                     }}
@@ -202,24 +186,24 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
                                                     blurDataURL={dj.imageBlur || undefined}
                                                 />
                                             ) : (
-                                                <div className={`w-full h-full flex items-center justify-center transition-colors duration-300 ${isActive ? 'bg-[#F5A623]' : 'bg-neutral-300 group-hover:bg-[#F5A623]'}`}>
-                                                    <span className={`text-4xl font-bold transition-colors duration-300 ${isActive ? 'text-white' : 'text-neutral-500 group-hover:text-white'}`}>
+                                                <div className="w-full h-full flex items-center justify-center transition-colors duration-300 bg-neutral-300 group-hover:bg-[#F5A623]">
+                                                    <span className="text-4xl font-bold transition-colors duration-300 text-neutral-500 group-hover:text-white">
                                                         {dj.name.charAt(0)}
                                                     </span>
                                                 </div>
                                             )}
                                         </div>
 
-                                        {/* Default name (plain) - hidden on active/hover */}
-                                        <h3 className={`text-black text-sm font-semibold mb-0.5 transition-colors duration-300 ${isActive ? 'hidden' : 'group-hover:hidden'}`}>
+                                        {/* Default name (plain) - hidden on hover */}
+                                        <h3 className="text-black text-sm font-semibold mb-0.5 transition-colors duration-300 group-hover:hidden">
                                             {dj.name}
                                         </h3>
-                                        <p className={`text-neutral-500 text-xs line-clamp-1 ${isActive ? 'hidden' : 'group-hover:hidden'}`}>
+                                        <p className="text-neutral-500 text-xs line-clamp-1 group-hover:hidden">
                                             {dj.genre}
                                         </p>
 
-                                        {/* Hover name (orange pill badge) - shown on active/hover */}
-                                        <span className={`bg-[#F5A623] text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-all duration-300 ${isActive ? 'inline-block' : 'hidden group-hover:inline-block'}`}>
+                                        {/* Hover name (orange pill badge) - shown on hover */}
+                                        <span className="bg-[#F5A623] text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-all duration-300 hidden group-hover:inline-block">
                                             {dj.name}
                                         </span>
                                     </Link>
@@ -230,12 +214,10 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
                         /* List View */
                         <div className="flex flex-col items-center md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-0 w-full">
                             {filteredDJs.map(dj => {
-                                const isActive = lastClickedDj === dj.slug;
                                 return (
                                     <Link
                                         key={dj.id}
                                         href={`/roster/${dj.slug}`}
-                                        onClick={() => handleDjClick(dj.slug)}
                                         className="group flex items-center gap-3 py-1.5 transition-colors px-2 border-b border-neutral-100 w-full max-w-md md:max-w-none"
                                     >
                                         {/* Small Circle */}
@@ -246,7 +228,7 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
                                                     alt={dj.name}
                                                     fill
                                                     sizes="48px"
-                                                    className={`object-cover transition-all duration-500 ${isActive ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}
+                                                    className="object-cover transition-all duration-500 grayscale group-hover:grayscale-0"
                                                     style={{
                                                         objectPosition: dj.thumbnailPosition || 'center center',
                                                     }}
@@ -254,23 +236,23 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
                                                     blurDataURL={dj.imageBlur || undefined}
                                                 />
                                             ) : (
-                                                <div className={`w-full h-full flex items-center justify-center transition-colors duration-300 ${isActive ? 'bg-[#F5A623]' : 'bg-neutral-300 group-hover:bg-[#F5A623]'}`}>
-                                                    <span className={`text-lg font-bold transition-colors duration-300 ${isActive ? 'text-white' : 'text-neutral-400 group-hover:text-white'}`}>
+                                                <div className="w-full h-full flex items-center justify-center transition-colors duration-300 bg-neutral-300 group-hover:bg-[#F5A623]">
+                                                    <span className="text-lg font-bold transition-colors duration-300 text-neutral-400 group-hover:text-white">
                                                         {dj.name.charAt(0)}
                                                     </span>
                                                 </div>
                                             )}
                                         </div>
 
-                                        {/* Name - hidden on active/hover */}
-                                        <div className={`flex-1 min-w-0 ${isActive ? 'hidden' : 'group-hover:hidden'}`}>
+                                        {/* Name - hidden on hover */}
+                                        <div className="flex-1 min-w-0 group-hover:hidden">
                                             <h3 className="text-black text-sm font-medium uppercase transition-colors duration-300">
                                                 {dj.name}
                                             </h3>
                                         </div>
 
-                                        {/* Orange Badge - shown on active/hover */}
-                                        <span className={`bg-[#F5A623] text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap ${isActive ? 'inline-block' : 'hidden group-hover:inline-block'}`}>
+                                        {/* Orange Badge - shown on hover */}
+                                        <span className="bg-[#F5A623] text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap hidden group-hover:inline-block">
                                             {dj.name}
                                         </span>
                                     </Link>
