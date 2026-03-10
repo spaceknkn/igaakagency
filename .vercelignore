@@ -1,8 +1,7 @@
 # Large local-only directories not needed for deployment
 홈페이지/
 
-# Static images (large, uploaded separately to Vercel Blob or served from CDN)
-public/artists/
+# Static images (most are in Blob, but local fallbacks are needed)
 
 # Temp/scratch files
 deployed_page.html
