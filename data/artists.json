@@ -626,9 +626,9 @@
     "facebook": "",
     "twitter": "",
     "photos": [
-      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/xtc-project/001.jpg",
-      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/xtc-project/002.jpg",
-      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/xtc-project/003.jpg"
+      "/artists/XTC Project/001.jpg",
+      "/artists/XTC Project/002.jpg",
+      "/artists/XTC Project/003.jpg"
     ],
     "youtubeEmbed": "S5NTNV6i2Qo",
     "additionalLinks": [],
@@ -1550,9 +1550,9 @@
     "facebook": "",
     "twitter": "",
     "photos": [
-      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/dj-lant/001.jpg",
-      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/dj-lant/002.jpg",
-      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/dj-lant/003.jpg"
+      "/artists/DJ Lant/001.jpg",
+      "/artists/DJ Lant/002.jpg",
+      "/artists/DJ Lant/003.jpg"
     ],
     "youtubeEmbed": "",
     "additionalLinks": [],
@@ -1796,9 +1796,9 @@
     "facebook": "",
     "twitter": "",
     "photos": [
-      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/artist-58/001.jpg",
-      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/artist-58/002.jpg",
-      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/artist-58/003.jpg"
+      "/artists/Hwayoung/001.jpg",
+      "/artists/Hwayoung/002.jpg",
+      "/artists/Hwayoung/003.jpg"
     ],
     "youtubeEmbed": "",
     "additionalLinks": [],
@@ -1975,7 +1975,7 @@
     "category": "DJ",
     "genre": "EDM",
     "bio": "",
-    "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Siwon/000.jpg",
+    "image": "/artists/dj-siwon/000.jpg",
     "imagePosition": "center 10%",
     "mobileImagePosition": "center 10%",
     "thumbnailPosition": "center 15%",
@@ -2672,9 +2672,9 @@
     "facebook": "",
     "twitter": "",
     "photos": [
-      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/badmon/001.JPG",
-      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/badmon/002.jpg",
-      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/badmon/003.jpg"
+      "/artists/DJ Badmon/001.JPG",
+      "/artists/DJ Badmon/002.jpg",
+      "/artists/DJ Badmon/003.jpg"
     ],
     "youtubeEmbed": "LxwSLYGMAD4",
     "additionalLinks": [],
