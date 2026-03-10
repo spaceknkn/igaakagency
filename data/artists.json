@@ -18,10 +18,26 @@
     "weight": 7.5,
     "facebook": "",
     "twitter": "",
-    "photos": [],
-    "youtubeEmbed": "",
+    "photos": [
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/soul/001.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/soul/002.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/soul/003.jpg"
+    ],
+    "youtubeEmbed": "godCKAYSPq0",
     "additionalLinks": [],
-    "imageBlur": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAQCdASoGAAoABUB8JaQAAppVGjkwAP7AfpGr/dfCd/ig6aQz3IyzY1347fRh7aTFgrOkz8cj2IMeQAA="
+    "imageBlur": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAQCdASoGAAoABUB8JaQAAppVGjkwAP7AfpGr/dfCd/ig6aQz3IyzY1347fRh7aTFgrOkz8cj2IMeQAA=",
+    "beatport": "",
+    "useOriginalForThumbnail": true,
+    "thumbnails": [
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/soul/thumb-001.webp",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/soul/thumb-002.webp",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/soul/thumb-003.webp"
+    ],
+    "youtubeEmbeds": [
+      "godCKAYSPq0",
+      "lhs5pYSszK0",
+      "p44lRtxp9Js"
+    ]
   },
   {
     "id": "2",
@@ -42,7 +58,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Juncoco/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Juncoco/003.jpg"
     ],
-    "youtubeEmbed": "https://www.youtube.com/watch?v=3aXwp3RRwdQ",
+    "youtubeEmbed": "3aXwp3RRwdQ",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/juncoco_official/",
     "youtube": "https://www.youtube.com/@juncoco_official",
@@ -61,9 +77,9 @@
     "genre": "Open Format, EDM",
     "bio": "Vandal Rock is a producer and DJ, music director of the World DJ Festival, and director of Future Club. He won the DJ survival show \"WET!\" and has performed at major festivals like Ultra Music Festival, World Club Dome, and World DJ Festival, sharing stages with Ti챘sto, Zedd, and Steve Aoki. As a producer, he gained attention with the hit track \"SWAY\" and expanded into concert arrangements and K-POP production. With his versatile musical spectrum, he delivers setlists that captivate both festival crowds and EDM fans.",
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Vandalrock/000.jpg",
-    "imagePosition": "center 10%",
+    "imagePosition": "center 15%",
     "mobileImagePosition": "center 10%",
-    "thumbnailPosition": "center 10%",
+    "thumbnailPosition": "center 15%",
     "weight": 9,
     "facebook": "",
     "twitter": "",
@@ -72,7 +88,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Vandalrock/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Vandalrock/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "VBufRH_meL4",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/vandalrock/",
     "youtube": "https://www.youtube.com/vandalrock",
@@ -84,8 +100,9 @@
       "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACQAQCdASoIAAoABUB8JZwAApmYjugA/tzzDF2LbmdfcDfKNVWhNyUZ1Xf0RwAA"
     ],
     "spotify": "",
-    "beatport": "",
-    "soundcloudEmbed": ""
+    "beatport": "https://www.beatport.com/artist/vandal-rock/369796",
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/staygoldneverfold/sets/staygold-classics-remix&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+    "useOriginalForThumbnail": true
   },
   {
     "id": "4",
@@ -110,6 +127,7 @@
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/two_x_x/",
     "soundcloud": "https://soundcloud.com/twox_x",
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/twox_x/sets/x_x-2pack&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
     "imageBlur": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoIAAoABUB8JZQAAu1/dwi82AD+24RtVfO71Hi2V3v9r2xX4IBFo4LgXWQ33i4A",
     "photosBlur": [
       "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoHAAoABUB8JaQAAsfT311AAP5sHko8WK8orlmRHPlPBuHZscmn7tzXLC8yFowAAAA=",
@@ -136,11 +154,12 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Arkins/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Arkins/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "CUfYN9CejZY",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/arkins_official/",
     "youtube": "https://www.youtube.com/@arkins_official",
     "soundcloud": "https://soundcloud.com/arkinsofficial",
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/nowhere_nowhere4/sets/crimson-pavilion&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
     "imageBlur": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoIAAoABUB8JZwAAvrScBPAAP5epgWfOJaNRTOMOo+/TQP4kfAUhZwOAAA=",
     "photosBlur": [
       "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoIAAoABUB8JQBOgBuO1M7SAAD+2skzm+qc9L6vfe2iIuaCNXzuh2OFnQRZAAAA",
@@ -171,6 +190,7 @@
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/smasher_mk/",
     "soundcloud": "https://soundcloud.com/smasher_official",
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/soundwhere_official/sets/soundwhere-2022-christmas-gift&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
     "imageBlur": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoIAAoABUB8JZwAApwejCQAAP3tfQIjOflwns0YnY17fXskrbxjG9AcAAA=",
     "photosBlur": [
       "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoHAAoABUB8JbACdAC8gkW7nMAA4ZZLdrg6iJ+xDonfp835R0Pbjupbu0+autVywv+RoTVaJkDEAA==",
@@ -182,13 +202,13 @@
     "id": "7",
     "name": "Castle-J",
     "slug": "castle-j",
-    "category": "Producer, DJ",
+    "category": "DJ, Producer",
     "genre": "K-bounce",
     "bio": "He appeared in the Gangnam scene as a super rookie in 2019. Artist, Producer, who is drawing attention for his vigorous activities. Explosive sound, stage manners, and musicality. The stage where nothing can be left out and the DJ stands out. He currently belongs to \"NOWHERE NOWHERE\".",
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Castle-J/000.jpg",
-    "imagePosition": "center center",
-    "mobileImagePosition": "center center",
-    "thumbnailPosition": "center 10%",
+    "imagePosition": "center 60%",
+    "mobileImagePosition": "center 30%",
+    "thumbnailPosition": "center 15%",
     "weight": 7,
     "facebook": "",
     "twitter": "",
@@ -205,7 +225,13 @@
       "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoHAAoABUB8JagCdAD0eV+ALgAA/oGs5ZmnY/5KPHQIPXYhkITChmkKaavz4QbLwz/EUVxnD+LRJyFQAAA=",
       "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoIAAoABUB8JaAAAp2qLFAAAP0rYisbZ+7glk/EjzzGtFPI19ymf90n4EVMAAAA",
       "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAQCdASoHAAoABUB8JZQAAtzM4cNgAPugsY9f8xTGuRxFHvPkr1P2QfDdjGu+bwmoq2gQlehyC0AA"
-    ]
+    ],
+    "useOriginalForThumbnail": true,
+    "youtube": "",
+    "soundcloud": "",
+    "spotify": "",
+    "beatport": "",
+    "soundcloudEmbed": ""
   },
   {
     "id": "8",
@@ -235,7 +261,8 @@
       "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoHAAoABUB8JZgCdADYt8AAAP6YrnUrYKMwrW8vc0evP5nyKdCBZljevMPCFOPN1cQAAA==",
       "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoIAAoABUB8JbACdADzHMkAAP66HFixr7PpNxCtW01pS+s6C9V4xm5PV4t+CetZlv2mbaUODqaVuzTJQlsAAA==",
       "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoIAAoABUB8JQBdgB6EHiZB8AAA/son3aMa1v2v9YmVJHkNzsIaofhNW4IecdN3g0fWvRvzTGDMAAAA"
-    ]
+    ],
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fn5y0ncdrlhbd%2Fnwanji-in-the-mix-ep07&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   },
   {
     "id": "9",
@@ -285,14 +312,14 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/advanced/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/advanced/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "sn8aYO19w9E",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/weareadvanced/",
     "youtube": "https://www.youtube.com/channel/UChw9eQC9trZ13SLDQf3HDbg",
     "soundcloud": "https://soundcloud.com/advanced_official",
     "spotify": "",
     "beatport": "",
-    "soundcloudEmbed": "",
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fstaygoldneverfold%2Fsets%2Fstaygold-play-hard-remix&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
     "imageBlur": "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACwAQCdASoJAAoABUB8JaQAAp1jiyuAAP7p92yEcxvYeIR8cAAAAA==",
     "photosBlur": [
       "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAABwAQCdASoIAAoABUB8JbACdAF1AAD+7Ik+/HfnYmWsJOHoIf/JXn/r5z5POq4AAAA=",
@@ -333,13 +360,13 @@
     "id": "12",
     "name": "Cosmickey",
     "slug": "cosmickey",
-    "category": "Producer, DJ",
+    "category": "DJ, Producer",
     "genre": "Open Format, EDM",
     "bio": "Cosmickey, who began his career in 2007, has been active in South Korea ever since, earning enduring love from audiences over the years. In 2015, he played a pioneering role in revolutionizing South Korea's DNB scene as a member of DNBS Crew, the country's first Drum&Bass Crew, introducing Bass Music to the forefront. DJ Cosmickey captivates audiences with his track selection and mixing prowess, securing numerous collaborations across Asia, including China, Taiwan, and Thailand. Furthermore, his discerning production skills have earned him praise in the Asian region. Expanding his scope as a producer, he ventures into both Official Releases and Unofficial Releases via platforms like SoundCloud, further broadening his influence in electronic music. Amidst the global resurgence of DNB, his activities are met with bright prospects and anticipation for a promising future. This DJ profile is intended for usage purposes",
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Cosmickey/000.jpg",
     "imagePosition": "center 15%",
     "mobileImagePosition": "center 15%",
-    "thumbnailPosition": "center 20%",
+    "thumbnailPosition": "center 10%",
     "weight": 8,
     "facebook": "",
     "twitter": "",
@@ -356,7 +383,13 @@
       "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoIAAoABUB8JYgCw7DdomjA3wAA/uaG0bCjXVlUx+0a/azCdS2/Sc5eME0v9OO+oTjnkVft7sAAAA==",
       "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoHAAoABUB8JbACdAD0IKcoVAAA9oVi9/kJhUmPmvZ4MYA1dfQh3T3MTeL59Pz+podKDk9n9T7XAJOFpgAAAA==",
       "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoHAAoABUB8JZQAAl3NKOQY0AD+zcetOlLpO8CMXWpgP8I6wzmxzgXGZiCuAAAA"
-    ]
+    ],
+    "youtube": "",
+    "soundcloud": "",
+    "spotify": "",
+    "beatport": "",
+    "soundcloudEmbed": "",
+    "useOriginalForThumbnail": true
   },
   {
     "id": "13",
@@ -415,7 +448,9 @@
       "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAABwAQCdASoHAAoABUB8JZwAApWMLAD+yneV7WQG0TXseHxTsDrh/wAAAAA=",
       "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADQAQCdASoHAAoABUB8JZACdADyeNkQAAD+Z7no9VPMsy8fMmhmq2i/Fg3EEjYmfebttZYAAAA=",
       "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoHAAoABUB8JYgCdAD5dkr7EugA/gA46n8EoNiVjBOSetejXPwNkxTvzdYuQscDbGBC7fiiEBVtbjAA"
-    ]
+    ],
+    "useOriginalForThumbnail": true,
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fplus82seoul%2Fvaha-x-mas-mixset&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   },
   {
     "id": "15",
@@ -480,13 +515,13 @@
     "id": "17",
     "name": "ZB",
     "slug": "zb",
-    "category": "Producer, DJ",
+    "category": "DJ, Producer",
     "genre": "Open Format, EDM",
     "bio": "With a broad musical spectrum, ZB delivers performances that transcend genres, earning spots on the lineups of numerous major festivals over the years. Proven by his victory in a DJ competition, his sets are defined by the seamless fusion of diverse styles, connecting with audiences without boundaries. Based in Gangnam, Seoul, he is an active resident DJ at multiple clubs, while also expanding his artistry through music production and collaborative album releases with various artists.",
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/zb/000.JPG",
     "imagePosition": "center 20%",
     "mobileImagePosition": "center 20%",
-    "thumbnailPosition": "center center",
+    "thumbnailPosition": "center 10%",
     "weight": 8,
     "facebook": "",
     "twitter": "",
@@ -503,19 +538,24 @@
       "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoIAAoABUB8JZACdADc51APYAD+BrCDHtvlQH+E54SUY3EfaGQh5nKVeHdznqFsKv3KpLC4AAA=",
       "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAABQAQCdASoIAAoABUB8JZQABDOAAP7sLvRQPQQw+FIlf1nsNdLMAA==",
       "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoHAAoABUB8JZQAAsfn4r4c4AD8tKAi+1pd6iOHx5TFz4vs5Fw+2o61Y5oGh49EfQoAAA=="
-    ]
+    ],
+    "youtube": "",
+    "soundcloud": "",
+    "spotify": "",
+    "beatport": "",
+    "soundcloudEmbed": ""
   },
   {
     "id": "18",
     "name": "Ation",
     "slug": "ation",
-    "category": "Producer, DJ",
+    "category": "DJ, Producer",
     "genre": "Open Format, EDM",
     "bio": "During high school, ATION stumbled upon songs by atboy lim, Chemical Brothers, and Daft unk, sparking his interest in electronic music. This led him to explore various genres like Electronica, House, Tech House, and Big Beat, fueling his dream of becoming a DJ. As He learned to DJ, he played at small parties and eventually in large clubs, f inding immense joy and fulfillment in moving people with music, which led him to choose DJing as his profession.",
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Ation/000.jpg",
     "imagePosition": "center 20%",
     "mobileImagePosition": "center 20%",
-    "thumbnailPosition": "center 20%",
+    "thumbnailPosition": "center 10%",
     "weight": 8,
     "facebook": "",
     "twitter": "",
@@ -532,7 +572,13 @@
       "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACQAQCdASoHAAoABUB8JZwAAli6eYgA/tldKXTkQNNOCzPJbmrxpR8Nr2zQAAAA",
       "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoHAAoABUB8JZQC7AD5jFdiqMAAzgju6be2PVVd6jXan8n0T51wkLEaWW2TgAAA",
       "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoHAAoABUB8JZwAAloa4Y5YIAAA4jITFMigtNqc+16HzX9vSJf8tbZXWLpiSzEs79Id44AA"
-    ]
+    ],
+    "youtube": "",
+    "soundcloud": "",
+    "spotify": "",
+    "beatport": "",
+    "soundcloudEmbed": "",
+    "useOriginalForThumbnail": true
   },
   {
     "id": "19",
@@ -562,7 +608,8 @@
       "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADwAQCdASoHAAoABUB8JYwC7AEXtkzkxkAA/CaNe41/BBgMudrPRdnjTSbXawVoxg2AAA==",
       "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoHAAoABUB8JZQAApx9VxYAAPhgRY3CPHeY3XwSg+pP5xV/cfKY6/4TclQIuT/d44AAAA==",
       "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoHAAoABUB8JZwAApx8VP9AAP7KmllN4dzUtQJVw9LeeIKqAtE0BOUhDaOTHXOhgAA="
-    ]
+    ],
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fdj_youkeep%2Fsets%2Ffallin-back-remix&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   },
   {
     "id": "20",
@@ -583,11 +630,12 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/xtc-project/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/xtc-project/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "S5NTNV6i2Qo",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/xtc_project/",
     "youtube": "https://www.youtube.com/@XTCPROJECT",
     "soundcloud": "https://soundcloud.com/xtcproject/",
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/xtcproject/made-in-china-xtc-project-flip&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
     "imageBlur": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoHAAoABUB8JaQAAllY/gwAAMlym+DHRVddYYTKIwLAK6nsq9UcWTodM3cAAA==",
     "photosBlur": [
       "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoHAAoABUB8JZwAAp1r5DvgAP7pLA9Ayxt8jjLUPz6hPK8CNYL7U4j4AAA=",
@@ -614,7 +662,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Siena/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Siena/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "YJomfODCY_I",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/dj_siena/",
     "youtube": "https://www.youtube.com/djsienaofficial",
@@ -685,7 +733,7 @@
   },
   {
     "id": "25",
-    "name": "Harfstep ( Soo & Midori )",
+    "name": "Harfstep (Soo & Midori)",
     "slug": "harfstep",
     "category": "Producer, DJ",
     "genre": "Open Format, EDM",
@@ -702,7 +750,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/harfstep_duo/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/harfstep_duo/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "ILwuzpX1E0o",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/halfstepmusic/",
     "youtube": "https://www.youtube.com/@HALFSTEP",
@@ -775,13 +823,13 @@
     "id": "28",
     "name": "Daywalker",
     "slug": "daywalker",
-    "category": "Producer, DJ",
+    "category": "DJ, Producer",
     "genre": "Open Format, EDM",
     "bio": "DAY WALKER, one of the most passionate DJ in all clubs and festival scenes, makes the clubbers who have strongunique taste, go crazy. Extreme strong setting with his reputation!!! He plays based on HOUSE MUSIC and is flexible with Funky, Electro, Progressive, Trap, and Hardstyle. Able to create a harmony between commercial and underground music style. Let's enjoy his plays with progressive and skillful groove",
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/daywalker/000.jpg",
     "imagePosition": "center 15%",
     "mobileImagePosition": "center 15%",
-    "thumbnailPosition": "center 10%",
+    "thumbnailPosition": "center 15%",
     "weight": 8,
     "facebook": "",
     "twitter": "",
@@ -798,7 +846,13 @@
       "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoKAAoABUB8JbACdADZagkjAAD+qt6adnSkqoJI+AC8WhnDEJxL9Z4nv7VvpLPsMd9NOtWQN/t0i/4v1+igu5yJXAmJ4KAA",
       "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoKAAoABUB8JQBWAB5ATgMgAP7sQ+nbjchVHsh5q95l9uL0r9L4WQBCAAA=",
       "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoHAAoABUB8JZwAAv9HIQW4AAD6BJcmvAFSgyFROZajae4o/8wjAYAA"
-    ]
+    ],
+    "youtube": "",
+    "soundcloud": "",
+    "spotify": "",
+    "beatport": "",
+    "soundcloudEmbed": "",
+    "useOriginalForThumbnail": true
   },
   {
     "id": "29",
@@ -897,7 +951,7 @@
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Breeze/000.jpg",
     "imagePosition": "center 19%",
     "mobileImagePosition": "center 19%",
-    "thumbnailPosition": "center 10%",
+    "thumbnailPosition": "center 15%",
     "weight": 7,
     "facebook": "",
     "twitter": "",
@@ -914,7 +968,13 @@
       "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAgCdASoIAAoABUB8JbACdAEDfa+4reMAAN+KqH7Ntqn1m0jzqy6PMy09DmeZywlqVMRu6nRogVELAhvFvAAA",
       "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAACQAQCdASoKAAoABUB8JaQAApz9zgAA/uv/h6SPUOlck0DgAAA=",
       "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoHAAoABUB8JYwCsAC06C3wAPurgxIYHVCjxywqXV8g9XRECn4lIH6bLjUAAA=="
-    ]
+    ],
+    "youtube": "",
+    "soundcloud": "",
+    "spotify": "",
+    "beatport": "",
+    "soundcloudEmbed": "",
+    "useOriginalForThumbnail": true
   },
   {
     "id": "33",
@@ -943,7 +1003,8 @@
       "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADwAQCdASoHAAoABUB8JYwCdAD0RxtJfMAA/e1mR3orNWECz30kVIeFz84evarYAAA=",
       "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoGAAoABUB8JaQAAvxVxpRwgAD+a1hBNaRZ0E1HBnsdcb+a8yIAAA==",
       "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACQAQCdASoIAAoABUB8JZwAAlqsZkAA+C/62SonDRJGiFBpEdwm/nkExR9iKpAXacwAAA=="
-    ]
+    ],
+    "useOriginalForThumbnail": true
   },
   {
     "id": "34",
@@ -1022,17 +1083,21 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Roha/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Roha/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "78DBrG3qND0",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/roha.wav/",
     "youtube": "https://www.youtube.com/channel/UC7YYvnqwgTQ5EPWb88D99Ug",
-    "spotify": "https://open.spotify.com/artist/7iMk721CtVRwU1x381rvtg?si=ec3dt22aRLSPWIunxyQPSQ&nd=1&dlsi=ffa244fa9ac94fc8",
+    "spotify": "https://open.spotify.com/artist/7iMk721CtVRwU1x381rvtg",
     "imageBlur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAQCdASoIAAoABUB8JZwAAp1z/VGwAP6bk/scM2sDLpigGvAKtKSM+q6y84/7Azp1Nk8qXzQSDcLZyDDZHAAA",
     "photosBlur": [
       "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoIAAoABUB8JZwAAl1zNl8YwAD5fJ8vywFw9f6bEH+mmROUFVARX4CWn51xzbQt961iMKWmy6VQAAAA",
       "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACQAQCdASoIAAoABUB8JaQAAlyfroAA/thlAe6Zpe5qIFOb7g7xUEW5pbvdAj9lDP7YmJg3Glm3YNDhTAAAAA==",
       "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoIAAoABUB8JZwAAp1z/qp0AAD+m5P7lglf+yWvoiKVh67JT823Dl/gradOdjSwx2UXxhB9zxrk95xwAAA="
-    ]
+    ],
+    "youtubeEmbeds": [
+      "78DBrG3qND0"
+    ],
+    "spotifyEmbed": "https://open.spotify.com/embed/artist/7iMk721CtVRwU1x381rvtg?utm_source=generator"
   },
   {
     "id": "37",
@@ -1053,18 +1118,19 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Cream/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Cream/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "QUZfOwxdeN0",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/cream__y/",
-    "youtube": "https://www.youtube.com/@DJCREAM",
-    "soundcloud": "https://soundcloud.com/cream_usic",
+    "youtube": "https://www.youtube.com/watch?v=QUZfOwxdeN0",
+    "soundcloud": "https://soundcloud.com/cream_usic/",
     "spotify": "https://open.spotify.com/artist/1d1dWkQxaKGW8mnZLmo4dr?go=1&sp_cid=6ffedc2e-4b8c-48fa-9808-ce28e2b4e8e3&utm_source=embed_player_p&utm_medium=desktop&nd=1&dlsi=eaa01ed8658d4641",
     "imageBlur": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoHAAoABUB8JZgCdADRYM/y4AD3yLSRyNxVDFKCfhfxz2DGsJYIirLOoaaxQiEZaIAAAA==",
     "photosBlur": [
       "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoIAAoABUB8JYwC7AD5dlanEOwA4BXJu0WU7W5YiIInlCc/d5Mun7aqH6DWekH3cSlgoUMR+OAAAA==",
       "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoHAAoABUB8JYgCw7EOeFTYAAD3mNGOuOMqYTi5E2GIblDzTI+UHQAA",
       "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoHAAoABUB8JZgCdAC53BqOAAD3yLSRyNxUsR1ynCd7prmQU+EtTqCFgKDCuHyJ10AAAA=="
-    ]
+    ],
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/cream_usic/cream-ultra-korea-2022&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   },
   {
     "id": "38",
@@ -1114,7 +1180,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Risho/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Risho/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "Fi9di-3rYGY",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/kateraizzz/",
     "imageBlur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoHAAoABUB8JbACdADzfMyQmAD3eo8VfpUP/IHWMj/KvyeaXX4vleW/r76yVcLKGn9tvqTbCzPhcAAA",
@@ -1122,6 +1188,9 @@
       "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoHAAoABUB8JaQAApzUJZQAAP7qTK/RUsufivFsW1LcuarOlhJbwAAA",
       "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoHAAoABUB8JZwAAxQb9gy0AAD+6k2xGyCqjOcGr8srF9ALE3KoZYf5OfR8AAAA",
       "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoHAAoABUB8JaQAAp10vWdgAP64MJX+O++ns18hi74QcSqgVpAAAA=="
+    ],
+    "youtubeEmbeds": [
+      "Fi9di-3rYGY"
     ]
   },
   {
@@ -1143,7 +1212,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Kara/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Kara/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "wKLft5F_PfM",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/dj_kara___/",
     "youtube": "https://www.youtube.com/@djkarahouse",
@@ -1176,7 +1245,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Heejae/004.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Heejae/005.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "hvd-mjuHM04",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/heejae_1023/",
     "youtube": "https://www.youtube.com/@hijaejae4006",
@@ -1188,6 +1257,10 @@
       "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoHAAoABUB8JZwAAp1zybB6AAD+CdBzV920maEvQVYnr2avsbiPzURt1IHjiLPoQLLEwSr/AAA=",
       "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAQCdASoIAAoABUB8JZwAAxOgKJ1MKwAA/sqcLHB1q4Lsbn2VrwFKBl9m0rYb/V6+IFm/DqBAAA==",
       "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoHAAoABUB8JaQAAlyeLIuAAP7iVktQODH0K1VCt3tUtiMrBpTG0HnmgAAAAA=="
+    ],
+    "youtubeEmbeds": [
+      "hvd-mjuHM04",
+      "xmXJfuufVwI"
     ]
   },
   {
@@ -1210,7 +1283,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Liha/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Liha/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "DMLH6VN0EGU",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/me_ow_yu/",
     "youtube": "https://www.youtube.com/@meeowyu",
@@ -1219,6 +1292,9 @@
       "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoIAAoABUB8JbACdADbWZNAAAD9sjKwYZ9b+F6VT/AMNIwGdza42Ke3rU6baAAA",
       "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoIAAoABUB8JYwAAsaZVjJ5qAAA/uHPsJDpMR/3ziyFsNG2jCZMIxv6+Lv99CgN5j5tnXpbAQLewDwA",
       "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoHAAoABUB8JZwAAp1TUQuAAP7hz4cIxzlu7m3luM7kW6ii3qAOAPIyTc81YwVgcAA="
+    ],
+    "youtubeEmbeds": [
+      "DMLH6VN0EGU"
     ]
   },
   {
@@ -1241,7 +1317,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Kyuria/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Kyuria/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "zOgYYPWJFl8",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/kyuria____/",
     "imageBlur": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoIAAoABUB8JYwAFgAKXNt9sAD+yjGt9C9hddEihXOoqfdbRqGtWnLyDsMFm9iAhAmqcCAA",
@@ -1249,6 +1325,10 @@
       "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAQCdASoIAAoABUB8JYwAAlxSOznAAP7KMa30L2F597wIk4e4yp0DXYW0siNTfz+WDaPwmTQN3XHzCAA=",
       "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoHAAoABUB8JQBdgB6RkCrgAP6v8RB/4dst12RFkiIxRjBtQnIHlaAA",
       "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoIAAoABUB8JQBdgB6UarwJOAAA/u/XkMlC+ASUYN6VhTc2Iux5jSkXBLhesiT1A3ISui6MgAA="
+    ],
+    "youtubeEmbeds": [
+      "zOgYYPWJFl8",
+      "EvG9jj91gyw"
     ]
   },
   {
@@ -1270,7 +1350,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20ToxicB/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20ToxicB/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "SgN4OGfg5mg",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/toxicbdj/",
     "youtube": "https://www.youtube.com/@toxicb-dj",
@@ -1279,6 +1359,9 @@
       "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAQCdASoJAAoABUB8JZQCsAEf/T0j8IAA/rZ0T+wIhP8A3K43YK0nfFVC45BtlyWewNFYBYAAAA==",
       "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAAAQAgCdASoIAAoABUB8JZQC7H8AGZLo+MSAAP7XXQsQLZ0UlyHRh7iYtUEWqXut0iP0AA==",
       "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAABwAQCdASoIAAoABUB8JZQAAkc48AD+4lK9tJ3bw9uL1JOavGOtaZnMl1yiL8YkwAM4AA=="
+    ],
+    "youtubeEmbeds": [
+      "SgN4OGfg5mg"
     ]
   },
   {
@@ -1300,7 +1383,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Una/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Una/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "qr_fZAEWIbA",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/u.na_beatz/",
     "youtube": "https://www.youtube.com/@yunabeatz",
@@ -1310,6 +1393,9 @@
       "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAABwAQCdASoKAAoABUB8JYwCw7FAAAD+7t54P9pHnEVd1L06K+YTMvBE0WtxAAAA",
       "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoKAAoABUB8JYgC7AC18gwAAP4vNAkNksiHQP5KTHZNlg/3g6dA6rAy30wAAA==",
       "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoHAAoABUB8JbAC7AD0uaZv2AAAzEwMWN4I6uYc+4VZwnVGN1TGFz8Bx+eK43AJAAA="
+    ],
+    "youtubeEmbeds": [
+      "qr_fZAEWIbA"
     ]
   },
   {
@@ -1347,13 +1433,13 @@
     "id": "47",
     "name": "DJ Sarang",
     "slug": "dj-sarang",
-    "category": "Producer, DJ",
+    "category": "DJ, Producer",
     "genre": "EDM, Hard Dance, Kpop",
     "bio": "DJ SARANG is a South Korea-based DJ and producer specializing in high-energy most genre of Electrornic Dance Music. With deep roots in tech house and techno, they are known for seamlessly mixing across genres to keep the dance floor vibe fresh and unpredictable. she performs at a wide range of venues, bringing a unique style and radiant energy that lights up every stage they play.",
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Sarang/000.jpg",
     "imagePosition": "center 20%",
     "mobileImagePosition": "center 20%",
-    "thumbnailPosition": "center 10%",
+    "thumbnailPosition": "center 15%",
     "weight": 7,
     "facebook": "",
     "twitter": "",
@@ -1371,7 +1457,12 @@
       "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoIAAoABUB8JZQC7ADVlSwAAP7YTIaDuOKbaOlLou0qgMAX3zQez2/7hDAAAA==",
       "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoHAAoABUB8JZQC06DdjkrCH9QA/uG4JC46PrYfjlSmtCCv//rmumF9LagpqyX6u81MGAAA",
       "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoHAAoABUB8JZwAAseinGAAAP7hz4cICshXKaOJbFCJ9MyfdAYkI24CAAA="
-    ]
+    ],
+    "youtube": "",
+    "spotify": "",
+    "beatport": "",
+    "soundcloudEmbed": "",
+    "useOriginalForThumbnail": true
   },
   {
     "id": "48",
@@ -1392,14 +1483,14 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Jiwoo/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Jiwoo/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "J74a9YOsGvs",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/ahnjwoo/",
     "youtube": "https://www.youtube.com/@ilovemymelodies",
     "soundcloud": "https://soundcloud.com/jiwoo-ahn-880113404",
     "spotify": "",
     "beatport": "",
-    "soundcloudEmbed": "",
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjiwoo-ahn-880113404%2Fafro-2hours&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
     "imageBlur": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoIAAoABUB8JZQAAsf8rR5XCwAA/gqzL+tlM2FG615Iv7UwBCLaSJC8AnNHoqmthtCEJyYtepYAAA==",
     "photosBlur": [
       "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoIAAoABUB8JaACdAD0RxDd1gAA4ge3KKN5yFxjPnb7o05+tlYKLVaC0luBp5sdfnt2mTYciL0F+AAA",
@@ -1416,9 +1507,9 @@
     "genre": "EDM, Hard Dance, Kpop",
     "bio": "A young girl who loves dance and the energy on the music stage and wants to constantly share her small but strong energy with people. The girl's name is DJ Riya Although her dream of becoming an idol has been postponed for a while, this girl, who is showing more activities as a DJ and dancer than anyone else, wants to get out of Korea and communicate with people on a bigger stage. As DJ Riya promises to bring the energy that she couldn't fully express in the Asia Dance music scene, delivering even more dynamic performances and sharing joyful energy with fans on various stages. As a versatile artist who constantly pushes the boundaries of her artistry, we have high expectations for the future of both DJ Riya",
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Riya/000.jpg",
-    "imagePosition": "center center",
+    "imagePosition": "center 47%",
     "mobileImagePosition": "center center",
-    "thumbnailPosition": "center 15%",
+    "thumbnailPosition": "center 90%",
     "weight": 5.8,
     "facebook": "",
     "twitter": "",
@@ -1436,7 +1527,13 @@
       "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoHAAoABUB8JZQCw7DdqSE0AAD+xyLXEt1M9bPcu040feWgaOB6irjXwAA=",
       "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACQAQCdASoHAAoABUB8JZQAAlKAngAA/tXraC0yRhYIbYiEWL0ro2W539/9xW5RYAqgQAAA",
       "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoHAAoABUB8JZQAAlyoi0MAAP7V62gs23Pnb3RaQOPWVLPfeJiLqRNdR0KAAA=="
-    ]
+    ],
+    "youtube": "",
+    "soundcloud": "",
+    "spotify": "",
+    "beatport": "",
+    "soundcloudEmbed": "",
+    "useOriginalForThumbnail": true
   },
   {
     "id": "50",
@@ -1464,7 +1561,7 @@
     "youtube": "",
     "spotify": "",
     "beatport": "",
-    "soundcloudEmbed": "",
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fdia_records%2Fsets%2Fcompilation-album-vol-3&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
     "imageBlur": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoIAAoABUB8JYwC7AEf/0PeH7QA/ufaprE8Ppkr+I2y/C7cN26Gd+uu2JQcAVNgAAA=",
     "photosBlur": [
       "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoIAAoABUB8JaACdAED7BWzn4AA/uzZRDJNKn2izNltgp3OeyssZwjM0CZLHmJjoSiYrMbliLvoWAAA",
@@ -1494,13 +1591,14 @@
     "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/sion_inthemix/",
-    "soundcloud": "https://soundcloud.com/sion_official",
+    "soundcloud": "https://soundcloud.com/sion_official/",
     "imageBlur": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoHAAoABUB8JZwAAlvI6jqfoAD1l4tyvyyTAKMbp10fk3387BvIHCgA",
     "photosBlur": [
       "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoHAAoABUB8JbACdAEXWTx+zgAA9lgN2pABawYDRcSU23Y5IDMur25y5zcB3V93+Lsfjnyjv2s75OGhjOsUEMAA",
       "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADwAQCdASoHAAoABUB8JYwCdADz227+GAAA/qwXj3wZwHsARC26aV+KZ9yQAA==",
       "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADwAQCdASoHAAoABUB8JZQAAxPwr4cSwgAA/dSvH0AEGn0TP4z/7OXIRhWAAA=="
-    ]
+    ],
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/sion_official/sets/sion-varo-remix-pack-1&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   },
   {
     "id": "52",
@@ -1550,7 +1648,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Windy/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Windy/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "6IjgHuqXvy8",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/windy__official/",
     "youtube": "https://www.youtube.com/@djwindy",
@@ -1580,7 +1678,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Bliss/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Bliss/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "MjJ_VmbZeEc",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/bliss.__.dj/",
     "youtube": "https://www.youtube.com/channel/UClKGAGyZY04fhS3OgTn8Prg",
@@ -1610,7 +1708,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Siro/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Siro/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "ZvI9advHxls",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/i_am_siro/",
     "soundcloud": "https://soundcloud.com/i_am_siro",
@@ -1620,7 +1718,8 @@
       "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoHAAoABUB8JaQAAp1V/88/4AD+6GaBNVyCo9b27xWjdLutuJdioAAA",
       "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoHAAoABUB8JZwAAlxAzbAAAP7rMoBsmrgc/6hysJ325T5VQ9qrsUwBAAA=",
       "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADwAQCdASoHAAoABUB8JZwAAsf2vKggaAAA/uf7gqeqZyexwQEiwPv1L+3zBWpVgAA="
-    ]
+    ],
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fi_am_siro%2Fdom-dolla-dreamin-siro-remix&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   },
   {
     "id": "56",
@@ -1650,7 +1749,8 @@
       "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoHAAoABUB8JQBWACBvfDH6rgAA/ahN7gsVNjgA1fCVL9uZ2pVPezchot2BP0XqEHyXtoAA",
       "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoIAAoABUB8JQBOgCFnltORsAD+xuWxXqDD99WCYqQ/6v2pDg51hCmh5yRq9IGXiICdagWoAAA=",
       "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoIAAoABUB8JZACdAEXftkaAYAA/jNA68BiteTc4pt0qNGtxM4CWAZFpncFWeHT4Hydu6Q6WAAAAA=="
-    ]
+    ],
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Flevel1musicofc%2Fsiro-tricky-bad-side&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   },
   {
     "id": "57",
@@ -1718,16 +1818,32 @@
     "genre": "EDM",
     "bio": "",
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/%EC%A1%B0%ED%98%84%EC%98%81/000.jpg",
-    "imagePosition": "center center",
-    "mobileImagePosition": "center center",
-    "thumbnailPosition": "center center",
+    "imagePosition": "center 17%",
+    "mobileImagePosition": "center 35%",
+    "thumbnailPosition": "center 20%",
     "weight": 1,
     "facebook": "",
     "twitter": "",
-    "photos": [],
+    "photos": [
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/hyunyoung/001.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/hyunyoung/002.jpg",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/hyunyoung/003.jpg"
+    ],
     "youtubeEmbed": "",
     "additionalLinks": [],
-    "imageBlur": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAABwAQCdASoHAAoABUB8JQBOgBquAAD+aCxDYlB6iI6xeNFDRi/0g5gkYsv9YFhg6JBxfMwuMHgCVQAA"
+    "imageBlur": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAABwAQCdASoHAAoABUB8JQBOgBquAAD+aCxDYlB6iI6xeNFDRi/0g5gkYsv9YFhg6JBxfMwuMHgCVQAA",
+    "instagram": "https://www.instagram.com/cho_hyunyoung/",
+    "youtube": "",
+    "soundcloud": "",
+    "spotify": "",
+    "beatport": "",
+    "soundcloudEmbed": "",
+    "useOriginalForThumbnail": true,
+    "thumbnails": [
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/hyunyoung/thumb-001.webp",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/hyunyoung/thumb-002.webp",
+      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/hyunyoung/thumb-003.webp"
+    ]
   },
   {
     "id": "60",
@@ -1788,7 +1904,8 @@
       "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoHAAoABUB8JZQCw7EWT0cVwAAA/mwm6TMK0AysY8ak61ZjqP3hBU5Bj/CvskuzxO/cUgAA",
       "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoHAAoABUB8JYwAAvyCM+KPAAD+WnLWKr3OAIoXqDvvQkHQfD1XZLwAAAA=",
       "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAAAwAgCdASoIAAoABUB8JZACdAEDfpFEOXFAAAD4XyAeWF1zY9N9s2y2D+Rfz8/Yqfx4YxfPnm3AAA=="
-    ]
+    ],
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fkazerrmusic%2Ffifty-fifty-sos-kazerr-remix&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   },
   {
     "id": "62",
@@ -1809,7 +1926,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Joody/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Joody/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "Ys_LT4hlswo",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/j_0_0_d_y/",
     "youtube": "https://www.youtube.com/@joodydj2395",
@@ -1819,7 +1936,8 @@
       "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoIAAoABUB8JZACdADcm6i0oCAA/bB6OoNjK2e3RfJH0UsJ3Z4SBcIZjPKMw5OqMlAnAAAA",
       "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoIAAoABUB8JbACdAD5/MRMAAD9/mOkWFVuGvbqNSzZOhKD0nUEPPPmowch3CcpEYoNiEtfADjvXmgHAAA=",
       "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoIAAoABUB8JbACdAD0j6cXh0AA/paamjh0htRJPWKepqmSxiOh5Vf0RR8IC5AAAAA="
-    ]
+    ],
+    "spotifyEmbed": "https://open.spotify.com/embed/artist/6mVqpSLGC8rBKkmzfXVjXj?utm_source=generator"
   },
   {
     "id": "63",
@@ -1860,14 +1978,14 @@
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Siwon/000.jpg",
     "imagePosition": "center 10%",
     "mobileImagePosition": "center 10%",
-    "thumbnailPosition": "center 10%",
+    "thumbnailPosition": "center 15%",
     "weight": 1,
     "facebook": "",
     "twitter": "",
     "photos": [
-      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Siwon/001.jpg",
-      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Siwon/002.jpg",
-      "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Siwon/003.jpg"
+      "/artists/dj-siwon/001.jpg",
+      "/artists/dj-siwon/002.jpg",
+      "/artists/dj-siwon/003.jpg"
     ],
     "youtubeEmbed": "",
     "additionalLinks": [],
@@ -1877,7 +1995,13 @@
       "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoIAAoABUB8JQBOgB8slqAAAP6YruGS7NxDKL8/xtdGrwkeC1VaVAI70IVRHNLsAAA=",
       "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoIAAoABUB8JQBOgBuNswIAAPz1alIjGM9vWR2iwqxAVtkcABU51rklwjml2AAA",
       "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoHAAoABUB8JZACdADc+SUE1wAA/gc3mUHgoJZ65PXri1MTwL/F6VlddFs/9bJiPjLBkPFNzuRraYGgAAA="
-    ]
+    ],
+    "youtube": "",
+    "soundcloud": "",
+    "spotify": "",
+    "beatport": "",
+    "soundcloudEmbed": "",
+    "useOriginalForThumbnail": true
   },
   {
     "id": "65",
@@ -2101,7 +2225,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Minky/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Minky/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "b_fTEKCOZbc",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/minkysway/",
     "youtube": "https://www.youtube.com/@djminky",
@@ -2112,7 +2236,8 @@
       "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoHAAoABUB8JYwAApyilFx/4QAA/uCmJUrK8KXCR8ZWFaMKxzwj7g6Lf6prIktcfna6QQ1AAAA=",
       "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoIAAoABUB8JZQAAt0DR1esIAD+tp79GZ/5xzao7h8uVAc3QIieQ3AA",
       "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoHAAoABUB8JYwCdADyd25gAAD+64Vw0U6BnhgLPFX/17ycIXTutUIHLwEAAA=="
-    ]
+    ],
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fminkysway%2Fghetto-funk-electronica&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   },
   {
     "id": "73",
@@ -2172,7 +2297,7 @@
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/Jina/000.jpg",
     "imagePosition": "center 13%",
     "mobileImagePosition": "center 13%",
-    "thumbnailPosition": "center center",
+    "thumbnailPosition": "center 20%",
     "weight": 1,
     "facebook": "",
     "twitter": "",
@@ -2189,7 +2314,13 @@
       "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoIAAoABUB8JQBOgB6PBQ2tAADgLcg9Pj6PzCXa2iXidTjAi2mUoNs/xNYONwnDa0YAAA==",
       "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoIAAoABUB8JQBOgCLv1htH8ADif2Daw7QVkk5CvqpGFLvRasP7NRBcAWpEDPdhkT0AlAAA",
       "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoHAAoABUB8JQBOgB57bp3ZwAD9AeHUq6v0dIajMkkdAZPjPCize2lY+3asyaaHpT+E7TMRPQD88AAA"
-    ]
+    ],
+    "youtube": "",
+    "soundcloud": "",
+    "spotify": "",
+    "beatport": "",
+    "soundcloudEmbed": "",
+    "useOriginalForThumbnail": true
   },
   {
     "id": "76",
@@ -2442,7 +2573,7 @@
     "image": "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Doha/000.jpg",
     "imagePosition": "center 20%",
     "mobileImagePosition": "center 20%",
-    "thumbnailPosition": "center 15%",
+    "thumbnailPosition": "center 10%",
     "weight": 6,
     "facebook": "",
     "twitter": "",
@@ -2464,7 +2595,8 @@
     "soundcloud": "",
     "spotify": "",
     "beatport": "",
-    "soundcloudEmbed": ""
+    "soundcloudEmbed": "",
+    "useOriginalForThumbnail": true
   },
   {
     "id": "86",
@@ -2485,7 +2617,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Erry/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/DJ%20Erry/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "kKXiF8CkW9w",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/dj_erry_/",
     "youtube": "https://www.youtube.com/@dj_erry",
@@ -2544,7 +2676,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/badmon/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/badmon/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "LxwSLYGMAD4",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/djbadmon/",
     "youtube": "https://www.youtube.com/@djbadmon",
@@ -2567,7 +2699,7 @@
     "mobileImagePosition": "center 30%",
     "thumbnailPosition": "center 30%",
     "instagram": "https://www.instagram.com/baeyoon.official",
-    "youtube": "https://www.youtube.com/@baeyoon.official",
+    "youtube": "https://www.youtube.com/watch?v=8FKhOBLkGOE",
     "soundcloud": "https://soundcloud.com/baeyoon_seoul",
     "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/overcurrent/sets/sentimental-ep&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
     "beatport": "https://www.beatport.com/artist/baeyoon/1361835",
@@ -2579,7 +2711,7 @@
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/baeyoon/002.jpg",
       "https://hn5lsrd5hvli3ttm.public.blob.vercel-storage.com/artists/baeyoon/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "8FKhOBLkGOE",
     "additionalLinks": [],
     "imageBlur": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACQAQCdASoHAAoABUB8JZwAAppikcAA/u/XS1YN8ohF7/kXAU+4j9GZHOqnSWhtDs3dj6Ih1W9PpoYEAAA=",
     "photosBlur": [
