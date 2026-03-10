@@ -20,11 +20,14 @@ export interface DJ {
     soundcloud?: string;
     soundcloudEmbed?: string;
     spotify?: string;
+    spotifyEmbed?: string;
     beatport?: string;
     photos?: string[];
     imageBlur?: string;
     photosBlur?: string[];
     youtubeEmbed?: string;
+    youtubeEmbeds?: string[];
+    thumbnails?: string[];
     additionalLinks?: { label: string; url: string }[];
 }
 

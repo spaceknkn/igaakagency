@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { getMainCategories, getGenres, getPerformanceSubcategories, getDJsByFilter, getThumbnailPath, DJ } from '@/lib/data';
 import { getAssetPath, safeEncodeURI } from '@/lib/utils';
 
+// User requested to keep roster page font size same as others
 export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
     const [selectedCategory, setSelectedCategory] = useState<string>('');
     const [selectedFilter, setSelectedFilter] = useState<string>('');
@@ -190,10 +191,11 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
                                         <div className="relative w-[80%] aspect-square rounded-full bg-neutral-200 mb-3 overflow-hidden">
                                             {dj.image ? (
                                                 <Image
-                                                    src={getAssetPath(safeEncodeURI(getThumbnailPath(dj.image)))}
+                                                    src={getAssetPath(safeEncodeURI((dj as any).useOriginalForThumbnail ? dj.image : getThumbnailPath(dj.image)))}
                                                     alt={dj.name}
                                                     fill
                                                     sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 15vw"
+                                                    priority={filteredDJs.indexOf(dj) < 6}
                                                     className={`object-cover transition-all duration-500 ${isActive ? 'grayscale-0 scale-105' : 'grayscale group-hover:grayscale-0 group-hover:scale-105'}`}
                                                     style={{
                                                         objectPosition: dj.thumbnailPosition || 'center center',
@@ -242,7 +244,7 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
                                         <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-neutral-200 flex-shrink-0 overflow-hidden">
                                             {dj.image ? (
                                                 <Image
-                                                    src={getAssetPath(safeEncodeURI(getThumbnailPath(dj.image)))}
+                                                    src={getAssetPath(safeEncodeURI((dj as any).useOriginalForThumbnail ? dj.image : getThumbnailPath(dj.image)))}
                                                     alt={dj.name}
                                                     fill
                                                     sizes="48px"

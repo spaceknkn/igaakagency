@@ -16,9 +16,13 @@ export async function getArtists(): Promise<any[]> {
             if (blobs.length > 0) {
                 const targetBlob = blobs.find(b => b.pathname === BLOB_FILENAME);
                 if (targetBlob) {
-                    // Add cache-busting timestamp to bypass Vercel Blob CDN cache
-                    const res = await fetch(`${targetBlob.url}?t=${Date.now()}`, { cache: 'no-store' });
-                    return await res.json();
+                    // Add cache-busting timestamp and use downloadUrl to bypass Vercel Blob CDN cache
+                    const res = await fetch(`${targetBlob.downloadUrl}?t=${Date.now()}`, { cache: 'no-store' });
+                    if (res.ok && res.headers.get('content-type')?.includes('application/json')) {
+                        return await res.json();
+                    } else {
+                        console.warn('Blob returned non-JSON response (possibly blocked or not found), falling back.');
+                    }
                 }
             }
         } catch (e) {
@@ -34,7 +38,11 @@ export async function getArtists(): Promise<any[]> {
 
         // If on Vercel and blob didn't exist, initialize it
         if (isVercel() && data.length > 0) {
-            await saveToBlob(data);
+            try {
+                await saveToBlob(data);
+            } catch (e) {
+                console.error('Failed to initialize locked Vercel Blob store, ignoring:', e);
+            }
         }
         return data;
     }

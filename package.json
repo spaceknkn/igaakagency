@@ -7,7 +7,9 @@
     "prebuild": "node scripts/generate-thumbnails.mjs",
     "build": "node scripts/clean-vercel.mjs && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync": "node --env-file=.env.local scripts/sync-db.mjs",
+    "regen-thumbs": "node --env-file=.env.local scripts/regen-thumbs.mjs"
   },
   "dependencies": {
     "@vercel/blob": "^2.3.0",

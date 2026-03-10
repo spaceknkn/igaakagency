@@ -3,6 +3,8 @@ import { getArtists, saveArtists } from '@/lib/db';
 import { verifyAuth, unauthorized } from '@/lib/auth';
 
 // GET single artist
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
     const auth = verifyAuth(req);
     if (!auth.valid) return unauthorized(auth.error);

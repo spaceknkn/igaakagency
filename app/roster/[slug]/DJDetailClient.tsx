@@ -6,11 +6,64 @@ import Image from 'next/image';
 import { getAssetPath, safeEncodeURI } from '@/lib/utils';
 import BookingModal from '@/components/BookingModal';
 
-export default function DJDetailClient({ dj }: { dj: any }) {
+interface DJ {
+    id: string;
+    name: string;
+    slug: string;
+    genre: string;
+    bio?: string;
+    image?: string;
+    imagePosition?: string;
+    mobileImagePosition?: string;
+    imageBlur?: string;
+    photos?: string[];
+    photosBlur?: string[];
+    instagram?: string;
+    facebook?: string;
+    youtube?: string;
+    twitter?: string;
+    soundcloud?: string;
+    spotify?: string;
+    beatport?: string;
+    youtubeEmbed?: string;
+    youtubeEmbeds?: string[];
+    thumbnails?: string[];
+    soundcloudEmbed?: string;
+    spotifyEmbed?: string;
+    additionalLinks?: Array<{ label: string; url: string }>;
+}
+
+const VideoModal = ({ isOpen, onClose, videoId }: { isOpen: boolean; onClose: () => void; videoId: string | null }) => {
+    if (!isOpen || !videoId) return null;
+    return (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 md:p-8" onClick={onClose}>
+            <button
+                className="absolute top-6 right-6 text-white hover:text-neutral-400 transition-colors z-[110]"
+                onClick={onClose}
+            >
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div className="w-full max-w-5xl aspect-video relative" onClick={e => e.stopPropagation()}>
+                <iframe
+                    className="w-full h-full rounded-lg"
+                    src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                ></iframe>
+            </div>
+        </div>
+    );
+};
+
+export default function DJDetailClient({ dj }: { dj: DJ }) {
     const [bioExpanded, setBioExpanded] = useState(false);
     const [bookingOpen, setBookingOpen] = useState(false);
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxIndex, setLightboxIndex] = useState(0);
+    const [videoModalOpen, setVideoModalOpen] = useState(false);
+    const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
 
     // Use photos array if available, otherwise fall back to main image repeated
     const photos = dj.photos && dj.photos.length > 0 ? dj.photos : [];
@@ -18,7 +71,7 @@ export default function DJDetailClient({ dj }: { dj: any }) {
 
     return (
         <div className="min-h-screen bg-white">
-            <div className="relative z-10 pt-20">
+            <div className="relative z-10 pt-20 pb-24">
                 <div className="max-w-[1100px] mx-auto px-6">
                     {/* Back to Roster Link */}
                     <header className="py-4">
@@ -43,6 +96,7 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                                     alt={dj.name}
                                     fill
                                     sizes="100vw"
+                                    priority
                                     className="object-cover md:hidden"
                                     style={{
                                         objectPosition: dj.mobileImagePosition || dj.imagePosition || 'center center',
@@ -56,6 +110,7 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                                     alt={dj.name}
                                     fill
                                     sizes="100vw"
+                                    priority
                                     className="object-cover hidden md:block"
                                     style={{
                                         objectPosition: dj.imagePosition || 'center center',
@@ -76,7 +131,13 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                         {/* Hero Content */}
                         <div className="absolute inset-0 flex flex-col text-white">
                             <div className="flex-1 flex items-center justify-center">
-                                <h1 className="text-4xl md:text-5xl tracking-tight font-bold drop-shadow-lg">
+                                <h1
+                                    className="tracking-tight font-bold drop-shadow-lg text-center px-4"
+                                    style={{
+                                        fontSize: 'clamp(1.4rem, 5vw, 3rem)',
+                                        whiteSpace: 'nowrap',
+                                    }}
+                                >
                                     {dj.name}
                                 </h1>
                             </div>
@@ -109,15 +170,15 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                         {dj.slug === 's2' ? (
                             <>
                                 <a href="https://www.instagram.com/dj__s2/" target="_blank" rel="noopener noreferrer"
-                                    className="text-neutral-400 hover:text-black transition-colors flex items-center gap-1.5">
-                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    className="text-neutral-400 transition-colors flex items-center gap-2">
+                                    <svg className="w-7 h-7 hover:text-[#E1306C] transition-colors" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                                     </svg>
                                     Instagram (S2)
                                 </a>
                                 <a href="https://www.instagram.com/hyebinmm/" target="_blank" rel="noopener noreferrer"
-                                    className="text-neutral-400 hover:text-black transition-colors flex items-center gap-1.5">
-                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    className="text-neutral-400 transition-colors flex items-center gap-2">
+                                    <svg className="w-7 h-7 hover:text-[#E1306C] transition-colors" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                                     </svg>
                                     Instagram (Hyebin)
@@ -127,8 +188,8 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                             <>
                                 {dj.instagram && (
                                     <a href={dj.instagram} target="_blank" rel="noopener noreferrer"
-                                        className="text-neutral-400 hover:text-black transition-colors flex items-center gap-1.5">
-                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        className="text-neutral-400 transition-colors flex items-center gap-2">
+                                        <svg className="w-7 h-7 hover:text-[#E1306C] transition-colors" fill="currentColor" viewBox="0 0 24 24">
                                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                                         </svg>
                                         Instagram
@@ -136,8 +197,8 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                                 )}
                                 {dj.facebook && (
                                     <a href={dj.facebook} target="_blank" rel="noopener noreferrer"
-                                        className="text-neutral-400 hover:text-black transition-colors flex items-center gap-1.5">
-                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        className="text-neutral-400 transition-colors flex items-center gap-2">
+                                        <svg className="w-7 h-7 hover:text-[#1877F2] transition-colors" fill="currentColor" viewBox="0 0 24 24">
                                             <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                                         </svg>
                                         Facebook
@@ -147,8 +208,8 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                         )}
                         {dj.youtube && (
                             <a href={dj.youtube} target="_blank" rel="noopener noreferrer"
-                                className="text-neutral-400 hover:text-black transition-colors flex items-center gap-1.5">
-                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                className="text-neutral-400 transition-colors flex items-center gap-2">
+                                <svg className="w-7 h-7 hover:text-[#FF0000] transition-colors" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                                 </svg>
                                 YouTube
@@ -156,8 +217,8 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                         )}
                         {dj.twitter && (
                             <a href={dj.twitter} target="_blank" rel="noopener noreferrer"
-                                className="text-neutral-400 hover:text-black transition-colors flex items-center gap-1.5">
-                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                className="text-neutral-400 transition-colors flex items-center gap-2">
+                                <svg className="w-7 h-7 hover:text-black transition-colors" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                                 </svg>
                                 X
@@ -165,8 +226,8 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                         )}
                         {dj.soundcloud && (
                             <a href={dj.soundcloud} target="_blank" rel="noopener noreferrer"
-                                className="text-neutral-400 hover:text-black transition-colors flex items-center gap-1.5">
-                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                className="text-neutral-400 transition-colors flex items-center gap-2">
+                                <svg className="w-7 h-7 hover:text-[#FF5500] transition-colors" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c-.009-.057-.05-.1-.1-.1m-.899.828c-.06 0-.091.037-.104.094L0 14.479l.172 1.282c.013.06.045.094.104.094.057 0 .09-.034.104-.094l.2-1.282-.2-1.332c-.014-.057-.047-.094-.104-.094m1.8-1.863c-.063 0-.104.045-.109.104l-.2 2.89.2 2.734c.005.058.046.103.108.103.061 0 .104-.045.108-.103l.227-2.734-.227-2.89c-.004-.059-.047-.104-.108-.104m.898-.06c-.062 0-.115.055-.12.115l-.176 2.962.176 2.748c.005.063.057.118.12.118.062 0 .114-.055.12-.118l.2-2.748-.2-2.962c-.006-.06-.058-.115-.12-.115m.928-.067c-.076 0-.133.06-.137.125l-.152 3.04.152 2.742c.004.067.061.127.137.127.074 0 .132-.06.136-.127l.174-2.742-.174-3.04c-.004-.065-.062-.125-.136-.125m.93-.132c-.082 0-.143.06-.148.137l-.128 3.178.128 2.727c.005.074.066.137.148.137.08 0 .142-.063.148-.137l.146-2.727-.146-3.178c-.006-.078-.068-.137-.148-.137m.953-.135c-.088 0-.155.064-.16.148l-.104 3.318.104 2.714c.005.08.072.148.16.148.087 0 .154-.068.16-.148l.118-2.714-.118-3.318c-.006-.084-.073-.148-.16-.148m.978.018c-.096 0-.168.069-.174.162l-.08 3.152.08 2.697c.006.088.078.162.174.162.094 0 .166-.074.174-.162l.09-2.697-.09-3.152c-.008-.093-.08-.162-.174-.162m.98-.172c-.102 0-.18.076-.186.176l-.058 3.348.058 2.68c.006.098.084.176.186.176.1 0 .178-.078.186-.176l.064-2.68-.064-3.348c-.008-.1-.086-.176-.186-.176m1.001-.124c-.11 0-.192.082-.197.188l-.034 3.448.034 2.667c.005.104.088.188.197.188.108 0 .19-.084.197-.188l.04-2.667-.04-3.448c-.007-.106-.09-.188-.197-.188m.989.107c-.006-.115-.098-.199-.21-.199-.111 0-.203.084-.209.2l-.024 3.34.024 2.652c.006.115.098.2.21.2.11 0 .201-.085.209-.2l.028-2.652-.028-3.34m.972-.352c-.117 0-.213.09-.218.21l-.006 3.582.006 2.637c.005.12.101.21.218.21.115 0 .211-.09.218-.21l.006-2.637-.006-3.583c-.007-.119-.103-.21-.218-.21m3.483 1.257c-.397 0-.764.097-1.09.264-.22-2.498-2.315-4.457-4.885-4.457-.566 0-1.11.1-1.614.284-.188.07-.238.14-.24.277v8.683c.002.14.113.257.252.27h7.577c1.319 0 2.388-1.072 2.388-2.393 0-1.322-1.069-2.392-2.388-2.392" />
                                 </svg>
                                 SoundCloud
@@ -174,8 +235,8 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                         )}
                         {dj.spotify && (
                             <a href={dj.spotify} target="_blank" rel="noopener noreferrer"
-                                className="text-neutral-400 hover:text-black transition-colors flex items-center gap-1.5">
-                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                className="text-neutral-400 transition-colors flex items-center gap-2">
+                                <svg className="w-7 h-7 hover:text-[#1DB954] transition-colors" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
                                 </svg>
                                 Spotify
@@ -183,18 +244,18 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                         )}
                         {dj.beatport && (
                             <a href={dj.beatport} target="_blank" rel="noopener noreferrer"
-                                className="text-neutral-400 hover:text-black transition-colors flex items-center gap-1.5">
-                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                className="text-neutral-400 transition-colors flex items-center gap-2">
+                                <svg className="w-7 h-7 hover:text-[#02FF95] transition-colors" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M21.092 0H2.908A2.908 2.908 0 0 0 0 2.908v18.184A2.908 2.908 0 0 0 2.908 24h18.184A2.908 2.908 0 0 0 24 21.092V2.908A2.908 2.908 0 0 0 21.092 0zM9.752 17.143h-.005c-1.377 0-2.632-.527-3.574-1.39l1.312-1.312a3.14 3.14 0 0 0 2.262.852 3.14 3.14 0 0 0 2.263-.852l.002-.002a3.14 3.14 0 0 0 .85-2.261 3.14 3.14 0 0 0-.85-2.262 3.204 3.204 0 0 0-4.525 0L6.176 11.23a5.005 5.005 0 0 1 0-7.076A4.98 4.98 0 0 1 9.752 2.81a4.98 4.98 0 0 1 3.576 1.344l-1.312 1.312A3.14 3.14 0 0 0 9.752 4.66a3.14 3.14 0 0 0-2.262.852 3.204 3.204 0 0 0 0 4.525l1.312-1.312a5.005 5.005 0 0 1 7.076 0 5.005 5.005 0 0 1 0 7.076 4.98 4.98 0 0 1-3.576 1.342h-.55z" />
                                 </svg>
                                 Beatport
                             </a>
                         )}
                         {/* Additional custom links */}
-                        {dj.additionalLinks && dj.additionalLinks.map((link: any, i: number) => (
+                        {dj.additionalLinks && dj.additionalLinks.map((link: { label: string; url: string }, i: number) => (
                             <a key={i} href={link.url} target="_blank" rel="noopener noreferrer"
-                                className="text-neutral-400 hover:text-black transition-colors flex items-center gap-1.5">
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                className="text-neutral-400 transition-colors flex items-center gap-2">
+                                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                                 </svg>
                                 {link.label}
@@ -228,17 +289,16 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                     )}
 
                     {/* Photo Grid / Scrollable Gallery */}
-                    <div className={`mt-10 mb-10 ${displayPhotos.length > 3 
-                        ? 'flex gap-3 overflow-x-auto pb-4 -mx-6 px-6 snap-x scrollbar-hide' 
+                    <div className={`mt-10 mb-10 ${displayPhotos.length > 3
+                        ? 'flex gap-3 overflow-x-auto pb-4 -mx-6 px-6 snap-x scrollbar-hide'
                         : 'grid grid-cols-3 gap-3'}`}
                     >
                         {displayPhotos.map((photo: string, i: number) => {
                             return (
                                 <div
                                     key={i}
-                                    className={`relative aspect-square overflow-hidden bg-neutral-200 cursor-pointer group snap-center ${
-                                        displayPhotos.length > 3 ? 'w-[75vw] md:w-[350px] flex-shrink-0' : 'w-full'
-                                    }`}
+                                    className={`relative aspect-square overflow-hidden bg-neutral-200 cursor-pointer group snap-center ${displayPhotos.length > 3 ? 'w-[75vw] md:w-[350px] flex-shrink-0' : 'w-full'
+                                        }`}
                                     onClick={() => { setLightboxIndex(i); setLightboxOpen(true); }}
                                 >
                                     <Image
@@ -264,19 +324,63 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                         })}
                     </div>
 
-                    {/* YouTube Embed */}
-                    {dj.youtubeEmbed && (
+                    {/* YouTube Embed Section */}
+                    {(dj.youtubeEmbeds && dj.youtubeEmbeds.length > 0) || dj.youtubeEmbed ? (
                         <div className="mb-12">
-                            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                                <iframe
-                                    className="absolute inset-0 w-full h-full rounded-lg"
-                                    src={dj.youtubeEmbed.includes('youtube.com') ? dj.youtubeEmbed : `https://www.youtube.com/embed/${dj.youtubeEmbed}`}
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                ></iframe>
-                            </div>
+                            {/* Header for videos if multiple */}
+                            {((dj.youtubeEmbeds?.length || 0) > 1) && (
+                                <h3 className="text-white text-sm font-bold mb-6 uppercase tracking-widest text-center">Videos</h3>
+                            )}
+
+                            {/* Layout logic */}
+                            {(!dj.youtubeEmbeds || dj.youtubeEmbeds.length <= 1) ? (
+                                // Single Video Layout
+                                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                                    <iframe
+                                        className="absolute inset-0 w-full h-full rounded-lg"
+                                        src={`https://www.youtube.com/embed/${dj.youtubeEmbeds?.[0] || dj.youtubeEmbed}`}
+                                        loading="lazy"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                    ></iframe>
+                                </div>
+                            ) : (
+                                // Multi-Video Layout (Grid for 2, horizontal scroll for 3+)
+                                <div className={`${(dj.youtubeEmbeds?.length ?? 0) === 2
+                                    ? 'grid grid-cols-2 gap-3'
+                                    : 'flex gap-3 overflow-x-auto pb-4 snap-x scrollbar-hide -mx-6 px-6'}`}
+                                >
+                                    {dj.youtubeEmbeds?.map((videoId: string, idx: number) => (
+                                        <div
+                                            key={idx}
+                                            className={`relative aspect-video overflow-hidden bg-neutral-900 rounded-lg cursor-pointer group snap-center ${(dj.youtubeEmbeds?.length ?? 0) > 2 ? 'w-[85vw] md:w-[450px] flex-shrink-0' : 'w-full'
+                                                }`}
+                                            onClick={() => {
+                                                setActiveVideoId(videoId);
+                                                setVideoModalOpen(true);
+                                            }}
+                                        >
+                                            {/* Video Thumbnail Placeholder (using YouTube MQ Default for 16:9) */}
+                                            <Image
+                                                src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`}
+                                                alt={`${dj.name} video ${idx + 1}`}
+                                                fill
+                                                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                            />
+                                            {/* Play Button Overlay */}
+                                            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                                                <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-[#F5A623] group-hover:text-white transition-all">
+                                                    <svg className="w-6 h-6 md:w-8 md:h-8 fill-current translate-x-0.5" viewBox="0 0 24 24">
+                                                        <path d="M8 5v14l11-7z" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
-                    )}
+                    ) : null}
 
                     {/* SoundCloud Embed */}
                     {dj.soundcloudEmbed && (
@@ -289,11 +393,34 @@ export default function DJDetailClient({ dj }: { dj: any }) {
                                 allow="autoplay"
                                 src={dj.soundcloudEmbed}
                                 className="rounded-lg"
+                                loading="lazy"
+                            ></iframe>
+                        </div>
+                    )}
+
+                    {/* Spotify Embed */}
+                    {dj.spotifyEmbed && (
+                        <div className="mb-12">
+                            <iframe
+                                style={{ borderRadius: '12px' }}
+                                src={dj.spotifyEmbed}
+                                width="100%"
+                                height="352"
+                                frameBorder="0"
+                                allowFullScreen
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                loading="lazy"
                             ></iframe>
                         </div>
                     )}
                 </div>
             </div>
+
+            <VideoModal
+                isOpen={videoModalOpen}
+                onClose={() => setVideoModalOpen(false)}
+                videoId={activeVideoId}
+            />
 
             {/* Booking Modal */}
             <BookingModal
@@ -332,13 +459,14 @@ export default function DJDetailClient({ dj }: { dj: any }) {
 
                     {/* Image */}
                     <div
-                        className="max-w-[90vw] max-h-[90vh] flex items-center justify-center"
+                        className="w-[90vw] h-[90vh] flex items-center justify-center relative"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <img
+                        <Image
                             src={getAssetPath(safeEncodeURI(displayPhotos[lightboxIndex]))}
                             alt={`${dj.name} photo ${lightboxIndex + 1}`}
-                            className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+                            fill
+                            className="object-contain rounded-lg shadow-2xl"
                         />
                     </div>
 

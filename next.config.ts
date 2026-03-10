@@ -14,6 +14,18 @@ const nextConfig: NextConfig = {
         hostname: '*.vercel-storage.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.ytimg.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

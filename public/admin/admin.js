@@ -302,8 +302,15 @@ async function saveArtist() {
             const saved = await res.json();
             if (currentArtistId === 'new') {
                 currentArtistId = saved.id;
+                artists.push(saved);
+            } else {
+                const idx = artists.findIndex(a => a.id === currentArtistId);
+                if (idx !== -1) artists[idx] = saved;
             }
-            await loadArtists();
+            
+            // Re-sort and render locally instead of fetching from the potentially stale CDN cache
+            artists.sort((a, b) => (b.weight || 0) - (a.weight || 0));
+            renderArtistList(document.getElementById('searchInput').value);
             selectArtist(currentArtistId);
             showToast('Artist saved successfully!');
         } else {

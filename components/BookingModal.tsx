@@ -110,11 +110,18 @@ Receive announcements: ${formData.receiveEmails ? 'Yes' : 'No'}
         setTimeout(() => {
             setIsSubmitting(false);
             setSubmitted(true);
+            
+            // Wait a moment for them to see "Sent!" before opening the mail app
             setTimeout(() => {
-                setSubmitted(false);
-                onClose();
-            }, 2000);
-        }, 1000);
+                window.location.href = mailtoLink;
+                
+                // Clear state and close after another delay
+                setTimeout(() => {
+                    setSubmitted(false);
+                    onClose();
+                }, 1000);
+            }, 800);
+        }, 1500);
     };
 
     if (!isOpen) return null;
