@@ -1789,7 +1789,7 @@
     "genre": "EDM",
     "bio": "",
     "image": "/artists/Hwayoung/000.jpg",
-    "imagePosition": "center center",
+    "imagePosition": "center 20%",
     "mobileImagePosition": "center center",
     "thumbnailPosition": "center center",
     "weight": 5,
