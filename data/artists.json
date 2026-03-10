@@ -1421,7 +1421,7 @@
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/rumihousemusic/",
     "soundcloud": "https://soundcloud.com/rumihousemusic/",
-    "soundcloudEmbed": "https://soundcloud.com/rumihousemusic/irumi_afro-house-mixset?ref=clipboard&p=i&c=1&si=2FE6E911CB124886B6C3A90A4FBCE0B1&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1954388147&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
     "imageBlur": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoHAAoABUB8JZQC7AEf2fpQQAD+CbUVFwopMPpyrXdWvVDvy9fe0moFXxBaGRV15eSAAA==",
     "photosBlur": [
       "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACQAQCdASoIAAoABUB8JZQAAkoMYAAA/uJ4dQUfdsVbxW1kH8zD3s8JzrFAI5gZrSUVdd32H0N5AnNAAKAAAA==",
@@ -1837,7 +1837,7 @@
     "soundcloud": "",
     "spotify": "",
     "beatport": "",
-    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1954388147&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+    "soundcloudEmbed": "",
     "useOriginalForThumbnail": true,
     "thumbnails": [
       "/artists/hyunyoung/thumb-001.webp",
