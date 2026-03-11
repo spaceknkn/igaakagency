@@ -105,13 +105,13 @@ export default function Home() {
             IGAAK
           </h1>
           <p
-            className={`mt-4 md:mt-6 text-[10px] md:text-sm text-white/60 tracking-[0.2em] uppercase intro-subtitle-enter ${phase >= 2 ? 'intro-subtitle-visible' : ''
+            className={`mt-4 md:mt-6 text-xs md:text-base font-semibold text-white/80 tracking-[0.2em] uppercase whitespace-nowrap intro-subtitle-enter ${phase >= 2 ? 'intro-subtitle-visible' : ''
               }`}
           >
             Beyond the Glare, Into the Sound.
           </p>
           <p
-            className={`mt-2 md:mt-3 text-[8px] md:text-xs text-white/40 tracking-[0.1em] max-w-md mx-auto intro-subtitle-enter ${phase >= 2 ? 'intro-subtitle-visible' : ''
+            className={`mt-2 md:mt-3 text-xs md:text-sm font-medium text-white/60 tracking-[0.1em] max-w-2xl mx-auto intro-subtitle-enter ${phase >= 2 ? 'intro-subtitle-visible' : ''
               }`}
           >
             In a world blinded by excess, we filter the noise to reveal the essence. As Korea&apos;s premier DJ agency, we strip away the unnecessary, delivering only what matters.
@@ -131,14 +131,14 @@ export default function Home() {
         {/* 중앙 콘텐츠 (원래 홈 화면 그대로) */}
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
           <h1
-            className={`text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-tight intro-text-enter ${phase >= 4 ? 'intro-text-visible' : ''
+            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 tracking-tight whitespace-nowrap intro-text-enter ${phase >= 4 ? 'intro-text-visible' : ''
               }`}
           >
             Beyond the Glare, Into the Sound.
           </h1>
 
           <p
-            className={`text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-12 intro-desc-enter ${phase >= 4 ? 'intro-desc-visible' : ''
+            className={`text-xl md:text-2xl font-medium text-neutral-300 max-w-3xl mx-auto mb-12 intro-desc-enter ${phase >= 4 ? 'intro-desc-visible' : ''
               }`}
           >
             In a world blinded by excess, we filter the noise to reveal the essence. As Korea&apos;s premier DJ agency, we strip away the unnecessary, delivering only what matters.
