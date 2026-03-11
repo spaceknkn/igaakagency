@@ -129,9 +129,9 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-neutral-900 via-black to-black" />
 
         {/* 중앙 콘텐츠 (원래 홈 화면 그대로) */}
-        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto w-full">
           <h1
-            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 tracking-tight whitespace-nowrap intro-text-enter ${phase >= 4 ? 'intro-text-visible' : ''
+            className={`text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-8 tracking-tight whitespace-nowrap overflow-hidden text-ellipsis intro-text-enter ${phase >= 4 ? 'intro-text-visible' : ''
               }`}
           >
             Beyond the Glare, Into the Sound.
