@@ -218,11 +218,17 @@ export default function Home() {
       <section className="py-24 px-6 border-t border-neutral-800 bg-black">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">About IGAAK</h2>
-          <p className="text-lg text-neutral-400 leading-relaxed">
-            IGAAK is a premier DJ and music producer agency, representing exceptional talent from around the world.
-            We connect artists with venues, festivals, and events, ensuring unforgettable musical experiences.
-            Our roster includes diverse genres spanning electronic, house, techno, and beyond.
-          </p>
+          <div className="text-lg text-neutral-400 leading-relaxed flex flex-col gap-6">
+            <p>
+              IGAAK is Korea&apos;s premier DJ agency, representing the nation&apos;s top-tier artists.
+            </p>
+            <p>
+              We specialize in curating sophisticated matches between our world-class talent and venues, festivals, and high-profile brand events, delivering electrifying performances that awaken the senses. Spanning a wide sonic spectrum—from the entire electronic music landscape, including House and Techno, to Hip-hop—IGAAK&apos;s diverse roster is dedicated to elevating every stage and ensuring an unforgettable musical experience.
+            </p>
+            <p>
+              우리는 압도적인 역량을 갖춘 아티스트와 베뉴, 페스티벌, 그리고 브랜드 이벤트를 정교하게 매칭하여, 관객의 감각을 깨우는 전율적인 무대를 완성합니다. IGAAK의 아티스트 로스터는 하우스와 테크노를 포함한 일렉트로닉 뮤직 전반에서 힙합에 이르기까지 폭넓은 스펙트럼을 자랑하며, 단순한 공연 그 이상의 잊지 못할 음악적 경험을 보장합니다.
+            </p>
+          </div>
         </div>
       </section>
     </>
