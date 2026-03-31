@@ -2062,7 +2062,7 @@
       "/artists/DJ Dorothy/002.jpg",
       "/artists/DJ Dorothy/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtubeEmbed": "5oKgkgRP2n0",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/dj__dorothy/",
     "imageBlur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoHAAoABUB8JagCdADcNuAkAAD+mLsWjtgve4b6jyOGFr1O3C765rO9t2X4WRYm5Dh+UUXbiY6UKRxegAA=",
@@ -2070,6 +2070,10 @@
       "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoKAAoABUB8JYgCsADczrO08AD+ySkIWVIfDmU30eCI08Do9zH/VF0Tdlc5IAAA",
       "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAQCdASoHAAoABUB8JZwAApwdeEYAAP7YSbhwEeeUVyz5hbIDqKl1kdB70msc2aNmH5YsZYFHQAAA",
       "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoIAAoABUB8JZwAAlo1A8EMQAAA/pwNnqkjZfS749avYQRs9nVdhurcwCBgCXbnt9GnS89lSu0aQEDIoAA="
+    ],
+    "youtubeEmbeds": [
+      "5oKgkgRP2n0",
+      "kJBv5Wg7pWI"
     ]
   },
   {
@@ -2149,7 +2153,8 @@
       "/artists/bobbyang/002.jpg",
       "/artists/bobbyang/003.jpg"
     ],
-    "youtubeEmbed": "",
+    "youtube": "https://www.youtube.com/@Babbyang.g",
+    "youtubeEmbed": "fcyZK_UG7Q4",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/babbyang.g/",
     "imageBlur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoHAAoABUB8JbACdADyes2+1AAAyz/7O3s5zJvIRa72zy+0/xdlUroe9B8n89wZh6XgzYzEbu8/ZDuzAAA=",
@@ -2157,6 +2162,9 @@
       "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoHAAoABUB8JZwAApy7N6RIAAD4/Pyauor8qjjGyrvHVRuEux43kuOuQAAAAA==",
       "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoHAAoABUB8JZwAApyHIu0iAAD84r3rOBRGdHxl74EBHs2lwGpr6gyksAAAAA==",
       "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoHAAoABUB8JZwAAlxiutsAAOAWY7S1VfDMc8htNxE4iiiqhldmJbqx++EQxQAA"
+    ],
+    "youtubeEmbeds": [
+      "fcyZK_UG7Q4"
     ]
   },
   {
