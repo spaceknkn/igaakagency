@@ -382,11 +382,7 @@ async function handleProfileImage(event) {
 function resolvePhotoSrc(p) {
     // If it's already a full URL (Vercel Blob), use as-is
     if (p.startsWith('http')) return p;
-    // Local path like /artists/DJ Kara/001.jpg -> proxy through API
-    if (p.startsWith('/artists/')) {
-        const rest = p.replace('/artists/', '');
-        return `/api/artist-image/${rest}`;
-    }
+    // Local path like /artists/DJ Kara/001.jpg works as-is since they are statically served
     return p;
 }
 

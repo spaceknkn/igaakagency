@@ -27,6 +27,7 @@ interface DJ {
     beatport?: string;
     youtubeEmbed?: string;
     youtubeEmbeds?: string[];
+    isHidden?: boolean;
     thumbnails?: string[];
     soundcloudEmbed?: string;
     spotifyEmbed?: string;
@@ -70,7 +71,7 @@ export default function DJDetailClient({ dj }: { dj: DJ }) {
     const displayPhotos = photos.length > 0 ? photos : (dj.image ? [dj.image, dj.image, dj.image] : []);
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="bg-white">
             <div className="relative z-10 pt-20 pb-24">
                 <div className="max-w-[1100px] mx-auto px-6">
                     {/* Back to Roster Link */}
@@ -87,36 +88,30 @@ export default function DJDetailClient({ dj }: { dj: DJ }) {
                     </header>
 
                     {/* Hero Section */}
-                    <section className="relative h-[350px] overflow-hidden bg-neutral-800">
+                    <section className="relative h-[350px] bg-neutral-800">
                         {dj.image ? (
                             <>
                                 {/* Mobile hero image */}
-                                <Image
+                                <img
                                     src={getAssetPath(safeEncodeURI(dj.image))}
                                     alt={dj.name}
-                                    fill
-                                    sizes="100vw"
-                                    priority
-                                    className="object-cover md:hidden"
+                                    loading="eager"
+                                    decoding="sync"
+                                    className="absolute inset-0 w-full h-full object-cover md:hidden"
                                     style={{
                                         objectPosition: dj.mobileImagePosition || dj.imagePosition || 'center center',
                                     }}
-                                    placeholder={dj.imageBlur ? "blur" : "empty"}
-                                    blurDataURL={dj.imageBlur || undefined}
                                 />
                                 {/* Desktop hero image */}
-                                <Image
+                                <img
                                     src={getAssetPath(safeEncodeURI(dj.image))}
                                     alt={dj.name}
-                                    fill
-                                    sizes="100vw"
-                                    priority
-                                    className="object-cover hidden md:block"
+                                    loading="eager"
+                                    decoding="sync"
+                                    className="absolute inset-0 w-full h-full object-cover hidden md:block"
                                     style={{
                                         objectPosition: dj.imagePosition || 'center center',
                                     }}
-                                    placeholder={dj.imageBlur ? "blur" : "empty"}
-                                    blurDataURL={dj.imageBlur || undefined}
                                 />
                             </>
                         ) : (
@@ -290,29 +285,28 @@ export default function DJDetailClient({ dj }: { dj: DJ }) {
 
                     {/* Photo Grid / Scrollable Gallery */}
                     <div className={`mt-10 mb-10 ${displayPhotos.length > 3
-                        ? 'flex gap-3 overflow-x-auto pb-4 -mx-6 px-6 snap-x scrollbar-hide'
+                        ? 'flex gap-3 overflow-x-auto pb-4 -mx-6 px-6 scrollbar-hide'
                         : 'grid grid-cols-3 gap-3'}`}
                     >
                         {displayPhotos.map((photo: string, i: number) => {
                             return (
                                 <div
                                     key={i}
-                                    className={`relative aspect-square overflow-hidden bg-neutral-200 cursor-pointer group snap-center ${displayPhotos.length > 3 ? 'w-[75vw] md:w-[350px] flex-shrink-0' : 'w-full'
+                                    className={`relative bg-neutral-200 cursor-pointer group ${displayPhotos.length > 3 ? 'w-[75vw] md:w-[350px] flex-shrink-0' : 'w-full'
                                         }`}
                                     onClick={() => { setLightboxIndex(i); setLightboxOpen(true); }}
                                 >
-                                    <Image
+                                    <img
                                         src={getAssetPath(safeEncodeURI(photo))}
                                         alt={`${dj.name} detail ${i + 1}`}
-                                        fill
-                                        sizes={displayPhotos.length > 3 ? "(max-width: 768px) 75vw, 350px" : "(max-width: 768px) 33vw, 33vw"}
-                                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                        loading="eager"
+                                        decoding="sync"
+                                        className="w-full object-cover"
                                         style={{
+                                            aspectRatio: '1/1',
                                             objectPosition: dj.imagePosition || 'center center',
                                             filter: photos.length === 0 && i > 0 ? `brightness(${1 - i * 0.1})` : 'none',
                                         }}
-                                        placeholder={dj.photosBlur && dj.photosBlur[i] ? "blur" : "empty"}
-                                        blurDataURL={(dj.photosBlur && dj.photosBlur[i]) || undefined}
                                     />
                                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                                         <svg className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -353,19 +347,21 @@ export default function DJDetailClient({ dj }: { dj: DJ }) {
                                     {dj.youtubeEmbeds?.map((videoId: string, idx: number) => (
                                         <div
                                             key={idx}
-                                            className={`relative aspect-video overflow-hidden bg-neutral-900 rounded-lg cursor-pointer group snap-center ${(dj.youtubeEmbeds?.length ?? 0) > 2 ? 'w-[85vw] md:w-[450px] flex-shrink-0' : 'w-full'
+                                            className={`relative bg-neutral-900 rounded-lg cursor-pointer group snap-center ${(dj.youtubeEmbeds?.length ?? 0) > 2 ? 'w-[85vw] md:w-[450px] flex-shrink-0' : 'w-full'
                                                 }`}
                                             onClick={() => {
                                                 setActiveVideoId(videoId);
                                                 setVideoModalOpen(true);
                                             }}
                                         >
-                                            {/* Video Thumbnail Placeholder (using YouTube MQ Default for 16:9) */}
-                                            <Image
+                                            {/* Video Thumbnail */}
+                                            <img
                                                 src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`}
                                                 alt={`${dj.name} video ${idx + 1}`}
-                                                fill
-                                                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                                loading="eager"
+                                                decoding="sync"
+                                                className="w-full object-cover rounded-lg"
+                                                style={{ aspectRatio: '16/9' }}
                                             />
                                             {/* Play Button Overlay */}
                                             <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex items-center justify-center">

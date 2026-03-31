@@ -37,7 +37,9 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
 
     // Helper to filter djs dynamically
     const getFilteredData = (category?: string, filterValue?: string): DJ[] => {
-        let filtered = [...djs].sort((a, b) => (b.weight || 0) - (a.weight || 0));
+        let filtered = [...djs]
+            .filter(dj => !dj.isHidden)
+            .sort((a, b) => (b.weight || 0) - (a.weight || 0));
 
         if (!category) return filtered;
 
@@ -65,7 +67,7 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
     };
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="bg-white">
             {/* Black Hero Section */}
             <div className="bg-black pt-28 pb-12 px-6">
                 <div className="max-w-7xl mx-auto">
@@ -187,29 +189,27 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
                                         onClick={() => handleDjClick(dj.slug)}
                                         className="group flex flex-col items-center text-center"
                                     >
-                                        {/* Circular Image */}
-                                        <div className="relative w-[80%] aspect-square rounded-full bg-neutral-200 mb-3 overflow-hidden">
-                                            {dj.image ? (
-                                                <Image
-                                                    src={getAssetPath(safeEncodeURI((dj as any).useOriginalForThumbnail ? dj.image : getThumbnailPath(dj.image)))}
-                                                    alt={dj.name}
-                                                    fill
-                                                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 15vw"
-                                                    priority={filteredDJs.indexOf(dj) < 6}
-                                                    className={`object-cover transition-all duration-500 ${isActive ? 'grayscale-0 scale-105' : 'grayscale group-hover:grayscale-0 group-hover:scale-105'}`}
-                                                    style={{
-                                                        objectPosition: dj.thumbnailPosition || 'center center',
-                                                    }}
-                                                    placeholder={dj.imageBlur ? "blur" : "empty"}
-                                                    blurDataURL={dj.imageBlur || undefined}
-                                                />
-                                            ) : (
-                                                <div className={`w-full h-full flex items-center justify-center transition-colors duration-300 ${isActive ? 'bg-[#F5A623]' : 'bg-neutral-300 group-hover:bg-[#F5A623]'}`}>
-                                                    <span className={`text-4xl font-bold transition-colors duration-300 ${isActive ? 'text-white' : 'text-neutral-500 group-hover:text-white'}`}>
-                                                        {dj.name.charAt(0)}
-                                                    </span>
-                                                </div>
-                                            )}
+                                        {/* Circular Image - no overflow wrapper, matches test-images pattern */}
+                                        <div className="w-[80%] mb-3">
+                                                {dj.image ? (
+                                                    <img
+                                                        src={getAssetPath(safeEncodeURI((dj as any).useOriginalForThumbnail ? dj.image : getThumbnailPath(dj.image)))}
+                                                        alt={dj.name}
+                                                        loading="eager"
+                                                        decoding="sync"
+                                                        className="w-full rounded-full object-cover"
+                                                        style={{
+                                                            aspectRatio: '1/1',
+                                                            objectPosition: dj.thumbnailPosition || 'center center',
+                                                        }}
+                                                    />
+                                                ) : (
+                                                    <div className={`w-full rounded-full flex items-center justify-center transition-colors duration-300 ${isActive ? 'bg-[#F5A623]' : 'bg-neutral-300 group-hover:bg-[#F5A623]'}`} style={{ aspectRatio: '1/1' }}>
+                                                        <span className={`text-4xl font-bold transition-colors duration-300 ${isActive ? 'text-white' : 'text-neutral-500 group-hover:text-white'}`}>
+                                                            {dj.name.charAt(0)}
+                                                        </span>
+                                                    </div>
+                                                )}
                                         </div>
 
                                         {/* Default name (plain) - hidden on active/hover */}
@@ -240,23 +240,21 @@ export default function RosterClient({ initialDjs }: { initialDjs: DJ[] }) {
                                         onClick={() => handleDjClick(dj.slug)}
                                         className="group flex items-center gap-3 py-1.5 transition-colors px-2 border-b border-neutral-100 w-full max-w-md md:max-w-none"
                                     >
-                                        {/* Small Circle */}
-                                        <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-neutral-200 flex-shrink-0 overflow-hidden">
+                                        {/* Small Circle - no overflow wrapper */}
+                                        <div className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0">
                                             {dj.image ? (
-                                                <Image
+                                                <img
                                                     src={getAssetPath(safeEncodeURI((dj as any).useOriginalForThumbnail ? dj.image : getThumbnailPath(dj.image)))}
                                                     alt={dj.name}
-                                                    fill
-                                                    sizes="48px"
-                                                    className={`object-cover transition-all duration-500 ${isActive ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}
+                                                    loading="eager"
+                                                    decoding="sync"
+                                                    className="w-full h-full rounded-full object-cover"
                                                     style={{
                                                         objectPosition: dj.thumbnailPosition || 'center center',
                                                     }}
-                                                    placeholder={dj.imageBlur ? "blur" : "empty"}
-                                                    blurDataURL={dj.imageBlur || undefined}
                                                 />
                                             ) : (
-                                                <div className={`w-full h-full flex items-center justify-center transition-colors duration-300 ${isActive ? 'bg-[#F5A623]' : 'bg-neutral-300 group-hover:bg-[#F5A623]'}`}>
+                                                <div className={`w-full h-full rounded-full flex items-center justify-center transition-colors duration-300 ${isActive ? 'bg-[#F5A623]' : 'bg-neutral-300 group-hover:bg-[#F5A623]'}`}>
                                                     <span className={`text-lg font-bold transition-colors duration-300 ${isActive ? 'text-white' : 'text-neutral-400 group-hover:text-white'}`}>
                                                         {dj.name.charAt(0)}
                                                     </span>

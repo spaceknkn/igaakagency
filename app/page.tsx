@@ -51,7 +51,7 @@ export default function Home() {
     };
 
     const eligibleArtists = djs.filter(artist =>
-      artist.image && (artist.weight || 0) >= 6
+      !artist.isHidden && artist.image && (artist.weight || 0) >= 6
     );
     const femaleArtists = shuffleArray(eligibleArtists.filter(isFemaleArtist));
     const maleArtists = shuffleArray(eligibleArtists.filter(artist => !isFemaleArtist(artist)));
@@ -60,14 +60,11 @@ export default function Home() {
     setFeaturedDjs(shuffleArray([...selectedFemales, ...selectedMales]));
   }, []);
 
-  // ===== 스크롤 시 Featured 섹션 페이드인 =====
+  // 스크롤 페이드인 제거 (IntersectionObserver 삭제)
+  // iOS Safari 웹킷 캡처 버그(렌더링 지연 시 캡처 중단)를 방지하기 위해 
+  // 옵저버 기반의 지연 렌더링 대신 컴포넌트 마운트 시 즉시 표시되도록 변경합니다.
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setFeaturedVisible(true); },
-      { threshold: 0.1 }
-    );
-    if (featuredRef.current) observer.observe(featuredRef.current);
-    return () => observer.disconnect();
+    setFeaturedVisible(true);
   }, []);
 
   return (
@@ -75,56 +72,52 @@ export default function Home() {
       {/* ========================================= */}
       {/*  인트로 레이어 (이미지 + IGAAK 타이틀)    */}
       {/* ========================================= */}
-      <div
-        className={`fixed inset-0 z-[100] flex items-center justify-center bg-black transition-opacity ${phase >= 3 ? 'duration-[1800ms] opacity-0 pointer-events-none' : 'duration-500 opacity-100'
-          }`}
-      >
-        {/* 인트로 배경 이미지 */}
-        <div className="absolute inset-0 overflow-hidden">
-          <Image
-            src={getAssetPath('/intro-bg.jpg')}
+      {phase < 5 && (
+        <div
+          className="relative min-h-[600px] w-full flex items-center justify-center bg-black"
+        >
+          {/* 인트로 배경 이미지 */}
+          <img 
+            src="/intro-bg.jpg" 
             alt="IGAAK Intro"
-            fill
-            priority
-            className={`object-cover transition-all duration-[4000ms] ease-out ${phase >= 1 ? 'opacity-100 scale-110' : 'opacity-0 scale-100'
-              }`}
-            style={{ objectPosition: 'center 30%' }}
+            loading="eager"
+            decoding="sync"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${phase >= 1 ? 'opacity-100' : 'opacity-0'}`}
           />
-        </div>
+          {/* 인트로 다크 오버레이 */}
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
 
-        {/* 인트로 다크 오버레이 */}
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
-
-        {/* 인트로 IGAAK 타이틀 + 서브텍스트 */}
-        <div className="relative z-10 text-center">
-          <h1
-            className={`text-[5rem] md:text-[12rem] lg:text-[15rem] font-bold text-white tracking-[0.05em] font-sans leading-none intro-text-enter ${phase >= 2 ? 'intro-text-visible' : ''
-              }`}
-          >
-            IGAAK
-          </h1>
-          <p
-            className={`mt-4 md:mt-6 text-xs md:text-base font-semibold text-white/80 tracking-[0.2em] uppercase whitespace-nowrap intro-subtitle-enter ${phase >= 2 ? 'intro-subtitle-visible' : ''
-              }`}
-          >
-            Beyond the Glare, Into the Sound.
-          </p>
-          <p
-            className={`mt-2 md:mt-3 text-xs md:text-sm font-medium text-white/60 tracking-[0.1em] max-w-2xl mx-auto intro-subtitle-enter ${phase >= 2 ? 'intro-subtitle-visible' : ''
-              }`}
-          >
-            In a world blinded by excess, we filter the noise to reveal the essence. As Korea&apos;s premier DJ agency, we strip away the unnecessary, delivering only what matters.
-          </p>
+          {/* 인트로 IGAAK 타이틀 + 서브텍스트 */}
+          <div className="relative z-10 text-center">
+            <h1
+              className={`text-[5rem] md:text-[12rem] lg:text-[15rem] font-bold text-white tracking-[0.05em] font-sans leading-none intro-text-enter ${phase >= 2 ? 'intro-text-visible' : ''
+                }`}
+            >
+              IGAAK
+            </h1>
+            <p
+              className={`mt-4 md:mt-6 text-xs md:text-base font-semibold text-white/80 tracking-[0.2em] uppercase whitespace-nowrap intro-subtitle-enter ${phase >= 2 ? 'intro-subtitle-visible' : ''
+                }`}
+            >
+              Beyond the Glare, Into the Sound.
+            </p>
+            <p
+              className={`mt-2 md:mt-3 text-xs md:text-sm font-medium text-white/60 tracking-[0.1em] max-w-2xl mx-auto intro-subtitle-enter ${phase >= 2 ? 'intro-subtitle-visible' : ''
+                }`}
+            >
+              In a world blinded by excess, we filter the noise to reveal the essence. As Korea&apos;s premier DJ agency, we strip away the unnecessary, delivering only what matters.
+            </p>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* ========================================= */}
       {/*  메인 홈 콘텐츠                            */}
       {/* ========================================= */}
 
       {/* 히어로 섹션 */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-[400px] py-32 items-center justify-center">
         {/* 기존 그라디언트 배경 */}
         <div className="absolute inset-0 bg-gradient-to-b from-neutral-900 via-black to-black" />
 
@@ -169,12 +162,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Artists 섹션 */}
+      {/* Featured Artists 섹션 (옵저버 및 opacity 전환 로직 제거하여 즉시 렌더링) */}
       <section className="py-24 px-6 bg-black" ref={featuredRef}>
-        <div
-          className={`max-w-7xl mx-auto transition-all duration-1000 ${featuredVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-        >
+        <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-end mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white">Featured Artists</h2>
             <Link href="/roster" className="text-neutral-500 hover:text-white transition-colors text-sm tracking-wider uppercase">
@@ -186,23 +176,18 @@ export default function Home() {
               <Link
                 key={artist.id}
                 href={`/roster/${artist.slug}`}
-                className="group relative aspect-[3/4] overflow-hidden bg-neutral-900"
-                style={{
-                  transitionProperty: 'opacity, transform',
-                  transitionDuration: '0.6s',
-                  transitionTimingFunction: 'ease',
-                  transitionDelay: featuredVisible ? `${i * 80}ms` : '0ms',
-                  opacity: featuredVisible ? 1 : 0,
-                  transform: featuredVisible ? 'translateY(0)' : 'translateY(20px)',
-                }}
+                className="group relative bg-neutral-900 duration-500"
               >
-                <Image
-                  src={getAssetPath(artist.image!)}
-                  alt={artist.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  style={{ objectPosition: artist.imagePosition || 'center center' }}
-                />
+                <div className="w-full">
+                  <img
+                    src={getAssetPath(artist.image!)}
+                    alt={artist.name}
+                    loading="eager"
+                    decoding="sync"
+                    className="w-full object-cover"
+                    style={{ aspectRatio: '3/4', objectPosition: artist.imagePosition || 'center center' }}
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-2 md:p-5 text-white">
                   <h3 className="text-[10px] md:text-lg font-bold mb-0 md:mb-1 leading-tight">{artist.name}</h3>

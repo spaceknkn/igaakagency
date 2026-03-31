@@ -659,10 +659,12 @@ select {
 @media (max-width: 768px) {
     .main-layout {
         grid-template-columns: 1fr;
+        grid-template-rows: 35vh 1fr;
     }
 
     .sidebar {
-        display: none;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .editor-body {

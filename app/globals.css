@@ -19,6 +19,20 @@
   }
 }
 
+html {
+  height: auto !important;
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+  background-color: #000000;
+}
+
+body {
+  height: auto !important;
+  min-height: 100vh;
+  overflow: visible !important;
+  background-color: #000000;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

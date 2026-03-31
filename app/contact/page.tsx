@@ -1,7 +1,7 @@
-export default function ContactPage() {
+export default function Contact() {
     return (
-        <div className="min-h-screen bg-black pt-32 pb-24">
-            <div className="max-w-4xl mx-auto px-6">
+        <div className="bg-black pt-32 pb-24">
+            <div className="max-w-7xl mx-auto px-6">
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-8">
                     Contact Us
                 </h1>

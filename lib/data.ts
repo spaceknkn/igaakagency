@@ -24,6 +24,7 @@ export interface DJ {
     beatport?: string;
     photos?: string[];
     imageBlur?: string;
+    isHidden?: boolean;
     photosBlur?: string[];
     youtubeEmbed?: string;
     youtubeEmbeds?: string[];
