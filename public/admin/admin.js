@@ -278,7 +278,7 @@ async function saveArtist() {
         soundcloudEmbed: document.getElementById('toggleSoundcloudEmbed').checked
             ? document.getElementById('soundcloudEmbed').value : '',
         youtubeEmbed: document.getElementById('toggleYoutubeEmbed').checked
-            ? document.getElementById('youtubeEmbed').value : '',
+            ? extractYoutubeId(document.getElementById('youtubeEmbed').value) : '',
         additionalLinks
     };
 
@@ -480,6 +480,14 @@ function slugify(text) {
         .replace(/\s+/g, '-')
         .replace(/-+/g, '-')
         .trim();
+}
+
+function extractYoutubeId(url) {
+    if (!url) return '';
+    if (url.length === 11 && !url.includes('/') && !url.includes('?')) return url; // Already an ID
+    const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : url;
 }
 
 function toggleField(groupId, show) {
