@@ -516,6 +516,7 @@
     "name": "ZB",
     "slug": "zb",
     "category": "DJ, Producer",
+    "isHidden": true,
     "genre": "Open Format, EDM",
     "bio": "With a broad musical spectrum, ZB delivers performances that transcend genres, earning spots on the lineups of numerous major festivals over the years. Proven by his victory in a DJ competition, his sets are defined by the seamless fusion of diverse styles, connecting with audiences without boundaries. Based in Gangnam, Seoul, he is an active resident DJ at multiple clubs, while also expanding his artistry through music production and collaborative album releases with various artists.",
     "image": "/artists/zb/000.JPG",
@@ -650,19 +651,21 @@
     "category": "DJ",
     "genre": "Open Format, EDM",
     "bio": "As a top model, DJ SIENA has participated in many festivals and events around Asia, also has earned her fame as a multi-talented entertainer in advertising, TV program, fashion, sports industries. Pursuing the best in every way, after long preparation she debuted as a EDM DJ, now she is lifting her head around Korea and Asia each countries. As a beautiful and talented female DJ she has been receiving attention from whole the world beyond Korea, China and East Asia, now more and more has become popular.",
-    "image": "/artists/Siena/000.JPG",
+    "image": "/artists/Siena/000.jpg",
     "imagePosition": "center 15%",
     "mobileImagePosition": "center 15%",
-    "thumbnailPosition": "center center",
+    "thumbnailPosition": "center 15%",
     "weight": 7,
     "facebook": "",
     "twitter": "",
     "photos": [
       "/artists/Siena/001.jpg",
       "/artists/Siena/002.jpg",
-      "/artists/Siena/003.jpg"
+      "/artists/Siena/003.jpg",
+      "/artists/Siena/004.jpg",
+      "/artists/Siena/005.jpg"
     ],
-    "youtubeEmbed": "YJomfODCY_I",
+    "youtubeEmbed": "",
     "additionalLinks": [],
     "instagram": "https://www.instagram.com/dj_siena/",
     "youtube": "https://www.youtube.com/djsienaofficial",
@@ -671,6 +674,13 @@
       "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoHAAoABUB8JQBdgB5QGZ3kAAD+mwQSowCM30ZVGgbWDU+LYyFzmGhQoG2eiUMMXsCgkAAA",
       "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAQCdASoHAAoABUB8JQBYdhuG4PcQAP7Kc91qfLBHxTD+RkGb5KQ5Rm6Ped1mR/70BV9x4NRETAAA",
       "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoHAAoABUB8JZQAAxfnUoOBoAD+m64WarET6u63zkSsMVwwjZ7UZ/VUSK8CR/diJQNfvTFvsSiiqscAAAA="
+    ],
+    "thumbnails": [
+      "/artists/Siena/thumb-001.webp",
+      "/artists/Siena/thumb-002.webp",
+      "/artists/Siena/thumb-003.webp",
+      "/artists/Siena/thumb-004.webp",
+      "/artists/Siena/thumb-005.webp"
     ]
   },
   {
@@ -1116,7 +1126,8 @@
     "photos": [
       "/artists/Cream/001.jpg",
       "/artists/Cream/002.jpg",
-      "/artists/Cream/003.jpg"
+      "/artists/Cream/003.jpg",
+      "/artists/Cream/004.jpg"
     ],
     "youtubeEmbed": "QUZfOwxdeN0",
     "additionalLinks": [],
@@ -1758,7 +1769,7 @@
     "slug": "s2",
     "category": "DJ",
     "genre": "EDM",
-    "bio": "S2 is a veteran DJ who has been active in famous clubs and festivals for over 10 years.",
+    "bio": "S2 is a veteran DJ who has been active in famous clubs and festivals for over 10 years.\n\nHyebin is a member of the K-pop idol group Momoland in Korea\nHe is active in various festivals and clubs as DJ team",
     "image": "/artists/S2/000.jpg",
     "imagePosition": "center center",
     "mobileImagePosition": "center center",
@@ -1945,7 +1956,7 @@
     "slug": "dj-chayou",
     "category": "DJ",
     "genre": "EDM",
-    "bio": "Chayou began her career as a singer and model, but during her activities, she developed a deep interest in DJing?봞 medium that allows her to communicate with audiences and transform the atmosphere through music. Since her successful transition to a DJ in 2020, she has been actively performing. With a particular passion for Techno, she strives to showcase diverse music and performances by exploring the genre's unique sound and stage presence. Drawing from her multifaceted experience as a singer and model, Chayou's dream and next goal is to become a representative Techno DJ of South Korea.",
+    "bio": "Chayou began her career as a singer and model, but during her activities, she developed a deep interest in DJing medium that allows her to communicate with audiences and transform the atmosphere through music. Since her successful transition to a DJ in 2020, she has been actively performing. With a particular passion for Techno, she strives to showcase diverse music and performances by exploring the genre's unique sound and stage presence. Drawing from her multifaceted experience as a singer and model, Chayou's dream and next goal is to become a representative Techno DJ of South Korea.",
     "image": "/artists/Chayou/000.jpg",
     "imagePosition": "center 20%",
     "mobileImagePosition": "center 20%",
@@ -2551,7 +2562,10 @@
     "photos": [
       "/artists/pluma/001.jpg",
       "/artists/pluma/002.jpg",
-      "/artists/pluma/003.jpg"
+      "/artists/pluma/003.jpg",
+      "/artists/pluma/004.jpg",
+      "/artists/pluma/005.jpg",
+      "/artists/pluma/006.JPG"
     ],
     "youtubeEmbed": "",
     "additionalLinks": [],
@@ -2718,6 +2732,42 @@
       "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoHAAoABUB8JZwAAv3PWBdYAP4LTw0TauMH7kvyf9jf1Cm7sI+xBvOxaCzI4AAA",
       "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoJAAoABUB8JbAC7AEO131dgAD+6/fypfobVjZkOhdrxT0UjrAxNZbM1fjNbAAA",
       "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoJAAoABUB8JQBdgCHh9zCfAAD+5/qUEJrHxWeg5HwTSjGvtpsaotVJpCvSn3RqP4JGmUZEIQAQOABxAAA="
+    ]
+  },
+  {
+    "id": "90",
+    "name": "DJ S2",
+    "slug": "dj-s2",
+    "category": "DJ",
+    "genre": "Bass House, House, Open Format",
+    "bio": "With over ten years of experience in the EDM scene, DJ S2 has built a reputation for connecting deeply with clubbers on the dancefloor, driving them into a frenzy with his signature groove. His sound is rooted in techno and progressive house/techno, from which he has developed his own distinctive style. Known for its powerful, driving energy, his music has earned him respect throughout the Korean dance music community.\n\nHe performs weekly at some of Asia's top mega clubs across Korea, China, and Japan. His residencies and appearances include world-renowned venues such as Club Octagon (ranked #5 on DJ Mag), Club Syndrome, Elui, Bugati, Myst, Cubic, Una, Oscar, Alen International, Par, Grammy Foshan, and many more",
+    "image": "/artists/djs2/000.jpg",
+    "imagePosition": "center center",
+    "mobileImagePosition": "center center",
+    "thumbnailPosition": "center center",
+    "instagram": "https://www.instagram.com/dj__s2/",
+    "soundcloud": "https://soundcloud.com/spero-spera-1",
+    "soundcloudEmbed": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/spero-spera-1/djs2-bass-house-mixset&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+    "weight": 1,
+    "facebook": "",
+    "twitter": "",
+    "photos": [
+      "/artists/djs2/001.jpg",
+      "/artists/djs2/002.jpg",
+      "/artists/djs2/003.jpg"
+    ],
+    "youtubeEmbed": "",
+    "additionalLinks": [],
+    "imageBlur": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAQCdASoHAAoABUB8JZQC7ADdi/M7GwAA4h9a/g6bGarO2zmey09MCh9SWF+o+KMFXZBu/B+AAA==",
+    "thumbnails": [
+      "/artists/djs2/thumb-001.webp",
+      "/artists/djs2/thumb-002.webp",
+      "/artists/djs2/thumb-003.webp"
+    ],
+    "photosBlur": [
+      "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADwAQCdASoJAAoABUB8JZQC7AD0uNavULAA/vDffnfR10IG5D+AMOnzz20IAA==",
+      "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACQAQCdASoKAAgABUB8JaQAAkq/4AAA/XP9uwWibvqVaU53Qfq8bYRE7bvIjd6AAAA=",
+      "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoKAAoABUB8JQBOgBom768KUgAA244AxHfzNw1j9asK9xF9GSOyT6p7avtP4AAA"
     ]
   }
 ]
