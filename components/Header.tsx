@@ -13,7 +13,7 @@ export default function Header() {
                     {/* Logo */}
                     <Link
                         href="/"
-                        className="text-2xl font-bold text-white tracking-[0.2em] hover:text-neutral-300 transition-colors"
+                        className="text-2xl font-logo text-white hover:text-neutral-300 transition-colors"
                     >
                         IGAAK
                     </Link>

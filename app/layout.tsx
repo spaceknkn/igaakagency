@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { outfit, playfairDisplay } from "@/lib/fonts";
+import { outfit, playfairDisplay, inter } from "@/lib/fonts";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -46,7 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} ${playfairDisplay.variable} bg-black text-white`}>
+      <body className={`${outfit.variable} ${playfairDisplay.variable} ${inter.variable} bg-black text-white`}>
         <Header />
         <main>
           {children}

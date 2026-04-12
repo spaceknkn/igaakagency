@@ -64,7 +64,7 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
             <div className="relative z-10 text-center">
                 {/* 메인 타이틀 */}
                 <h1
-                    className={`text-6xl md:text-8xl lg:text-9xl font-bold text-white tracking-[0.3em] font-serif intro-text-enter ${phase !== 'enter' ? 'intro-text-visible' : ''
+                    className={`text-6xl md:text-8xl lg:text-9xl font-logo text-white intro-text-enter ${phase !== 'enter' ? 'intro-text-visible' : ''
                         }`}
                 >
                     IGAAK
